@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#computational-graph" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -351,10 +356,77 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          chapter 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         chapter 4
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    计算图的设计背景和作用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    计算图的基本构成
+  </a>
+  
+    <nav class="md-nav" aria-label="计算图的基本构成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    张量和算子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    计算依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    控制流
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -405,6 +477,57 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    计算图的设计背景和作用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    计算图的基本构成
+  </a>
+  
+    <nav class="md-nav" aria-label="计算图的基本构成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    张量和算子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    计算依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    控制流
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -419,9 +542,85 @@
                   
 
 
-  <h1>chapter 4</h1>
-
-
+<h1 id="computational-graph">computational graph<a class="headerlink" href="#computational-graph" title="Permanent link">&para;</a></h1>
+<h2 id="_1">计算图的设计背景和作用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20230716221635613" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162216664.png" /></p>
+<p>早期机器学习框架主要针对全连接和卷积神经网络设计，这些神经网络的拓扑结构简单，神经网络层之间通过串行连接。因此，它们的拓扑结构可以用简易的配置文件表达（例如Caffe基于Protocol Buffer格式的模型定义）。</p>
+<p>现代机器学习模型的拓扑结构日益复杂，显著的例子包括混合专家模型、生成对抗网络、注意力模型等。复杂的模型结构（例如带有分支的循环结构等）需要机器学习框架能够对模型算子的执行依赖关系、梯度计算以及训练参数进行快速高效的分析，便于优化模型结构、制定调度执行策略以及实现自动化梯度计算，从而提高机器学习框架训练复杂模型的效率。因此，机器学习系统设计者需要一个通用的数据结构来理解、表达和执行机器学习模型。为了应对这个需求，如:numref:dag所示基于计算图的机器学习框架应运而生，框架延续前端语言与后端语言分离的设计。从高层次来看，计算图实现了以下关键功能：</p>
+<ul>
+<li><strong>统一的计算过程表达。</strong> 在编写机器学习模型程序的过程中，用户希望使用高层次编程语言（如Python、Julia和C++）。然而，硬件加速器等设备往往只提供了C和C++编程接口，因此机器学习系统的实现通常需要基于C和C++。用不同的高层次语言编写的程序因此需要被表达为一个统一的数据结构，从而被底层共享的C和C++系统模块执行。这个数据结构（即计算图）可以表述用户的输入数据、模型中的计算逻辑（通常称为算子）以及算子之间的执行顺序。</li>
+<li><strong>自动化计算梯度。</strong> 用户的模型训练程序接收训练数据集的数据样本，通过神经网络前向计算，最终计算出损失值。根据损失值，机器学习系统为每个模型参数计算出梯度来更新模型参数。考虑到用户可以写出任意的模型拓扑和损失值计算方法，计算梯度的方法必须通用并且能实现自动运行。计算图可以辅助机器学习系统快速分析参数之间的梯度传递关系，实现自动化计算梯度的目标。</li>
+<li><strong>分析模型变量生命周期。</strong> 在用户训练模型的过程中，系统会通过计算产生临时的中间变量，如前向计算中的激活值和反向计算中的梯度。前向计算的中间变量可能与梯度共同参与到模型的参数更新过程中。通过计算图，系统可以准确分析出中间变量的生命周期（一个中间变量生成以及销毁时机），从而帮助框架优化内存管理。</li>
+<li><strong>优化程序执行。</strong> 用户给定的模型程序具备不同的网络拓扑结构。机器学习框架利用计算图来分析模型结构和算子执行依赖关系，并自动寻找算子并行计算的策略，从而提高模型的执行效率。</li>
+</ul>
+<h2 id="_2">计算图的基本构成<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>计算图由基本数据结构张量（Tensor）和基本运算单元算子构成。在计算图中通常使用节点来表示算子，节点间的有向边（Directed Edge）来表示张量状态，同时也描述了计算间的依赖关系。如下图所示，将<span class="arithmatex">\(\boldsymbol{Z}=ReLU(\boldsymbol{X}\times\boldsymbol{Y})\)</span>转化为计算图表示。</p>
+<p><img alt="image-20230716221747008" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162217030.png" /></p>
+<h3 id="_3">张量和算子<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>在数学中定义张量是基于标量与向量的推广。在机器学习领域内将多维数据称为张量，使用秩来表示张量的轴数或维度。下图所示，标量为零秩张量，包含单个数值，没有轴；向量为一秩张量，拥有一个轴；拥有RGB三个通道的彩色图像即为三秩张量，包含三个轴。</p>
+<p><img alt="image-20230716221817884" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162218920.png" /></p>
+<p>在机器学习框架中张量不仅存储数据，还需要存储张量的数据类型、数据形状、秩以及梯度传递状态等多个属性，如下图所示，列举了主要的属性和功能。</p>
+<p><img alt="image-20230716221836661" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162218704.png" /></p>
+<p>以图像数据为例来具体说明张量属性的作用。当机器学习框架读取一张高为96像素、宽为96像素的RGB三通道图像，并将图像数据转换为张量存储时。该张量的形状属性则为[96,96,3]分别代表高、宽、通道的数量，秩即为3。原始RGB图像每个像素上的数据以0-255的无符号整数来表示色彩，因此图像张量存储时会将数据类型属性设置为uint8格式。将图像数据传输给卷积网络模型进行网络训练前，会对图像数据进行归一化处理，此时数据类型属性会重新设置为float32格式，因为通常机器学习框架在训练模型时默认采用float32格式。</p>
+<p>机器学习框架在训练时需要确定在CPU、GPU或其他硬件上执行计算，数据和权重参数也应当存放在对应的硬件内存中才能正确被调用，张量存储位置属性则用来指明存储的设备位置。存储位置属性通常由机器学习框架根据硬件环境自动赋予张量。在模型训练过程中，张量数据的存储状态可以分为可变和不可变两种，可变张量存储神经网络模型权重参数，根据梯度信息更新自身数据，如参与卷积运算的卷积核张量；不可变张量用于用户初始化的数据或者输入模型的数据，如上文提到的图像数据张量。</p>
+<p>那么在机器学习场景下的张量一般长什么样子呢？上文提到的图像数据张量以及卷积核张量，形状一般是“整齐”的。即每个轴上的具有相同的元素个数，就像一个“矩形”或者“立方体”。在特定的环境中，也会使用特殊类型的张量，比如不规则张量和稀疏张量。如下图中所示，不规则张量在某个轴上可能具有不同的元素个数，它们支持存储和处理包含非均匀形状的数据，如在自然语言处理领域中不同长度文本的信息；稀疏张量则通常应用于图数据与图神经网络中，采用特殊的存储格式如坐标表格式（Coordinate List，COO），可以高效存储稀疏数据节省存储空间。</p>
+<p><img alt="image-20230716221857505" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162218538.png" /></p>
+<p>算子是构成神经网络的基本计算单元，对张量数据进行加工处理，实现了多种机器学习中常用的计算逻辑，包括数据转换、条件控制、数学运算等。为了便于梳理算子类别，按照功能将算子分类为张量操作算子、神经网络算子、数据流算子和控制流算子等。</p>
+<ul>
+<li><strong>张量操作算子</strong> ：包括张量的结构操作和数学运算。张量的结构操作通常用于张量的形状、维度调整以及张量合并等，比如在卷积神经网络中可以选择图像数据以通道在前或者通道在后的格式来进行计算，调整图像张量的通道顺序就需要结构操作。张量相关的数学运算算子，例如矩阵乘法、计算范数、行列式和特征值计算，在机器学习模型的梯度计算中经常被使用到。</li>
+<li><strong>神经网络算子</strong> ：包括特征提取、激活函数、损失函数、优化算法等，是构建神经网络模型频繁使用的核心算子。常见的卷积操作就是特征提取算子，用来提取比原输入更具代表性的特征张量。激活函数能够增加神经网络模型非线性能力，帮助模型表达更加复杂的数据特征关系。损失函数和优化算法则与模型参数训练更新息息相关。</li>
+<li><strong>数据流算子</strong> ：包含数据的预处理与数据载入相关算子，数据预处理算子主要是针对图像数据和文本数据的裁剪填充、归一化、数据增强等操作。数据载入算子通常会对数据集进行随机乱序(Shuffle)、分批次载入(Batch)以及预载入(Pre-fetch)等操作。数据流操作主要功能是对原始数据进行处理后，转换为机器学习框架本身支持的数据格式，并且按照迭代次数输入给网络进行训练或者推理，提升数据载入速度，减少内存占用空间，降低网络训练数据等待时间。</li>
+<li><strong>控制流算子</strong> ：可以控制计算图中的数据流向，当表示灵活复杂的模型时需要控制流。使用频率比较高的控制流算子有条件运算符和循环运算符。控制流操作一般分为两类，机器学习框架本身提供的控制流操作符和前端语言控制流操作符。控制流操作不仅会影响神经网络模型前向运算的数据流向，也会影响反向梯度运算的数据流向。</li>
+</ul>
+<h3 id="_4">计算依赖<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>在计算图中，算子之间存在依赖关系，而这种依赖关系影响了算子的执行顺序与并行情况。机器学习算法模型中，计算图是一个有向无环图，即在计算图中造成循环依赖（Circular Dependency）的数据流向是不被允许的。循环依赖会形成计算逻辑上的死循环，模型的训练程序将无法正常结束，而流动在循环依赖闭环上的数据将会趋向于无穷大或者零成为无效数据。为了分析计算执行顺序和模型拓扑设计思路，下面将对计算图中的计算节点依赖关系进行讲解。</p>
+<p>如下图所示，在此计算图中，若将Matmul1算子移除则该节点无输出，导致后续的激活函数无法得到输入，从而计算图中的数据流动中断，这表明计算图中的算子间具有依赖关系并且存在传递性。</p>
+<p><img alt="image-20230716221929259" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162219286.png" /></p>
+<p>将依赖关系进行区分如下：</p>
+<ul>
+<li><strong>直接依赖</strong> ：节点ReLU1直接依赖于节点Matmul1，即如果节点ReLU1要执行运算，必须接受直接来自节点Matmul1的输出数据；</li>
+<li><strong>间接依赖</strong> ：节点Add间接依赖于节点Matmul1，即节点Matmul1的数据并未直接传输给节点Add，而是经过了某个或者某些中间节点进行处理后再传输给节点Add，而这些中间节点可能是节点Add的直接依赖节点，也可能是间接依赖节点；</li>
+<li><strong>相互独立</strong> ：在计算图中节点Matmul1与节点Matmul2之间并无数据输入输出依赖关系，所以这两个节点间相互独立。</li>
+</ul>
+<p>掌握依赖关系后，分析下图可以得出节点Add间接依赖于节点Matmul，而节点Matmul直接依赖于节点Add，此时两个节点互相等待对方计算完成输出数据，将无法执行计算任务。若我们手动同时给两个节点赋予输入，计算将持续不间断进行，模型训练将无法停止造成死循环。循环依赖产生正反馈数据流，被传递的数值可能在正方向上无限放大，导致数值上溢，或者负方向上放大导致数值下溢，也可能导致数值无限逼近于0，这些情况都会致使模型训练无法得到预期结果。在构建深度学习模型时，应避免算子间产生循环依赖。</p>
+<p><img alt="image-20230716221948837" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162219865.png" /></p>
+<p>在机器学习框架中，表示循环关系（Loop Iteration）通常是以 <strong>展开</strong> 机制（Unrolling）来实现。循环三次的计算图进行展开如下图，循环体的计算子图按照迭代次数进行复制3次，将代表相邻迭代轮次的子图进行串联，相邻迭代轮次的计算子图之间是直接依赖关系。在计算图中，每一个张量和运算符都具有独特的标识符，即使是相同的操作运算，在参与循环不同迭代中的计算任务时具有不同的标识符。区分循环关系和循环依赖的关键在于，具有两个独特标识符的计算节点之间是否存在相互依赖关系。循环关系在展开复制计算子图的时候会给复制的所有张量和运算符赋予新的标识符，区分被复制的原始子图，以避免形成循环依赖。</p>
+<p><img alt="image-20230716222006565" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162220594.png" /></p>
+<h3 id="_5">控制流<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>控制流能够设定特定的顺序执行计算任务，帮助构建更加灵活和复杂的模型。在模型中引入控制流后可以让计算图中某些节点循环执行任意次数，也可以根据条件判断选择某些节点不执行。许多深度学习模型依赖控制流进行训练和推理，基于递归神经网络和强化学习的模型就依赖于循环递归关系和依据输入数据状态条件执行计算。</p>
+<p>目前主流的机器学习框架中通常使用两种方式来提供控制流：</p>
+<ul>
+<li><strong>前端语言控制流</strong> ：通过Python语言控制流语句来进行计算图中的控制决策。使用前端语言控制流构建模型结构简便快捷，但是由于机器学习框架的数据计算运行在后端硬件，造成控制流和数据流之间的分离，计算图不能完整运行在后端计算硬件上。因此这类实现方式也被称为图外方法（Out-of-Graph Approach）</li>
+<li><strong>机器学习框架控制原语</strong> ：机器学习框架在内部设计了低级别细粒度的控制原语运算符。低级别控制原语运算符能够执行在计算硬件上，与模型结构结合使用可将整体计算图在后端运算，这种实现方式也被称为图内方法（In-Graph Approach）。</li>
+</ul>
+<p>为什么机器学习框架会采用两种不同的原理来实现控制流呢？为了解决这个疑问，首先了解两种方法在实现上的区别。</p>
+<p>使用Python语言编程的用户对于图外方法较为熟悉。图外方法允许用户直接使用if-else、while和for这些Python命令来构建控制流。该方法使用时灵活易用便捷直观。</p>
+<p>而图内方法相比于图外方法则较为烦琐。TensorFlow中可以使用图内方法控制流算子（如tf.cond条件控制、tf.while_loop循环控制和tf.case分支控制等）来构建模型控制流，这些算子是使用更加低级别的原语运算符组合而成。图内方法的控制流表达与用户常用的编程习惯并不一致，牺牲部分易用性换取的是计算性能提升。</p>
+<p>图外方法虽然易用，但后端计算硬件可能无法支持前端语言的运行环境，导致无法直接执行前端语言控制流。而图内方法虽然编写烦琐，但可以不依赖前端语言环境直接在计算硬件上执行。在进行模型编译、优化与运行时都具备优势，提高运行效率。</p>
+<p>因此两种控制流的实现方式其实对应着不同的使用场景。当需要在计算硬件上脱离前端语言环境执行模型训练、推理和部署等任务，需要采用图内方法来构建控制流。用户使用图外方法方便快速将算法转化为模型代码，方便验证模型构造的合理性。</p>
+<p>目前在主流的机器学习框架中，均提供图外方法和图内方法支持。鉴于前端语言控制流使用频繁为人熟知，为了便于理解控制流对前向计算与反向计算的影响，后续的讲解均使用图外方法实现控制流。常见的控制流包括条件分支与循环两种。当模型包含控制流操作时，梯度在反向传播经过控制流时，需要在反向梯度计算图中也构造生成相应的控制流，才能够正确计算参与运算的张量梯度。</p>
+<p>下面这段代码描述了简单的条件控制，matmul表示矩阵乘法算子：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">control</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">conditional</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">if</span> <span class="n">conditional</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">return</span> <span class="n">y</span>
+</code></pre></div>
+<p>描述上述代码的前向计算图和反向计算图。对于具有if条件的模型，梯度计算需要知道采用了条件的哪个分支，然后将梯度计算逻辑应用于该分支。在前向计算图中张量C经过条件控制不参与计算，在反向计算时同样遵守控制流决策，不会计算关于张量C的梯度。</p>
+<p><img alt="image-20230716222055995" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162220028.png" /></p>
+<p>当模型中有循环控制时，循环中的操作可以执行零次或者多次。此时采用展开机制，对每一次操作都赋予独特的运算标识符，以此来区分相同运算操作的多次调用。每一次循环都直接依赖于前一次循环的计算结果，所以在循环控制中需要维护一个张量列表，将循环迭代的中间结果缓存起来，这些中间结果将参与前向计算和梯度计算。下面这段代码描述了简单的循环控制，将其展开得到等价代码后，可以清楚的理解需要维护张量<span class="arithmatex">\(X_i\)</span>和<span class="arithmatex">\(W_i\)</span>的列表。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">recurrent_control</span><span class="p">(</span><span class="n">X</span> <span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">W</span> <span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">cur_num</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cur_num</span><span class="p">):</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        <span class="n">X</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">return</span> <span class="n">X</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">#利用展开机制将上述代码展开，可得到等价表示</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">def</span> <span class="nf">recurrent_control</span><span class="p">(</span><span class="n">X</span> <span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">W</span> <span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]):</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">X1</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>   <span class="c1">#为便于表示与后续说明，此处W = W[0], W1 = W[1], W2 = W[2]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">X2</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">W1</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">Y</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="k">return</span> <span class="n">Y</span>
+</code></pre></div>
 
 
 

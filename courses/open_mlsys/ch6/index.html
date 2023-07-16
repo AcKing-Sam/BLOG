@@ -594,6 +594,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    反向模式
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -604,6 +611,33 @@
     implementation
   </a>
   
+    <nav class="md-nav" aria-label="implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    基本表达式法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    操作符重载法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    代码变换法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -612,16 +646,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     类型系统和静态分析
   </a>
+  
+    <nav class="md-nav" aria-label="类型系统和静态分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    类型系统概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    静态分析概述
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     常见前端编译优化方法
   </a>
+  
+    <nav class="md-nav" aria-label="常见前端编译优化方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    前端编译优化简介
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    常见编译优化方法介绍及实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -879,6 +953,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    反向模式
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -889,6 +970,33 @@
     implementation
   </a>
   
+    <nav class="md-nav" aria-label="implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    基本表达式法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    操作符重载法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    代码变换法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -897,16 +1005,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     类型系统和静态分析
   </a>
+  
+    <nav class="md-nav" aria-label="类型系统和静态分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    类型系统概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    静态分析概述
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     常见前端编译优化方法
   </a>
+  
+    <nav class="md-nav" aria-label="常见前端编译优化方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    前端编译优化简介
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    常见编译优化方法介绍及实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1050,10 +1198,185 @@
 <p><img alt="image-20230716192751980" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161927018.png" /></p>
 <h4 id="_8">前向模式<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <p><img alt="image-20230716192833115" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161928157.png" /></p>
+<p>前向模式的计算过程如上面所示，左侧是源程序分解后得到的基本操作集合，右侧展示了运用链式法则和已知的求导规则。从上至下计算每一个中间变量：</p>
+<p><img alt="image-20230716213519945" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162135966.png" /></p>
+<p>从而计算出最后的变量：</p>
+<p><img alt="image-20230716213526928" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162135947.png" /></p>
+<p>当我们想要对一个函数求导时，我们想要得到的是该函数的任意一个输出对任意一个输入的偏微分的集合。对于一个带有n个独立输入<span class="arithmatex">\(x_i\)</span>和m个独立输出<span class="arithmatex">\(y_j\)</span>的函数：</p>
+<p><img alt="image-20230716213636783" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162136805.png" /></p>
+<p>该函数的求导结果可以构成如下的雅克比矩阵（Jacobian Matrix）：</p>
+<p><img alt="image-20230716213649045" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162136068.png" /></p>
+<p>前向模式中每次计算函数<span class="arithmatex">\(f\)</span>的所有输出对某一个输入的偏微分，也就是雅克比矩阵的某一列，如下面的向量所示。因此，通过n次前向模式的自动微分就可以得到整个雅克比矩阵。</p>
+<p><img alt="image-20230716213732936" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162137955.png" /></p>
+<p>前向模式通过计算雅克比向量积（Jacobian-vector products）的方式来计算这一列的结果。我们初始化：</p>
+<p><img alt="image-20230716213755183" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162137204.png" /></p>
+<p>基本操作的求导规则是已经定义好的，代表着基本操作的雅可比矩阵是已知量。在此基础上，我们应用链式法则从f的输入到输出传播求导结果，从而得到输入网络的雅克比矩阵中的一列：</p>
+<p><img alt="image-20230716213830389" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162138415.png" /></p>
+<h4 id="_9">反向模式<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20230716213855847" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162138901.png" /></p>
+<p>反向模式的计算过程如上图所示，左侧是源程序分解后得到的基本操作集合，右侧展示了运用链式法则和已知的求导规则。</p>
+<p>从</p>
+<p><img alt="image-20230716215631734" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162156753.png" /></p>
+<p>开始，由下至上地计算每一个中间变量：</p>
+<p><img alt="image-20230716215653153" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162156171.png" /></p>
+<p>从而计算出<img alt="image-20230716215705432" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162157455.png" /></p>
+<p>反向模式每次计算的是函数f的某一个输出对任一输入的偏微分，也就是雅克比矩阵的某一行，如下面的向量所示。因此通过运行m次反向模式自动微分，我们就可以得到整个雅克比矩阵。</p>
+<p><img alt="image-20230716215733830" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162157850.png" /></p>
+<p>类似地，我们可以通过计算向量雅克比积（Vector-jacobian products）的方式来计算雅克比矩阵的一行。我们初始化<img alt="image-20230716215756884" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162157904.png" />，在已知基本操作的求导规则的前提下，应用链式法则从f的输出到输入传播求导结果，从而最后得到雅克比矩阵中的一行。</p>
+<p><img alt="image-20230716215812839" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162158865.png" /></p>
+<p>在求解函数<span class="arithmatex">\(f\)</span>的雅克比矩阵时，前向模式的迭代次数与雅克比矩阵的列数相关，而反向模式的迭代次数则与雅克比矩阵的行数相关。因此，在函数输出个数远远大于输入个数时<span class="arithmatex">\((f:{\mathbf{R}^n}\to \mathbf{R}^m, n &lt;&lt; m)\)</span>，前向模式效率更高；反之，在函数输入个数远远大于输出个数时<span class="arithmatex">\((f:{\mathbf{R}^n}\to \mathbf{R}^m, n &gt;&gt; m)\)</span>，反向模式效率更高。在极端情况下的函数<span class="arithmatex">\(f:{\mathbf{R}^n}\to \mathbf{R}\)</span>，只需要应用一次反向模式就已经能够把所有输出对输入的导数<span class="arithmatex">\((\frac{\partial y}{\partial x_1},\cdots,\frac{\partial y}{\partial x_n})\)</span>都计算出来，而前向模式则需要执行n次。这种计算一个标量值的输出关于大量参数输入的梯度的场景恰好是机器学习实践中最常见的一种计算场景，这使得反向模式的自动微分成为反向传播算法使用的核心技术之一。</p>
+<p>但是反向模式也存在一定的缺陷。在源程序分解为一系列基本操作后，前向模式由于求导顺序与基本操作的执行顺序一致，输入值可以在执行基本操作的过程中同步获得。而在反向模式中，由于求导顺序与源程序的执行顺序是相反的，计算过程需要分为两个阶段，第一个阶段先执行源程序，且将源程序的中间结果保存起来，在第二阶段才把中间结果取出来去计算导数。因此反向模式会有额外的内存消耗。业界也一直在研究反向模式的内存占用优化方法，例如检查点策略（checkpointing strategies）和数据流分析（data-flow analysis） [2006The][2017Divide] 。</p>
 <h3 id="implementation">implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h3>
-<h2 id="_9">类型系统和静态分析<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<h2 id="_10">常见前端编译优化方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>而在机器学习的应用中，因为输入的数量远远大于输出的数量，所以反向模式的自动微分更受青睐。虽然自动微分的基本思想是明确的，但是具体的实现方法也分为几类。</p>
+<h4 id="_10">基本表达式法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>封装大多数的基本表达式及对应的微分表达式，通过库函数的方式提供给用户，用户在写代码时，需要手工分解程序为一系列的基本表达式，然后使用这些库函数去替换这些基本表达式。以程序<span class="arithmatex">\(a=(x+y)/z\)</span>为例，用户需要手工地把这个程序分解为：</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">t</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">a</span> <span class="o">=</span> <span class="n">t</span> <span class="o">/</span> <span class="n">z</span>
+</code></pre></div>
+然后使用自动微分的库函数去替换分解出来的基本表达式：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">//</span> <span class="n">参数为变量x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t和对应的导数变量dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dt</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">call</span> <span class="n">ADAdd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="o">//</span> <span class="n">参数为变量t</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a和对应的导数变量dt</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">da</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">call</span> <span class="n">ADDiv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">da</span><span class="p">)</span>
+</code></pre></div>
+库函数ADAdd和ADDiv运用链式法则，分别定义了Add和Div的微分表达式。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">ADAdd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">dz</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">dz</span> <span class="o">=</span> <span class="n">dy</span> <span class="o">+</span> <span class="n">dx</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">def</span> <span class="nf">ADDiv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">dz</span><span class="p">):</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">dz</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">/</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">y</span><span class="p">))</span> <span class="o">*</span> <span class="n">dy</span>
+</code></pre></div>
+基本表达式法的优缺点显而易见，优点是实现简单直接，可为任意语言快速实现微分的库函数；而缺点是增加了用户的工作量，用户必须先手工分解程序为一些基本表达式，才能使用这些库函数进行编程，无法方便地使用语言原生的表达式。</p>
+<h4 id="_11">操作符重载法<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>依赖于现代编程语言的多态特性，使用操作符重载对编程语言中的基本操作语义进行重定义，封装其微分规则。每个基本操作类型及其输入关系，在程序运行时会被记录在一个所谓的"tape"的数据结构里面，最后，这些"tape"会形成一个跟踪轨迹(trace)，我们就可以使用链式法则沿着轨迹正向或者反向地将基本操作组成起来进行微分。以自动微分库AutoDiff为例，对编程语言的基本运算操作符进行了重载：</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">AutoDiff</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Term</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="c1">// 重载操作符 `+`，`*` 和 `/`，调用这些操作符时，会通过其中的</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="c1">// TermBuilder 将操作的类型、输入输出信息等记录至 tape 中</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Term</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">Term</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">Term</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">TermBuilder</span><span class="p">.</span><span class="n">Sum</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Term</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">Term</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">Term</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">TermBuilder</span><span class="p">.</span><span class="n">Product</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Term</span><span class="w"> </span><span class="k">operator</span><span class="o">/</span><span class="p">(</span><span class="n">Term</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="n">Term</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">TermBuilder</span><span class="p">.</span><span class="n">Product</span><span class="p">(</span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="n">TermBuilder</span><span class="p">.</span><span class="n">Power</span><span class="p">(</span><span class="n">denominator</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">));</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="c1">// Tape 数据结构中的基本元素，主要包含：</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="c1">// 1) 操作的运算结果</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="c1">// 2) 操作的运算结果对应的导数结果</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="c1">// 3) 操作的输入</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="c1">// 除此外还通过函数 Eval 和 Diff 定义了该运算操作的计算规则和微分规则</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="n">internal</span><span class="w"> </span><span class="n">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TapeElement</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Value</span><span class="p">;</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Adjoint</span><span class="p">;</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">InputEdges</span><span class="w"> </span><span class="n">Inputs</span><span class="p">;</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Eval</span><span class="p">();</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Diff</span><span class="p">();</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="p">}</span>
+</code></pre></div>
+该方法对程序的运行跟踪经过了函数调用和控制流，因此实现起来也是简单直接。而缺点是需要在程序运行时进行跟踪，特别在反向模式上还需要沿着轨迹反向地执行微分，所以<strong>会造成性能上的损耗</strong>，尤其对于本来运行就很快的基本操作。并且因为其运行时跟踪程序的特性，该方法不允许在运行前做编译时刻的图优化，控制流也需要根据运行时的信息来展开。Pytorch的自动微分框架使用了该方法。</p>
+<h4 id="_12">代码变换法<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>提供对编程语言的扩展，分析程序的源码或抽象语法树（AST），将程序自动地分解为一系列可微分的基本操作，而这些基本操作的微分规则已预定义好，最后使用链式法则对基本操作的微分表达式进行组合生成新的程序表达来完成微分。TensorFlow，MindSpore等机器学习框架都采用了该方式。</p>
+<p>不同于OO在编程语言内部操作，ST需要语法分析器（parser）和操作中间表示的工具。除此以外，ST需要定义对函数调用和控制流语句（如循环和条件等）的转换规则。其<strong>优势在于对每一个程序，自动微分的转换只做一次，因此不会造成运行时的额外性能损耗。而且，因为整个微分程序在编译时就能获得，编译器可以对微分程序进行进一步的编译优化</strong>。但ST<strong>实现起来更加复杂</strong>，需要扩展语言的预处理器、编译器或解释器，且需要支持更多的数据类型和操作，需要更强的类型检查系统。另外，虽然ST不需要在运行时做自动微分的转换，但是对于反向模式，在反向部分执行时，仍然需要确保前向执行的一部分中间变量可以被获取到，有两种方式可以解决该问题  :cite:<code>van2018Automatic</code> ：</p>
+<p>（1）基于Tape的方式。该方式使用一个全局的"tape"去确保中间变量可以被获取到。原始函数被扩展为在前向部分执行时把中间变量写入到tape中的函数，在程序执行反向部分时会从tape中读取这些中间变量。除了存储中间变量外，OO中的tape还会存储执行的操作类型。然而因为tape是一个在运行时构造的数据结构，所以需要添加一些定制化的编译器优化方法。且为了支持高阶微分，对于tape的读写都需要是可微分的。而大多数基于tape的工具都没有实现对tape的读写操作的微分，因此它们都不支持多次嵌套执行反向模式的自动微分（reverse-over-reverse）。机器学习框架Tangent采用了该方式。</p>
+<p>（2）基于闭包（closure）的方式。基于闭包的方式可以解决基于tape方式的缺陷。在函数式编程里，闭包可以捕获到语句的执行环境并识别到中间变量的非局部使用。因为这些它们是闭包里的自由变量，所以不需要再去定制化编译器优化方法。</p>
+<p>MindSpore是使用基于闭包的代码变换法来实现的自动微分的。这需要一个定制的中间表示。MindIR的具体设计，在上一节中已经介绍过，这里不再赘述。</p>
+<p>MindSpore的自动微分，使用基于闭包的代码变换法实现，转换程序根据正向部分的计算，构造了一个闭包的调用链。这些闭包包含了计算导数的代码以及从正向部分拿到的中间变量。程序中的每个函数调用，都会得到转换并且额外返回一个叫做"bprop"的函数，<span class="arithmatex">\(bprop\)</span>根据给定的关于输出的导数，计算出关于输入的导数。由于每个基本操作的<span class="arithmatex">\(bprop\)</span>是已知的，我们可以容易地反向构造出用户定义的整个函数的<span class="arithmatex">\(bprop\)</span>。为了支持reverse-over-reverse调用去计算高阶导数，我们需要确保可以在已转换好的程序中再进行转换，这需要有处理函数自由变量（函数外定义的变量）的能力。为了达到这个目的，每个<span class="arithmatex">\(bprop\)</span>除了关于原始函数输入的偏导数以外，还会返回一系列关于自由变量的偏导数，闭包里面的<span class="arithmatex">\(bprop\)</span>负责把每个偏导数解开，将其分别累加贡献到各自的自由变量上。且闭包也是一种函数，可以作为其他闭包的输入。因此，MindSpore自动微分的算法设计可以总结为：</p>
+<p>（1）应用链式求导法则，对每个函数（算子或子图）定义一个反向传播函数<span class="arithmatex">\(bprop: dout-&gt;(df, dinputs)\)</span>，这里<span class="arithmatex">\(df\)</span>表示函数对自由变量的导数，<span class="arithmatex">\(dinputs\)</span>表示函数对输入的导数。</p>
+<p>（2）应用全微分法则，将(<span class="arithmatex">\(df\)</span>, <span class="arithmatex">\(dinputs\)</span>)累加到对应的变量上。</p>
+<p>涉及控制流语句时，因为MindIR实现了分支、循环和闭包等操作的函数式表达，我们对这些操作应用上述法则进行组合，即可完成微分。定义运算符K求解导数，MindSpore的自动微分算法可以简单表达如下：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// func和inputs分别表示函数及其输入，dout为关于输出的梯度</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="w"> </span><span class="n">inputs</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">F</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">bprop</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">K</span><span class="p">(</span><span class="n">func</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">dinputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bprop</span><span class="p">(</span><span class="n">dout</span><span class="p">)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">df</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">df</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">dinputs</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dinputs</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</code></pre></div>
+MindSpore解析器模块首先根据Python的AST生成MindIR，再经过特化模块使得中间表示中的算子可识别，然后调用自动微分模块。自动微分模块的入口函数如下所示：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">function</span><span class="w"> </span><span class="n">Grad</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">Init</span><span class="p">();</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">MapObject</span><span class="p">();</span><span class="w">  </span><span class="c1">// 实现Parameter/Primitive/FuncGraph/FreeVariable对象的映射</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">MapMorphism</span><span class="p">();</span><span class="w">  </span><span class="c1">// 实现CNode的映射</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">Finish</span><span class="p">();</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="n">Return</span><span class="w"> </span><span class="nf">GetKGraph</span><span class="p">();</span><span class="w">  </span><span class="c1">// 获取梯度函数计算图</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">}</span>
+</code></pre></div>
+Grad函数先通过MapObject实现图上自由变量、Parameter和ValueNode（Primitive或FuncGraph）等节点到<span class="arithmatex">\(fprop\)</span>的映射。<span class="arithmatex">\(fprop\)</span>是<span class="arithmatex">\((forward\_result, bprop)\)</span>形式的梯度函数对象。<span class="arithmatex">\(forward\_result\)</span>是前向计算图的输出节点，<span class="arithmatex">\(bprop\)</span>是以<span class="arithmatex">\(fprop\)</span>的闭包对象形式生成的梯度函数，它只有<span class="arithmatex">\(dout\)</span>一个入参，其余的输入则是引用的<span class="arithmatex">\(fprop\)</span>的输入和输出。其中对于ValueNode\&lt;Primitive>类型的<span class="arithmatex">\(bprop\)</span>，通过解析Python层预先注册的<span class="arithmatex">\(get\_bprop\)</span>函数的得到，如下所示。对于ValueNode\&lt;FuncGraph>类型的节点，则递归求出它的梯度函数对象。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@bprop_getters</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">ReLU</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">def</span> <span class="nf">get_bprop_relu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Grad definition for `ReLU` operation.&quot;&quot;&quot;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">input_grad</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">ReluGrad</span><span class="p">()</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="k">def</span> <span class="nf">bprop</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">dout</span><span class="p">):</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="n">input_grad</span><span class="p">(</span><span class="n">dout</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="k">return</span> <span class="p">(</span><span class="n">dx</span><span class="p">,)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="k">return</span> <span class="n">bprop</span>
+</code></pre></div>
+随后，MapMorphism函数从原函数的输出节点开始实现对CNode的映射，并建立起节点间的反向传播连接，实现梯度累加，最后返回原函数的梯度函数计算图。</p>
+<h2 id="_13">类型系统和静态分析<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">类型系统概述<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>程序设计语言中，类型是指数值、表达式、函数等属性内容。类型系统是指类型的集合以及使用类型来规定程序行为的规则。类型系统用于定义不同的类型，指定类型的操作和类型之间的相互作用，广泛应用于编译器、解释器和静态检查工具中。类型系统提供的主要功能有：</p>
+<p>1）正确性。编译器的类型系统引入了类型检查技术，用于检测和避免运行时错误，确保程序运行时的安全性。通过类型推导与检查，编译器能够捕获大多数类型相关的异常报错，避免执行病态程序导致运行时错误，保证内存安全，避免类型间的无效计算和语义上的逻辑错误。</p>
+<p>2）优化。静态类型检查可以提供有用的信息给编译器，从而使得编译器可以应用更有效的指令，节省运行时的时间。</p>
+<p>3）抽象。在安全的前提下，一个强大的类型系统的标准是抽象能力。通过合理设计抽象，开发者可以更关注更高层次的设计。</p>
+<p>4）可读性。阅读代码时，明确的类型声明有助于理解程序代码。</p>
+<p>机器学习框架一般使用Python语言作为描述网络模型结构的前端语言。Python语言是一门动态强类型的语言，入门简单易学习，开发代码简洁高效，但由于其解释执行的方式，运行速度往往较慢。Python前端语言给用户带来了动态灵活的语义和高效的开发效率，但是若想要生成运行高效的后端代码，后端框架需要优化友好的静态强类型中间表示。因此，需要一种高效可靠的静态分析方法作为桥梁，将Python前端表示转换成等价的静态强类型中间表示，以此给用户同时带来高效的开发效率和运行效率，例如Hindley–Milner（HM）类型系统。这是一种具有参数多态性的简单类型lambda演算的类型系统。它最初由J. Roger Hindley 提出 [1969The]，并由Robin Milner 进行扩展和验证 [1978A] 。后来，路易斯·达马斯（Luis Damas）对HM类型推导方法进行了详尽的分析和证明 [1982Principal]，并将其扩展到支持具有多态引用的系统。Hindley–Milner类型系统的目标是在没有给定类型注解的情况下，自动推导出任意表达式的类型。其算法具有抽象性和通用性，采用简洁的符号表示，能够根据表达式形式推导出明确直观的定义，常用于类型推导和类型检查。因此，Hindley–Milner类型系统广泛应用于编程语言设计中，比如Haskell和Ocaml。</p>
+<h3 id="_15">静态分析概述<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>在设计好类型系统后，编译器需要使用静态分析系统来对中间表示进行静态检查与分析。语法解析模块（parser）将程序代码解析为抽象语法树（AST）并生成中间表示。此时的中间表示缺少类型系统中定义的抽象信息，<strong>因此引入静态分析模块，对中间表示进行处理分析，并且生成一个静态强类型的中间表示，用于后续的编译优化、自动并行以及自动微分等</strong>。在编译器前端的编译过程中，静态分析可能会被执行多次，有些框架还会通过静态分析的结果判断是否终止编译优化。</p>
+<p>静态分析模块基于抽象释义对中间表示进行类型推导、常量传播、泛型特化等操作，这些专业术语的含义分别为：</p>
+<p>抽象释义：通过抽象解释器将语言的实际语义近似为抽象语义，只获取后续优化需要的属性，进行不确定性的解释执行。抽象值一般包括变量的类型和维度。</p>
+<p>类型推导：在抽象释义的基础上，编译器推断出程序中变量或表达式的抽象类型，方便后续利用类型信息进行编译优化。</p>
+<p>泛型特化：泛型特化的前提是编译器在编译期间可以进行类型推导，提供类型的上下文。在编译期间，编译器通过类型推导确定调用函数时的类型，然后，编译器会通过泛型特化，进行类型取代，为每个类型生成一个对应的函数方法。</p>
+<p>接下来以MindSpore框架为例，简要介绍一下静态分析模块的具体实现。MindSpore采用抽象释义的方法，对抽象值做不确定的抽象语义的解释执行，函数图中每个节点的抽象值是所期望得到的程序静态信息。基本的抽象释义方法流程可以理解为，从MindIR的顶层函数图入口开始解释执行，将函数图中所有节点进行拓扑排序，根据节点的语义递归推导各节点的抽象值。当遇到函数子图时，递归进入函数子图进行解释执行，最后返回顶层函数输出节点的抽象值。根据抽象释义方法流程，MindSpore的静态分析模块主要分为抽象域模块、缓存模块、语义推导模块和控制流处理模块。</p>
+<p><img alt="image-20230716220838570" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162208615.png" /></p>
+<h2 id="_16">常见前端编译优化方法<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>编译优化意在解决编译生成的中间表示的低效性，使得代码的长度变短，编译与运行的时间减少，执行期间处理器的能耗变低。编译优化可以分为与硬件无关的优化和与硬件相关的编译优化。因为前端是不感知具体后端硬件的，因此前端执行的全部都是与硬件无关的编译优化。</p>
+<h3 id="_17">前端编译优化简介<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>大多数编译优化器会由一系列的”趟”（Pass）来组成。每个”趟”以中间表示为输入，又以新生成的中间表示为输出。一个”趟”还可以由几个小的”趟”所组成。一个”趟”可以运行一次，也可以运行多次。</p>
+<p>在编译优化中，优化操作的选择以及顺序对于编译的整体具有非常关键的作用。优化操作的选择决定了优化器能够感知中间表示中的哪些低效性，也决定了编译器将要如何去重写中间表示以消除这种低效性。优化操作的顺序决定了各趟操作的执行顺序。编译器可以根据具体需要运行不同的编译优化操作。也可以根据编译优化级别来调整优化的次数，种类以及顺序。</p>
+<p><img alt="image-20230716221320571" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307162213625.png" /></p>
+<h3 id="_18">常见编译优化方法介绍及实现<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>无用与不可达代码消除</li>
+<li>常量传播、常量折叠</li>
+<li>公共子表达式消除</li>
+</ul>
 <h2 id="summary-and-expand">summary and expand<a class="headerlink" href="#summary-and-expand" title="Permanent link">&para;</a></h2>
+<ul>
+<li>中间表示是编译器的核心数据结构之一，是程序编译过程中介于源语言和目标语言之间的程序表示。</li>
+<li>传统编译器的中间表示从组织结构出发，可以分为线性中间表示，图中间表示以及混合中间表示。</li>
+<li>机器学习框架对中间表示有一系列新的需求，这些新的需求是传统中间表示所不能完美支持的。因此需要在传统中间表示的基础上扩展新的，更适用于机器学习框架的中间表示。</li>
+<li>自动微分的基本思想是将计算机程序中的运算操作分解为一个有限的基本操作集合，且集合中基本操作的求导规则均为已知，在完成每一个基本操作的求导后，使用链式法则将结果组合得到整体程序的求导结果。</li>
+<li>自动微分根据链式法则的组合顺序，可以分为前向自动微分与反向自动微分。</li>
+<li>前向自动微分更适用于对输入维度小于输出维度的网络求导，反向自动微分则更适用于对输出维度小于输入维度的网络求导。</li>
+<li>自动微分的实现方法大体上可以划分为基本表达式法、操作符重载法以及代码变化法。</li>
+<li>类型系统是指类型的集合以及使用类型来规定程序行为的规则，用于定义不同的类型，指定类型的操作和类型之间的相互作用，广泛应用于编译器、解释器和静态检查工具中。</li>
+<li>静态分析，是指在不实际运行程序的情况下，通过词法分析、语法分析、控制流、数据流分析等技术对代码进行分析验证的技术</li>
+<li>
+<p>编译优化意在解决编译生成的中间表示的低效性，前端执行的均为与硬件无关的编译优化。</p>
+</li>
+<li>
+<p>一种基于图的中间表示类型： <a href="https://dl.acm.org/doi/10.1145/202530.202534">综述</a></p>
+</li>
+<li>机器学习框架中的自动微分： <a href="https://arxiv.org/abs/1502.05767">综述</a></li>
+<li>函数式框架中的反向自动微分： <a href="https://dl.acm.org/doi/10.1145/1330017.1330018">综述</a></li>
+</ul>
 
 
 
