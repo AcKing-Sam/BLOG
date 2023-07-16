@@ -1,0 +1,1106 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ch4/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>chapter 6 - AcKing's Ideas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai-compiler-and-front-end-technology" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-header__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AcKing's Ideas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              chapter 6
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ch2/" class="md-tabs__link md-tabs__link--active">
+        courses
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-nav__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AcKing's Ideas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          courses
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          courses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+          open mlsys
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          open mlsys
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch2/" class="md-nav__link">
+        chapter 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3/" class="md-nav__link">
+        chapter 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch4/" class="md-nav__link">
+        chapter 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          chapter 6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        chapter 6
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    AI编译器设计原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    AI编译器前端技术概览
+  </a>
+  
+    <nav class="md-nav" aria-label="AI编译器前端技术概览">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ir" class="md-nav__link">
+    IR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad" class="md-nav__link">
+    AD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    类型系统和静态分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    前端编译优化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ir_1" class="md-nav__link">
+    IR
+  </a>
+  
+    <nav class="md-nav" aria-label="IR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concept" class="md-nav__link">
+    basic concept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category-of-ir" class="md-nav__link">
+    category of IR
+  </a>
+  
+    <nav class="md-nav" aria-label="category of IR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-ir" class="md-nav__link">
+    linear IR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphical-ir" class="md-nav__link">
+    graphical IR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-ir" class="md-nav__link">
+    hybrid IR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlsyss-ir" class="md-nav__link">
+    mlsys's IR
+  </a>
+  
+    <nav class="md-nav" aria-label="mlsys's IR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pytorch" class="md-nav__link">
+    PyTorch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensorflow" class="md-nav__link">
+    TensorFlow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ad_1" class="md-nav__link">
+    AD
+  </a>
+  
+    <nav class="md-nav" aria-label="AD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concept_1" class="md-nav__link">
+    basic concept
+  </a>
+  
+    <nav class="md-nav" aria-label="basic concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    手工微分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数值微分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    符号微分
+  </a>
+  
+    <nav class="md-nav" aria-label="符号微分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    自动微分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    前向与反向自动微分
+  </a>
+  
+    <nav class="md-nav" aria-label="前向与反向自动微分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    前向模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    implementation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    类型系统和静态分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    常见前端编译优化方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-expand" class="md-nav__link">
+    summary and expand
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    AI编译器设计原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    AI编译器前端技术概览
+  </a>
+  
+    <nav class="md-nav" aria-label="AI编译器前端技术概览">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ir" class="md-nav__link">
+    IR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad" class="md-nav__link">
+    AD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    类型系统和静态分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    前端编译优化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ir_1" class="md-nav__link">
+    IR
+  </a>
+  
+    <nav class="md-nav" aria-label="IR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concept" class="md-nav__link">
+    basic concept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category-of-ir" class="md-nav__link">
+    category of IR
+  </a>
+  
+    <nav class="md-nav" aria-label="category of IR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-ir" class="md-nav__link">
+    linear IR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphical-ir" class="md-nav__link">
+    graphical IR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-ir" class="md-nav__link">
+    hybrid IR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlsyss-ir" class="md-nav__link">
+    mlsys's IR
+  </a>
+  
+    <nav class="md-nav" aria-label="mlsys's IR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pytorch" class="md-nav__link">
+    PyTorch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensorflow" class="md-nav__link">
+    TensorFlow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ad_1" class="md-nav__link">
+    AD
+  </a>
+  
+    <nav class="md-nav" aria-label="AD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concept_1" class="md-nav__link">
+    basic concept
+  </a>
+  
+    <nav class="md-nav" aria-label="basic concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    手工微分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数值微分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    符号微分
+  </a>
+  
+    <nav class="md-nav" aria-label="符号微分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    自动微分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    前向与反向自动微分
+  </a>
+  
+    <nav class="md-nav" aria-label="前向与反向自动微分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    前向模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    implementation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    类型系统和静态分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    常见前端编译优化方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-expand" class="md-nav__link">
+    summary and expand
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ai-compiler-and-front-end-technology">AI compiler and front-end technology<a class="headerlink" href="#ai-compiler-and-front-end-technology" title="Permanent link">&para;</a></h1>
+<h2 id="ai">AI编译器设计原理<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h2>
+<p>AI编译器的设计受到了主流编译器（如LLVM）的影响。</p>
+<p>为了方便理解AI编译器，首先通过展示LLVM编译器的架构。</p>
+<p><img alt="image-20230716180120724" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161801768.png" /></p>
+<p>LLVM包含了前端、IR和后端三个部分。前端将高级语言转换成IR，后端将IR转换成目标硬件上的机器指令，IR作为桥梁在前后端之间进行基于IR的各种优化。这样无论是新增硬件的支持，还是新增前端的支持，都可以尽可能地复用IR相关的部分。IR可以是单层的，也可以是多层的， LLVM IR是典型的单层IR，其前后端优化都基于相同的LLVM IR进行。</p>
+<p>AI编译器一般采用多层级IR设计。 下图展示了TensorFlow利用MLIR实现多层IR设计的例子（被称为TensorFlow-MLIR）。其包含了三个层次的IR，即TensorFlow Graph IR， XLA（Accelerated Linear Algebra，加速线性代数）、HLO（High Level Operations，高级运算）以及特定硬件的LLVM IR 或者TPU IR，下面就不同的层级IR和其上的编译优化做一个简要介绍。</p>
+<p><img alt="image-20230716180809320" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161808354.png" /></p>
+<p>计算图中涉及的编译优化一般称为图编译优化。Graph IR主要实现整图级别的优化和操作，如图优化、图切分等，比较适合静态图的执行模式。</p>
+<p>由于整图级别的IR缺少相应的硬件信息，难以进行硬件相关的优化，所以在中间层次就出现了硬件相关的通用编译优化，比如XLA、Tensor RT、MindSpore的图算融合等，它们能够针对不同的硬件进行算子融合等优化，提升不同网络在特定硬件上的执行性能。最后一个层次的IR是特定硬件加速器专有的IR，一般由硬件厂商自带的编译器提供，如Ascend硬件自带的TBE编译器就是基于TVM的Halide IR生成高效的执行算子。</p>
+<p>多层级IR的优势是IR表达上更加地灵活，可以在不同层级的IR上进行合适的PASS优化，更加便捷和高效。 但是多层级IR也存在一些劣势。首先，多层级IR需要进行不同IR之间的转换，而IR转换要做到完全兼容是非常困难的，工程工作量很大，还可能带来信息的损失。上一层IR优化掉某些信息之后，下一层需要考虑其影响，因此IR转换对优化执行的顺序有着更强的约束。其次，多层级IR有些优化既可以在上一层IR进行，也可以在下一层IR进行，让框架开发者很难选择。最后，不同层级IR定义的算子粒度大小不同，可能会给精度带来一定的影响。为了解决这一问题，机器学习框架如MindSpore采用统一的IR设计（MindIR）。下图展示了MindSpore的AI编译器内部的运行流程。其中，编译器前端主要指图编译和硬件无关的优化，编译器后端主要指硬件相关优化、算子选择等。</p>
+<p><img alt="image-20230716180910005" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161809036.png" /></p>
+<h2 id="ai_1">AI编译器前端技术概览<a class="headerlink" href="#ai_1" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20230716181151921" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161812027.png" /></p>
+<p>展示了机器学习编译器前端的基础结构。其中，对源程序的解析过程与传统编译器是大致相同的，本章节不对这部分进行更细致的讨论。</p>
+<p><strong>机器学习框架的编译器前端的独特之处主要在于对自动微分功能的支持</strong>。为了满足自动微分功能带来的新需求，机器学习框架需要在传统中间表示的基础上设计新的中间表示结构。因此，本章节的介绍重点会放在<strong>中间表示和自动微分</strong>这两个部分，随后会简要探讨类型系统、静态分析和前端优化等编译器的基础概念。</p>
+<h3 id="ir">IR<a class="headerlink" href="#ir" title="Permanent link">&para;</a></h3>
+<p>中间表示是编译器用于表示源代码的数据结构或代码，是程序编译过程中介于源语言和目标语言之间的程序表示。传统机器学习框架的中间表示分为三大类，分别是线性中间表示，图中间表示以及混合中间表示。然而，传统编译器的中间表示难以完全满足机器学习框架对于中间表示的一系列需求。因此，机器学习框架的开发者在传统中间表示的设计基础上不断扩展，提出了很多适用于机器学习框架的中间表示。</p>
+<h3 id="ad">AD<a class="headerlink" href="#ad" title="Permanent link">&para;</a></h3>
+<p>自动微分（Automatic Differentiation， AD）是一种介于符号微分和数值微分之间的针对计算图进行符号解析的求导方法，用于计算函数梯度值。深度学习等现代AI算法通过使用大量数据来学习拟合出一个优化后带参模型，其中使用的学习算法多是基于现实数据在模型中的经验误差，通过梯度下降的方法来更新模型的参数。因此，自动微分在深度学习中处于非常重要的地位，是整个训练算法的核心组件之一。自动微分通常在编译器前端优化中实现，通过对中间表示的符号解析来生成带有梯度函数的中间表示。</p>
+<h3 id="_1">类型系统和静态分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>为了有效减少程序在运行时可能出现的错误，编译器的前端引入了类型系统（Type System）和静态分析（Static Analysis）系统。类型系统可以防止程序在运行时发生类型错误，而静态分析能够为编译优化提供线索和信息，有效减少代码中存在的结构性错误、安全漏洞等问题。</p>
+<h3 id="_2">前端编译优化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>编译优化意在解决代码的低效性，无论是在传统编译器还是在机器学习框架中都起着很重要的作用。前端的编译优化与硬件无关。</p>
+<h2 id="ir_1">IR<a class="headerlink" href="#ir_1" title="Permanent link">&para;</a></h2>
+<h3 id="basic-concept">basic concept<a class="headerlink" href="#basic-concept" title="Permanent link">&para;</a></h3>
+<p>在编译过程中，中间表示必须具备足够的表达力，在不丢失信息的情况下准确表达源代码，并且充分考虑从源代码到目标代码编译的完备性、编译优化的易用性和性能。</p>
+<p>引入IR后，既能面向多个前端，表达多种源程序语言，又能对接多个后端，连接不同目标机器，如下图所示。</p>
+<p>在此基础上，编译流程就可以在前后端直接增加更多的优化流程，这些优化流程以现有IR为输入，又以新生成的IR为输出，被称为优化器。<strong>优化器负责分析并改进中间表示，极大程度的提高了编译流程的可拓展性，也降低了优化流程对前端和后端的破坏。</strong></p>
+<p><img alt="image-20230716181600544" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161816582.png" /></p>
+<h3 id="category-of-ir">category of IR<a class="headerlink" href="#category-of-ir" title="Permanent link">&para;</a></h3>
+<p>上一节介绍了中间表示的基本概念，初步阐述了中间表示的重要作用和发展历程。接下来从组织结构的角度出发，介绍通用编译器的中间表示的类型以及各自特点，如下表所示。</p>
+<p>中间表示组织结构的设计，对编译阶段的分析优化、代码生成等有着重要影响。编译器的设计需求不同，采用的中间表示组织结构也有所不同。</p>
+<p><img alt="image-20230716181834049" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161818075.png" /></p>
+<h4 id="linear-ir">linear IR<a class="headerlink" href="#linear-ir" title="Permanent link">&para;</a></h4>
+<p>线性中间表示类似抽象机的汇编代码，将被编译代码表示为操作的有序序列，对操作序列规定了一种清晰且实用的顺序。由于大多数处理器采用线性的汇编语言，线性中间表示广泛应用于编译器设计。</p>
+<p>常用线性中间表示有堆栈机代码(Stack-Machine Code)和三地址代码(Three Address Code) [2007Compilers] 。堆栈机代码是一种单地址代码，提供了简单紧凑的表示。堆栈机代码的指令通常只有一个操作码，其操作数存在一个栈中。大多数操作指令从栈获得操作数，并将其结果推入栈中。三地址代码，简称为3AC，模拟了现代RISC机器的指令格式。它通过一组四元组实现，每个四元组包括一个运算符和三个地址(两个操作数、一个目标)。对于表达式a-b*5，堆栈机代码和三地址代码如 <a href="https://openmlsys.github.io/chapter_frontend_and_ir/intermediate_representation.html#linear-ir">图6.3.2 </a>所示。</p>
+<p><img alt="image-20230716182037701" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161820730.png" /></p>
+<h4 id="graphical-ir">graphical IR<a class="headerlink" href="#graphical-ir" title="Permanent link">&para;</a></h4>
+<p>图中间表示将编译过程的信息保存在图中，算法通过图中的对象如节点、边、列表、树等来表述。虽然所有的图中间表示都包含节点和边，但在抽象层次、图结构等方面各有不同。常见的图中间表示包括抽象语法树(Abstract Syntax Tree，AST)、有向无环图(Directed Acyclic Graph，DAG)、控制流图(Control-Flow Graph，CFG)等。</p>
+<p>AST抽象语法树采用树型中间表示的形式，是一种接近源代码层次的表示。在AST的基础上，DAG提供了简化的表达形式，一个节点可以有多个父节点，相同子树可以重用。如果编译器能够证明<span class="arithmatex">\(a\)</span>的值没有改变，则DAG可以重用子树，降低求值过程的代价。</p>
+<p><img alt="image-20230716182104888" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161821909.png" /></p>
+<h4 id="hybrid-ir">hybrid IR<a class="headerlink" href="#hybrid-ir" title="Permanent link">&para;</a></h4>
+<p>混合中间表示是线性中间表示和图中间表示的结合，这里以LLVM IR [2004LLVM] 为例进行说明。LLVM(Low Level Virtual Machine)是2000年提出的开源编译器框架项目，旨在为不同的前端后端提供统一的中间表示。LLVM IR使用线性中间表示表示基本块，使用图中间表示表示这些块之间的控制流，如下图所示。基本块中，每条指令以静态单赋值(Static Single Assignment， SSA) [Richard1995A] 形式呈现，这些指令构成一个指令线性列表。SSA形式要求每个变量只赋值一次，并且每个变量在使用之前定义。控制流图中，每个节点为一个基本块，基本块之间通过边实现控制转移。</p>
+<p><img alt="image-20230716184212352" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161842413.png" /></p>
+<h3 id="mlsyss-ir">mlsys's IR<a class="headerlink" href="#mlsyss-ir" title="Permanent link">&para;</a></h3>
+<p>在设计机器学习框架的中间表示时，需要充分考虑以下因素：</p>
+<p>1) 张量表达。机器学习框架主要处理张量数据，因此正确处理张量数据类型是机器学习框架中间表示的基本要求。
+2) 自动微分。自动微分是指对网络模型的自动求导，通过梯度指导对网络权重的优化。主流机器学习框架都提供了自动微分的功能，在设计中间表示时需要考虑自动微分实现的简洁性、性能以及高阶微分的扩展能力。
+3) 计算图模式。主流机器学习框架如TensorFlow、PyTorch、MindSpore等都提供了静态图和动态图两种计算图模式，静态计算图模式先创建定义计算图，再显式执行，有利于对计算图进行优化，高效但不灵活。动态计算图模式则是每使用一个算子后，该算子会在计算图中立即执行得到结果，使用灵活、便于调试，但运行速度较低。机器学习框架的中间表示设计同时支持静态图和动态图，可以针对待解决的任务需求，选择合适的模式构建算法模型。
+4) 支持高阶函数和闭包 [2010C] 。高阶函数和闭包是函数式编程的重要特性，高阶函数是指使用其它函数作为参数、或者返回一个函数作为结果的函数，闭包是指代码块和作用域环境的结合，可以在另一个作用域中调用一个函数的内部函数，并访问到该函数作用域中的成员。支持高阶函数和闭包，可以抽象通用问题、减少重复代码、提升框架表达的灵活性和简洁性。
+5) 编译优化。机器学习框架的编译优化主要包括硬件无关的优化、硬件相关的优化、部署推理相关的优化等，这些优化都依赖于中间表示的实现。
+6) JIT(Just In Time)能力。机器学习框架进行编译执行加速时，经常用到JIT即时编译。JIT编译优化将会对中间表示中的数据流图的可优化部分实施优化，包括循环展开、融合、内联等。中间表示设计是否合理，将会影响机器学习框架的JIT编译性能和程序的运行能力。</p>
+<h4 id="pytorch">PyTorch<a class="headerlink" href="#pytorch" title="Permanent link">&para;</a></h4>
+<p>PyTorch框架是一个<strong>基于动态计算图机制</strong>的机器学习框架，以Python优先，具有很强的易用性和灵活性，方便用户编写和调试网络代码。为了保存和加载网络模型，PyTorch框架提供了TorchScript方法，用于创建可序列化和可优化模型。TorchScript IR作为PyTorch模型的中间表示，通过JIT即时编译的形式，将Python代码转换成目标模型文件。任何TorchScript程序都可以在Python进程中保存，并加载到没有Python依赖的进程中。</p>
+<p>PyTorch框架采用命令式编程方式，其TorchScript IR以基于SSA的线性IR为基本组成形式，并通过JIT即时编译的Tracing和Scripting两种方法将Python代码转换成TorchScript IR。如下Python代码使用了Scripting方法并打印其对应的中间表示图：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">script</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">def</span> <span class="nf">test_func</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">rv</span> <span class="o">=</span> <span class="mf">10.0</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="n">rv</span> <span class="o">=</span> <span class="n">rv</span> <span class="o">+</span> <span class="nb">input</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="n">rv</span> <span class="o">=</span> <span class="n">rv</span><span class="o">/</span><span class="mi">2</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">return</span> <span class="n">rv</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">test_func</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span>
+</code></pre></div>
+<p>该中间表示图的结构为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">graph</span><span class="p">(</span><span class="o">%</span><span class="nb">input</span><span class="mf">.1</span> <span class="p">:</span> <span class="n">Tensor</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="o">%</span><span class="mi">9</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">prim</span><span class="p">::</span><span class="n">Constant</span><span class="p">[</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">]()</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  <span class="o">%</span><span class="mi">5</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">prim</span><span class="p">::</span><span class="n">Constant</span><span class="p">[</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">]()</span> <span class="c1"># test.py:6:1</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  <span class="o">%</span><span class="n">rv</span><span class="mf">.1</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">prim</span><span class="p">::</span><span class="n">Constant</span><span class="p">[</span><span class="n">value</span><span class="o">=</span><span class="mf">10.</span><span class="p">]()</span> <span class="c1"># test.py:5:6</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  <span class="o">%</span><span class="mi">2</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">prim</span><span class="p">::</span><span class="n">Constant</span><span class="p">[</span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">]()</span> <span class="c1"># test.py:6:16</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  <span class="o">%</span><span class="mi">14</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">prim</span><span class="p">::</span><span class="n">Constant</span><span class="p">[</span><span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">]()</span> <span class="c1"># test.py:8:10</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  <span class="o">%</span><span class="n">rv</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">prim</span><span class="p">::</span><span class="n">Loop</span><span class="p">(</span><span class="o">%</span><span class="mi">2</span><span class="p">,</span> <span class="o">%</span><span class="mi">5</span><span class="p">,</span> <span class="o">%</span><span class="n">rv</span><span class="mf">.1</span><span class="p">)</span> <span class="c1"># test.py:6:1</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">block0</span><span class="p">(</span><span class="o">%</span><span class="n">i</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">%</span><span class="n">rv</span><span class="mf">.9</span> <span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      <span class="o">%</span><span class="n">rv</span><span class="mf">.3</span> <span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">aten</span><span class="p">::</span><span class="n">add</span><span class="p">(</span><span class="o">%</span><span class="nb">input</span><span class="mf">.1</span><span class="p">,</span> <span class="o">%</span><span class="n">rv</span><span class="mf">.9</span><span class="p">,</span> <span class="o">%</span><span class="mi">9</span><span class="p">)</span> <span class="c1"># &lt;string&gt;:5:9</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>      <span class="o">%</span><span class="mi">12</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">aten</span><span class="p">::</span><span class="n">FloatImplicit</span><span class="p">(</span><span class="o">%</span><span class="n">rv</span><span class="mf">.3</span><span class="p">)</span> <span class="c1"># test.py:7:2</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>      <span class="o">%</span><span class="n">rv</span><span class="mf">.6</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">aten</span><span class="p">::</span><span class="n">div</span><span class="p">(</span><span class="o">%</span><span class="mi">12</span><span class="p">,</span> <span class="o">%</span><span class="mi">14</span><span class="p">)</span> <span class="c1"># test.py:8:7</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>      <span class="o">-&gt;</span> <span class="p">(</span><span class="o">%</span><span class="mi">5</span><span class="p">,</span> <span class="o">%</span><span class="n">rv</span><span class="mf">.6</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  <span class="k">return</span> <span class="p">(</span><span class="o">%</span><span class="n">rv</span><span class="p">)</span>
+</code></pre></div>
+<p>TorchScript是PyTorch的JIT实现，支持使用Python训练模型，然后通过JIT转换为语言无关的模块，从而提升模型部署能力，提高编译性能。同时，TorchScript IR显著改善了Pytorch框架的模型可视化效果。</p>
+<h4 id="tensorflow">TensorFlow<a class="headerlink" href="#tensorflow" title="Permanent link">&para;</a></h4>
+<p>TensorFlow框架同时支持静态图和动态图，是一个基于数据流编程的机器学习框架，使用数据流图作为数据结构进行各种数值计算。TensorFlow机器学习框架的静态图机制更为人所熟知。在静态图机制中，运行TensorFlow的程序会经历一系列的抽象以及分析，程序会逐步从高层的中间表示向底层的中间表示进行转换，我们把这种变换成为<em>lowering</em>。</p>
+<p>为了适配不同的硬件平台，基于静态计算图，TensorFlow采用了多种IR设计，其编译生态系统如下图所示。蓝色部分是基于图的中间表示，绿色部分是基于SSA的中间表示。在中间表示的转换过程中，各个层级的中间表示各自为政，无法互相有效地沟通信息，也不清楚其他层级的中间表示做了哪些优化，因此每个中间表示只能尽力将当前的优化做到最好，造成了很多优化在每个层级的中间表示中重复进行, 从而导致优化效率的低下。尤其是从图中间表示到SSA中间表示的变化过大，转换开销极大。此外，各个层级的相同优化的代码无法复用，也降低了开发效率。</p>
+<p><img alt="image-20230716190939527" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161909568.png" /></p>
+<h2 id="ad_1">AD<a class="headerlink" href="#ad_1" title="Permanent link">&para;</a></h2>
+<h3 id="basic-concept_1">basic concept<a class="headerlink" href="#basic-concept_1" title="Permanent link">&para;</a></h3>
+<p>自动微分（Automatic Differentiation，AD）是一种对计算机程序进行高效且准确求导的技术。</p>
+<h4 id="_3">手工微分<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>需手工求解函数导数的表达式，并在程序运行时根据输入的数值直接计算结果。手工微分需根据函数的变化重新推导表达式，工作量大且容易出错。</p>
+<h4 id="_4">数值微分<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>数值微分通过差分近似方法完成，其本质是根据导数的定义推导而来。</p>
+<p><img alt="image-20230716191353565" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161913589.png" /></p>
+<p>当ℎ充分小时，可以用差分来近似导数结果。而近似的一部分误差，称为<strong>截断误差</strong>（Truncation error）。理论上，数值微分中的截断误差与步长ℎ有关，ℎ越小则截断误差越小，近似程度越高。</p>
+<p>但实际情况下数值微分的精确度并不会随着ℎ的减小而一直减小。这是因为计算机系统对于浮点数运算的精度有限导致另外一种误差的存在，这种误差称为<strong>舍入误差</strong>（Round-off Error）。舍入误差会随着ℎ变小而逐渐增大。</p>
+<p>当h较大时，截断误差占主导。而当h较小时，舍入误差占主导。 在截断误差和舍入误差的共同作用下，数值微分的精度将会在某一个ℎ值处达到最小值，并不会无限的减小。因此，虽然数值微分容易实现，但是存在精度误差问题。</p>
+<h3 id="_5">符号微分<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>利用计算机程序自动地通过如下的数学规则对函数表达式进行递归变换来完成求导。</p>
+<p><img alt="image-20230716191546177" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161915200.png" /></p>
+<p>符号微分常被应用于现代代数系统工具中，例如Mathematica、Maxima和Maple，以及机器学习框架，如Theano。符号微分虽然消除了手工微分硬编码的缺陷。但因为对表达式进行严格的递归变换和展开，不复用产生的变换结果，很容易产生表达式膨胀（expression swell [10.5555/60181.60188] ）问题。</p>
+<p>并且符号微分需要表达式被定义成闭合式的（closed-form），不能带有或者严格限制控制流的语句表达，使用符号微分会很大程度上地限制了机器学习框架网络的设计与表达。</p>
+<h4 id="_6">自动微分<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>自动微分的思想是将计算机程序中的运算操作分解为一个有限的基本操作集合，且集合中基本操作的求导规则均为已知，在完成每一个基本操作的求导后，使用链式法则将结果组合得到整体程序的求导结果。自动微分是一种介于数值微分和符号微分之间的求导方法，结合了数值微分和符号微分的思想。相比于数值微分，自动微分可以精确地计算函数的导数；相比符号微分，自动微分将程序分解为基本表达式的组合，仅对基本表达式应用符号微分规则，并复用每一个基本表达式的求导结果，从而避免了符号微分中的表达式膨胀问题。而且自动微分可以处理分支、循环和递归等控制流语句。目前的深度学习框架基本都采用自动微分机制进行求导运算，下面我们将重点介绍自动微分机制以及自动微分的实现。</p>
+<h3 id="_7">前向与反向自动微分<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>自动微分根据链式法则的不同组合顺序，可以分为前向模式（Forward Mode）和反向模式（Reverse Mode）。</p>
+<p>对于一个复合函数<span class="arithmatex">\(y=a(b(c(x)))\)</span>，其梯度值$ dy\over dx$的计算公式为：</p>
+<p><img alt="image-20230716192322093" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161923118.png" /></p>
+<p>前向模式的自动微分是从输入方向开始计算梯度值的，其计算公式为：</p>
+<p><img alt="image-20230716192344595" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161923618.png" /></p>
+<p>反向模式的自动微分是从输出方向开始计算梯度值的，其计算公式为：</p>
+<p><img alt="image-20230716192356739" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161923764.png" /></p>
+<p><img alt="image-20230716192741659" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161927681.png" /></p>
+<p><img alt="image-20230716192751980" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161927018.png" /></p>
+<h4 id="_8">前向模式<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20230716192833115" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307161928157.png" /></p>
+<h3 id="implementation">implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h3>
+<h2 id="_9">类型系统和静态分析<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_10">常见前端编译优化方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="summary-and-expand">summary and expand<a class="headerlink" href="#summary-and-expand" title="Permanent link">&para;</a></h2>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
