@@ -1,0 +1,869 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../courses/open_mlsys/ch6/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>something about vector db - AcKing's Ideas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-header__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AcKing's Ideas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              something about vector db
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses/open_mlsys/ch2/" class="md-tabs__link">
+        courses
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        blogs
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-nav__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AcKing's Ideas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          courses
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          courses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+          open mlsys
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          open mlsys
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch2/" class="md-nav__link">
+        chapter 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch3/" class="md-nav__link">
+        chapter 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch4/" class="md-nav__link">
+        chapter 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch6/" class="md-nav__link">
+        chapter 6
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          blogs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          blogs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          vector_db
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          vector_db
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          something about vector db
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        something about vector db
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-embeddingve" class="md-nav__link">
+    vector embedding(VE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedding" class="md-nav__link">
+    Embedding的实际应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#similarity-metrics" class="md-nav__link">
+    相似度（similarity metrics）介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="相似度（similarity metrics）介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brute-forcelinear-storage" class="md-nav__link">
+    Brute-force：linear storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tree-based-approach-k-d-tree" class="md-nav__link">
+    Tree-based approach: k-d tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tree-based-approach-ball-tree" class="md-nav__link">
+    Tree-based approach: ball tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition-based-approach-inverted-file-index" class="md-nav__link">
+    Partition-based approach: inverted file index
+  </a>
+  
+    <nav class="md-nav" aria-label="Partition-based approach: inverted file index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locality-sensitive-hashing-search-for-cosine-similarity" class="md-nav__link">
+    Locality Sensitive Hashing: search for cosine similarity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-embeddingve" class="md-nav__link">
+    vector embedding(VE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedding" class="md-nav__link">
+    Embedding的实际应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#similarity-metrics" class="md-nav__link">
+    相似度（similarity metrics）介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="相似度（similarity metrics）介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brute-forcelinear-storage" class="md-nav__link">
+    Brute-force：linear storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tree-based-approach-k-d-tree" class="md-nav__link">
+    Tree-based approach: k-d tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tree-based-approach-ball-tree" class="md-nav__link">
+    Tree-based approach: ball tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition-based-approach-inverted-file-index" class="md-nav__link">
+    Partition-based approach: inverted file index
+  </a>
+  
+    <nav class="md-nav" aria-label="Partition-based approach: inverted file index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locality-sensitive-hashing-search-for-cosine-similarity" class="md-nav__link">
+    Locality Sensitive Hashing: search for cosine similarity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>something about vector db</h1>
+
+<h2 id="introduction">introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>new company Pingcone</p>
+<h2 id="vector-embeddingve">vector embedding(VE)<a class="headerlink" href="#vector-embeddingve" title="Permanent link">&para;</a></h2>
+<p>对于 LLM（large language model）应用，通常文本会被转换成向量 vector embedding（VE）来存储。向量数据库就是专门用来存储这类语义向量，并提供针对 VE 的高效查询操作。</p>
+<p>对于一些非结构化数据，比如自然语言处理中的文本、视觉的图片、视频或者音频，就很难做人工 feature engineering，更别说再转换成结构化的 column 形式了。</p>
+<p>于是，科学家们发明了 Embedding，将一个对象表达成一个 N 维的向量（[0.3, 0.2, 4.3, ...]）。</p>
+<p>在一个典型的深度神经网络里，前置的神经网络通常用来学习低维度的 feature，随着神经网络 layer 的深入，不断把低维度的 feature 组合起来，形成更高维度的 feature。最终，神经网络通常将某个数据归类到某个 output（比如一个 classification 分类模型）。神经网络的最后一层 layer 通常是全连接层或者 softmax 层，将高维信息映射到最终的分类结果。而 Embedding 的计算逻辑就是，把这最后一层敲掉（chop off），直接输出倒数第二层的 output，得到的结果就是一个 N 维的向量。所以，这边的 N 是被定义的（取决于模型的倒数第二层）。</p>
+<p>举个例子，常见的 Word2Vec 的 embedding size 在 200 到 300，如果你用最新的 OpenAI 的 embedding API（模型是 text-embedding-ada-002），输出的 embedding size 是 1536。但这 1536 个维度，每个维度分别代表什么含义，是不具备解释性的。或者说，每个维度不能用人类的理解来解释，但对机器和这个模型是有意义的。用机器学习的术语，就是将对象投射到一个低维度的空间（虽然，我觉得 1536 看着像一个高维空间，感觉越说越像三体）。</p>
+<p>那这个 VE 计算出来有什么用呢？ 首先，它提供了一个复杂对象的数学表达形式（N 维向量），且这个向量记录了这个对象的高维语义信息。这句话解释起来就有些抽象了：不同对象的语义相似度，可以对应到这两个向量在向量空间的相似度。</p>
+<p><img alt="image-20230717165122749" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307171651809.png" /></p>
+<p>首先，这是一个高维的 VE（我们只是画在二维平面上）。两个向量的距离，比如 a little boy is walking 和 a sad boy is walking，这个距离和另一对向量，look how sad my cat is, 和 look at my little cat 的距离应该是非常接近。这就是语义相似度。另一个很常见的例子是，国王和王后的距离与男人和女人的距离非常接近。常见的向量的相似度计算方法是 Cosine Similarity 余弦相似度（https://en.wikipedia.org/wiki/Cosine_similarity）。</p>
+<blockquote>
+<p>为什么这个向量就能包含语义信息，且能体现不同对象的相似度呢？</p>
+<p>因为，这是一个后验事实：这个神经网络是用了大量被 label 过的数据训练以后得到的结果。即，这个分类模型，经过大量数据训练，预测结果已经很准确了。那去掉最后分类层的 embedding 也可以被认为是保留了高纬度的语义信息。即，如果语义信息没有被保留，那分类结果就不会这么准确。</p>
+</blockquote>
+<h2 id="embedding">Embedding的实际应用<a class="headerlink" href="#embedding" title="Permanent link">&para;</a></h2>
+<p>如上段所示，VE 提供了一种机器能够理解和处理的方式来描述原本非常复杂的对象。并且，VE 保留了高维度的语义信息：不同的对象投影在一个向量空间里面，就可以通过数学计算来找到相似性，similarity search（如上述示例所示）。实际情况中，绝大部分的应用都是基于寻找相似性的。下面是一些常见的应用介绍：</p>
+<p><strong>1）推荐系统</strong>：推荐系统可以将用户和购买的物品都生成 VE，并通过相似性来推荐新物品。</p>
+<p><strong>2）搜索系统</strong>：搜索和推荐类似，可以将查询生成 VE，再去通过 VE 搜索相似的结果。</p>
+<p><strong>3）异常检测</strong>：VE 可以用于检测数据中的异常模式或异常点。例如，在信用卡欺诈检测中，每个交易都可以用 VE 来描述。与正常交易明显不同的交易可能被标记为欺诈行为。</p>
+<p><strong>4）自然语言理解和语音识别</strong>：在 Google 翻译，或者语音助手（SIRI，Alexa 等），文本和文字音频都是通过 VE 的形式输入到系统中做语义理解。相关应用有：机器翻译、情感分析、命名对象识别等。我自己通过 OpenAI 的 embedding 做了情感分析（sentiment analysis)：给一个评价（比如针对某个产品或者餐厅），判断是好评还是差评，下文会给出 demo 代码。</p>
+<h2 id="similarity-metrics">相似度（similarity metrics）介绍<a class="headerlink" href="#similarity-metrics" title="Permanent link">&para;</a></h2>
+<ul>
+<li>欧几里得距离</li>
+<li>曼哈顿距离</li>
+<li>余弦相似度</li>
+</ul>
+<p>在 VE 中，应该用哪种距离呢？这又有点玄学了。比如，余弦相似度只比较两个 VE 的角度，和长度无关。对于文本的 VE 比较时，两个文本的长短就不会影响余弦相似度的值。因此，情感分析就更适合用余弦相似度（唠唠叨叨的长篇抱怨和一句“难吃”都能表达出负面情绪）。一般原则就是，使用与训练 VE 的模型相同的相似度 metrics。在不确定的情况下，应该尝试使用各种不同的相似度 metrics 来做计算并且训练模型，以查看是否可以获得更好的结果。</p>
+<p>为什么要介绍不同的 similarity metrics 呢？因为，这和我们后面要介绍的存储相关。在向量数据库里，计算不同的 similarity metrics 对应的底层存储数据结构是不同的。向量数据库需要知道业务是如何计算 similarity metrics 来决定如何存储 VE。下图是 Pinecone 数据库创建新 instance 时的配置参数：</p>
+<p><img alt="image-20230717165424753" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307171654794.png" /></p>
+<h3 id="brute-forcelinear-storage">Brute-force：linear storage<a class="headerlink" href="#brute-forcelinear-storage" title="Permanent link">&para;</a></h3>
+<p>首先，尝试用最暴力，最简单（brute-force）的方式：每个 vector，就作为一个 array 单独存储（我们可以用一些常见的存储 array 的优化方法，如 delta encoding, sparce representation 等，来提升存储每一个 array 的效率）。这被称为 linear storage。</p>
+<p>给定一个目标 vector，要查询的相似的 vector 的计算逻辑也非常直观：遍历每一个存储的 vector，和目标 vector 来做 similarity metrics 的计算，返回最接近的值（或者最接近的 k 个值）。算法的时间复杂度是 O(n)。</p>
+<p>既然是 brute force 的方法，先来讨论一下这个方法的缺点：</p>
+<p>计算的时间复杂度太高。每次查询的时间复杂度正比于存储的 vector 的数量。假设有 1 billion 的 vector，每次查询要做 1 个 billion 次的比较（且还是高维向量的计算）。</p>
+<p>那这个方法的优点呢？其实还蛮多的。1）算法简单，直观。实现起来也非常容易。2）这个存储方法和 similarity metrics 的计算方式是解耦的。反正每次查询都是拿目标 vector 和存储的 vector 做独立的计算。因此，可以支持不同类型的 similarity metrics 的查询（这和我们后面介绍的一些原生的向量存储格式不同，后者通常只针对某类 similarity metrics）3）和现有的关系型数据库更容易结合，无论是 row-store 还是 columnar-store，都不违和。可以快速地给关系型数据库加入向量数据库的功能。4）结合 GPU 计算资源，SIMD（single-instruction multi-data）指令或者分布式资源，在数据量没有那么海量的情况下，速度也还是可以接受的。</p>
+<h3 id="tree-based-approach-k-d-tree">Tree-based approach: k-d tree<a class="headerlink" href="#tree-based-approach-k-d-tree" title="Permanent link">&para;</a></h3>
+<p>要改进时间复杂度，思路就是要提高搜索的效率。Brute force 方法是遍历所有的 vector，提效的思路就是，怎么能减少搜索空间，只进行少量的比较就能查找到相似的 vector 呢。在上面这些铺垫下，我们大致可以想到，二叉树这种数据结构，是不是就能拿来做优化呢。普通的二叉树可以用来存储 scalar 数值（标量），通过构建二叉树来对一个 list 的数据进行排序，在搜索的过程中能够快速查找到相似的数值（时间复杂度是 O(log(n))）。</p>
+<p>如何用二叉树来支持向量存储呢，这就是下面要介绍的 k-d tree（k-dimension tree）。k-d tree 是一类特殊的二叉树，用来存储 k 维度的向量，并支持范围搜索和近邻搜索（即，找到相似的 vector）。k-d tree 的构造方式是一个递归过程，通过不断地根据某个 dimension，找到 median point，并将整 search space 一分为二，直到叶节点只有一个向量（当然也可以设置其他的 stop condition，比如当树的深度到达多少为止）。下面是 k-d tree 构造的算法描述：</p>
+<ul>
+<li>初始化：给定 k 维空间中的一组点。这些点可以代表任何东西，但通常它们是描述某种数据集的特征向量。</li>
+<li>创建根节点：通过选择一个维度并选择该维度上的中位数点作为根来创建根节点。维度的选择通常是轮流进行的，从第一个维度开始。</li>
+<li>划分数据：所选择的中位数点将点集分成两半。在所选维度上具有较小值的点进入根的左子节点，具有较大值的点进入右子节点。</li>
+<li>创建子节点：对于两半中的每一半，沿着下一个维度选择中位数点以创建子节点。再次选择的维度通常是轮流进行的。</li>
+<li>递归划分：对每个子节点递归重复步骤 2）和 3），将每个节点处的数据划分为两个较小的子集，并创建新的子节点。</li>
+<li>停止条件：递归继续，直到满足停止条件。停止条件可以是只剩下一个向量。</li>
+</ul>
+<p>给定一个 k-d tree，要搜索相似与目标 vector 的方法类似于在 binary search tree 上做二分查找。在数据结构上还可以做一些优化来快速找到 k 近邻（比如记录这个节点的子节点的数量）。计算复杂度是 O(log(n))。但 k-d tree 只支持 Euclidian distance 和 Manhattan distance 这类距离相似度的查询，并不支持 cosine similarity 这类角度相似度的查询。具体的代码实现，可以留给大家作为课后作业。</p>
+<p><strong>k-d tree 的缺点：</strong>相比较 linear storage，k-d tree 在搜索的复杂度上提效了。那 k-d tree 有什么缺点呢？1）k-d tree 的构造并不是一棵完全的平衡二叉树（左右子树不平衡，搜索效率不是最优的）。按照上面的算法，虽然每次都是根据某个 dimension 的剩余的点的 median point 来做二分，但这个方式没考虑到其他 dimension 上的数据分布，因此，这个二分是一个 local 的二分法。当向量在某些 dimension 上分布不均匀时，就会导致二分不均匀，进而降低了查询效率。2）如果业务中需要往现有的向量列表里面加入新的向量来搜索，k-d tree 并不能非常高效的支持。k-d tree 可以像普通的二分查找树支持插入新数值一样去插入新向量，但这可能会导致 k-d tree 进一步变得愈发不平衡，从而降低查找效率。并且，k-d tree 很难像自平衡的二分查找树（红黑树或 AVL 树）那样去做自动平衡。原因也是每一层只代表了一个 dimension，很难去做到所有 dimension 的平衡。</p>
+<h3 id="tree-based-approach-ball-tree">Tree-based approach: ball tree<a class="headerlink" href="#tree-based-approach-ball-tree" title="Permanent link">&para;</a></h3>
+<p>Ball tree 的具体算法描述，如下：</p>
+<p>1）初始化：给定一个 k 维空间中的一组 vector 开始。</p>
+<p>2）找到质心：通过对所有的 vector 对于 k 个维度求均值，找到质心。</p>
+<p>3）分组：在集合中找到两个点 P1 和 P2，使得 P1 和质心距离最大，再找到距离 P1 最远的点 P2。</p>
+<p>4）划分数据：将 vector list 里的其他点指定给它最近的分组点；即创建两组点。一组离 P1 更近，另一组离 P2 更近。</p>
+<p>5）创建子球体：对于每一组，计算所有点包围的最小球体的中心和半径。</p>
+<p>6）递归划分：对于两组 sub-set vector，分别应用步骤 2）至 5），直至停止条件。</p>
+<p>7）停止条件：当满足停止条件时，递归结束。这可能是当一个球体包含的点少于等于某个特定数量（比如 1 个），或者当树达到特定深度时。</p>
+<blockquote>
+<p>Ball tree 的缺点：</p>
+<p>ball tree 在构造二叉树的形式上，旨在做到比 k-d tree 更均匀。那 ball tree 的缺点呢？首先，由于二分法存在随机性，两个空间上接近的 vector point 理论上是可能被分在不同的子树里的。这带来的问题就是，做 similarity search 时，可能由于上层结构，导致查询返回的结果不是最优解。参考上图示例，在紫色圈里找一个点但更靠近 P5。搜索这个点时，上面的 ball tree 会返回 P1。当然，这个缺点，k-d tree 也存在。其次，ball tree 的构造比 k-d tree 更复杂， 找到质心的计算需要遍历所有在这个球体里的点来做计算。同时，由于也是 tree-based approach，插入和更新 vector 都不适用。</p>
+</blockquote>
+<h3 id="_1">总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>k-d tree 和 ball tree，都属于 tree-based approach。基本思想都是通过将向量空间的上的点通过构造二叉树拆分来提升搜索效率。虽然在具体的构造和搜索算法上稍有不同，但优劣都是共通的，比如查询的都是近似解，以及不支持更新或插入新的 vector points。</p>
+<p>它们面临的另一个实际问题是，当 vector 的 dimension 特别大的时候（黑话叫 curse of dimensionality），整个 vector 空间会变得愈发稀疏（这里也需要一些超维空间想象能力），这使得算法很难均匀地切分左右子树。除了 k-d tree 和 ball tree，另一个非常受欢迎的 tree-based approach 是 approximate nearest neighbor oh year（ANNOY）。依然是通过构造二叉树（或者森林）来提升搜索效率，区别于 k-d tree 和 ball tree 的算法，ANNOY 使用了 random projection（下文会介绍）来做切分，通过引入随机性来解决 curse of dimensionality 的问题。</p>
+<p>二叉树搜索的另一个问题是，当在数据量（vector points）巨大的场景下，比如 billions of points 时，搜索的速度会变慢。因为只能做二分查找，并且，由于 points 太多，树会变得非常深，对于内存使用也不是很友好。有什么方法可以进一步提升搜索效率呢？</p>
+<h2 id="partition-based-approach-inverted-file-index">Partition-based approach: inverted file index<a class="headerlink" href="#partition-based-approach-inverted-file-index" title="Permanent link">&para;</a></h2>
+<p>算法 inverted file index（IVF），虽然并不是照搬了 B+ tree 的算法，但思想是类似的，即都是通过增加 fanout 来提升搜索效率。</p>
+<p>IVF 的算法非常直观：IVF 通过将整个 vector 空间拆分成 k 个子空间，并对每个子空间找到一个代表质心（centroid）。并将子空间的所有 vector points 都 match 到这个质心上。给定一个要查询的 vector，先通过和所有的质心比较找到最近的质心，然后在这个质心所代表的子空间里搜索最近的点（可以用 linear search，也可以应用 tree-based approach 来进一步优化）。</p>
+<p>根据给定一个 vector space 和超参 k，如何找到质心，并构建 IVF 索引呢？答案：可以应用经典的 k-means 算法来实现。下面是 k-means 的算法描述：</p>
+<ul>
+<li>初始化：首先，确定超参 聚类数量 k。然后，通过从数据集中选择 k 个数据点随机初始化 k 个中心点。</li>
+<li>分配：将每个数据点分配给最近的中心点。"最近"基于数据点和中心点之间的 similarity metrics 定义来计算（通常是欧氏距离）。</li>
+<li>更新中心点：通过找到分配给每个中心点的聚类中的所有数据点的平均值，计算新的中心点。本质上，是在找每个聚类中所有数据点的中心。</li>
+<li>重复步骤 2 和 3：继续重复步骤 2 和 3，直到中心点的位置停止改变，或者达到最大迭代次数。当中心点不再改变时，这意味着算法已经收敛，数据点已经被分组成聚类。</li>
+<li>停止条件：当中心点的位置在连续迭代中不再改变（或者变化很小）或者一旦达到预定义的迭代次数时，算法停止。</li>
+</ul>
+<p>考虑到 IVF 也是一种 approximate 算法，即最接近的 vector 可能被分配在临近的另一个子空间里（和上面介绍的 ball tree 有类似的问题），在实际情况下，可能会同时搜索附近的子空间里提高准确率，特别是在超高维的空间下（curse of dimensionality）。</p>
+<h3 id="locality-sensitive-hashing-search-for-cosine-similarity">Locality Sensitive Hashing: search for cosine similarity<a class="headerlink" href="#locality-sensitive-hashing-search-for-cosine-similarity" title="Permanent link">&para;</a></h3>
+<p>之前介绍的所有方法都适用于搜索高维空间上距离相邻的点（比如欧式距离）。下面，我们来介绍一个用来高效检索 cosine similarity metrics 的算法，locality sensitive hashing（LSH）。</p>
+<p>LSH 的思路和 IVF 类似，也是通过一种手段将空间上的 vector points hash 到不同的 bucket 里面，且保证同一个 bucket 里的 points 在 cosine similarity 上更相近（角度接近）。</p>
+<p>1）LSH 需要给定一个固定数字（say num）的 random projections，每个 random projection 就是一个和维度等长的 vector。这个 random projection 在这个高维空间中相当于一个 hyperplane（超平面），把整个高维空间一分为二。</p>
+<p>2）DotProduct 计算：给定空间中的一个 vector，和某个 random projection 求 dot product，值是一个标量。这个标量＞0 表示这个 vector 在这个超平面的一边（&lt;0 则表示在另一边）。将这个标量用 0 或 1 表示，然后给定一个 vector 和所有的 random projections 求 dot product 就会得到 num of bits，这个 bit string 就是这个 vector 在这组 random projections 下的 hash bucket（比如当 num=8 时，一个 bit string 可以是 01101011）。</p>
+<p>3）DotProduct 和 Cosine similarity 的关系：当两个向量在角度上接近时，它们倾向于落在随机绘制的超平面的同一侧。因此，对于这些随机超平面的投影，它们的哈希位会是相同的。这就是 LSH 与余弦相似度相结合的原因。当随机投影的超平面数量更多时（即，更长的哈希码），方向接近（根据余弦相似度）的向量会得到相同或相似的哈希码的可能性就会增加。</p>
+<p>4）建立多组 random projections 和多个 hash 表映射：由于超平面是随机生成的，有可能它无法正确地将相似和不相似的向量分开。为了解决这个问题，使用多个哈希表（每个表都有一组不同的随机超平面）。这增加了相似向量在至少一个表的同一桶中被哈希的概率，从而提升了搜索的准确性。</p>
+<p>有了上述的理论铺垫，可以总结出 LSH 的算法描述：</p>
+<p>1）通过一组 random projections 将整个空间分成了 2^num 个 hash bucket，然后将不同的点通过计算 hash bits 映射到这些 bucket 里面。</p>
+<p>2）然后给定一个要查询的 vector，计算出相应的 bucket，然后通过 linear search 来找到在这个 bucket 里 cosine similarity 最高的点。</p>
+<p>3）提升准确率：也可以通过创建多组 random projections，将整个空间的点映射到多个 hash table 里面，找到对应每个 hash table 里 match 的 hash bits 的点的集合。通过计算 cosine similarity 找到最相似的点。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
