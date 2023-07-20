@@ -1,0 +1,1131 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ch8/">
+      
+      
+        <link rel="next" href="../../../blogs/vector_db/something%20about%20vector%20db/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>chapter 9 - AcKing's Ideas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-header__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AcKing's Ideas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              chapter 9
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ch2/" class="md-tabs__link md-tabs__link--active">
+        courses
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../blogs/vector_db/something%20about%20vector%20db/" class="md-tabs__link">
+        blogs
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-nav__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AcKing's Ideas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          courses
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          courses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+          open mlsys
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          open mlsys
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch2/" class="md-nav__link">
+        chapter 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3/" class="md-nav__link">
+        chapter 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch4/" class="md-nav__link">
+        chapter 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6/" class="md-nav__link">
+        chapter 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch7/" class="md-nav__link">
+        chapter 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch8/" class="md-nav__link">
+        chapter 8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          chapter 9
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        chapter 9
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    易用性
+  </a>
+  
+    <nav class="md-nav" aria-label="易用性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    编程抽象与接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    自定义算子支持
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    高效性
+  </a>
+  
+    <nav class="md-nav" aria-label="高效性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    数据读取的高效性
+  </a>
+  
+    <nav class="md-nav" aria-label="数据读取的高效性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mindrecord" class="md-nav__link">
+    MindRecord介绍
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    数据计算的高效性
+  </a>
+  
+    <nav class="md-nav" aria-label="数据计算的高效性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    流水线并行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    算子并行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    数据处理计算图优化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    保序性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    单机数据处理性能的扩展
+  </a>
+  
+    <nav class="md-nav" aria-label="单机数据处理性能的扩展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    基于异构计算的数据预处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    基于分布式的数据预处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-expand" class="md-nav__link">
+    summary and expand
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          blogs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          blogs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          vector_db
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          vector_db
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/vector_db/something%20about%20vector%20db/" class="md-nav__link">
+        something about vector db
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/storage/parquet/" class="md-nav__link">
+        parquet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    易用性
+  </a>
+  
+    <nav class="md-nav" aria-label="易用性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    编程抽象与接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    自定义算子支持
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    高效性
+  </a>
+  
+    <nav class="md-nav" aria-label="高效性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    数据读取的高效性
+  </a>
+  
+    <nav class="md-nav" aria-label="数据读取的高效性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mindrecord" class="md-nav__link">
+    MindRecord介绍
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    数据计算的高效性
+  </a>
+  
+    <nav class="md-nav" aria-label="数据计算的高效性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    流水线并行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    算子并行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    数据处理计算图优化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    保序性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    单机数据处理性能的扩展
+  </a>
+  
+    <nav class="md-nav" aria-label="单机数据处理性能的扩展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    基于异构计算的数据预处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    基于分布式的数据预处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-expand" class="md-nav__link">
+    summary and expand
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">数据处理框架<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>在前两个章节中，介绍了编译器前后端的相关内容，<strong>详细地阐述了源程序到目标程序的转换优化过程</strong>。除了让芯片在训练/推理过程中高性能地运行，我们<strong>还需要将数据高效地发送给芯片，以实现全流程的性能最优</strong>。</p>
+<p>机器学习模型训练和推理需要从存储设备（如本地磁盘和内存、远端的存储系统等）中加载数据集，对数据集进行一系列处理变换，将处理结果发送到GPU或者华为昇腾Ascend等加速器中完成模型计算，该流程的任何一个步骤出现性能问题都会对训练和推理的吞吐率造成负面影响。</p>
+<h2 id="intro">intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h2>
+<p>机器学习场景中的数据处理是一个典型的<strong>ETL（Extract, Transform, Load）</strong>过程。</p>
+<p>第一个阶段（Extract）需要从存储设备中加载数据集，第二个阶段（Transform）完成对数据集的变换处理。虽然不同的机器学习系统在构建数据模块时采用了不同的技术方案，但其核心都会包含数据加载、数据混洗、数据变换、数据mini-batch组装以及数据发送等关键组件。其中每个组件的功能介绍如下所示：</p>
+<ul>
+<li><strong>数据加载组件(Load)</strong>：负责从存储设备中加载读取数据集，需要同时考虑存储设备的多样性（如本地磁盘/内存，远端磁盘和内存等）和数据集格式的多样性（如csv格式，txt格式等）。根据机器学习任务的特点，AI框架也提出了统一的数据存储格式（如谷歌TFRecord, 华为MindRecord等）以提供更高性能的数据读取。</li>
+<li><strong>数据混洗组件(Shuffle)</strong>：负责将输入数据的顺序按照用户指定方式随机打乱，以提升模型的鲁棒性。</li>
+<li><strong>数据变换组件(Map)</strong>：负责完成数据的变换处理，内置面向各种数据类型的常见预处理算子，如图像中的尺寸缩放和翻转，音频中的随机加噪和变调、文本处理中的停词去除和随机遮盖(Mask)等。</li>
+<li><strong>数据组装组件(Batch)</strong>：负责<strong>组装构造一个批次(mini-batch)的数据发送给训练/推理</strong>。</li>
+<li><strong>数据发送组件(Send)</strong>：负责将处理后的数据发送到GPU/华为昇腾Ascend等加速器中以进行后续的模型计算和更新。高性能的数据模块往往选择将数据向设备的搬运与加速器中的计算异步执行，以提升整个训练的吞吐率。</li>
+</ul>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202120725.png" alt="image-20230720212033683" style="zoom:67%;" /></p>
+<h2 id="_2">易用性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>易用性既要求<strong>数据模块提供好的编程抽象和接口</strong>使得用户可以方便的构建一个数据处理流水，同时还要<strong>支持用户灵活地在数据流水中注册使用自定义算子</strong>以满足丰富多变的特殊需求。</p>
+<h3 id="_3">编程抽象与接口<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>事实上，面向数据计算的编程抽象早已在<strong>通用数据并行计算系统</strong>领域中被广泛的研究并取得了相对统一的共识——那就是提供类LINQ式 [meijer2006linq] 的编程抽象，其最大的特点是让用户专注于描述基于数据集的生成与变换，而将这些操作的高效实现与调度执行交由数据系统的运行时负责，以Spark为例子进行简要介绍。</p>
+<p>Spark向用户提供了基于弹性分布式数据集(Resilient Distributed Dataset, RDD)概念的编程模型。一个RDD是一个只读的分布式数据集合，用户通过Spark的编程接口来主要描述RDD的创建及变换过程，我们以一个Spark示例进行展开讨论。下面展示了一段在一个日志文件中统计包含ERROR字段的行数的Spark代码，我们首先通过文件读取创建一个分布式的数据集file（前文提到RDD表示数据的集合，这里的file实际上是日志行的数据集合）。 我们对这个file数据集进行filter(过滤)运算得到新的只保留包含ERROR字段的日志行的数据集errs，接着我们对errs中的每一个数据进行map(映射)操作得到数据集ones，最后我们对ones数据集进行reduce操作得到了我们最终想要的统计结果，即file数据集中包含ERROR字段的日志行数。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">val</span> <span class="n">file</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&quot;hdfs://...&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">val</span> <span class="n">errs</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">val</span> <span class="n">ones</span> <span class="o">=</span> <span class="n">errs</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">val</span> <span class="n">count</span> <span class="o">=</span> <span class="n">ones</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">_</span><span class="o">+</span><span class="n">_</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202125465.png" alt="image-20230720212546436" style="zoom:67%;" /></p>
+<p>下图为MindSpore中操作函数：</p>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202126447.png" alt="image-20230720212658409" style="zoom:80%;" /></p>
+<p>上述描述了数据集的接口抽象，而对数据集的具体操作实际上是由具体的数据算子函数定义。为了方便用户使用，MindData对机器学习领域常见的数据类型及其常见数据处理需求都内置实现了丰富的数据算子库。</p>
+<p>除了支持灵活的Dataset变换，针对数据集种类繁多、格式与组织各异的难题，MindData还提供了灵活的Dataset创建，主要分为如下三类：</p>
+<ul>
+<li>通过内置数据集直接创建：MindData内置丰富的经典数据集，如CelebADataset、Cifar10Dataset、CocoDataset、ImageFolderDataset、MnistDataset、VOCDataset等。如果用户需要使用这些常用数据集，可通过一行代码即可实现数据集的开箱使用。同时MindData对这些数据集的加载进行了高效的实现，以确保用户能够享受到最好的读取性能。</li>
+<li>从MindRecord中加载创建：MindRecord为MindData设计的一种高性能通用数据存储文件格式，用户可将数据集转换为MindRecord后借助MindSpore的相关API进行高效的读取。</li>
+<li>从Python类创建：如果用户已经有自己数据集的Python读取类，那么可以通过MindData的GeneratorDataset接口调用该Python类实现Dataset的创建，这给用户提供了极大的自由度。</li>
+</ul>
+<h3 id="_4">自定义算子支持<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>我们需要设计良好的用户自定义算子注册机制，使得用户可以方便在构建数据处理流水线时使用自定义的算子。</p>
+<p>机器学习场景中，用户的开发编程语言以Python为主，所以我们可以认为用户的自定义算子更多情况下实际上是一个Python函数或者Python类。<strong>数据模块支持自定义算子的难度主要与数据模块对计算的调度实现方式有关系</strong>，比如Pytorch的dataloader的计算调度主要在Python层面实现，得益于Python语言的灵活性，在dataloader的数据流水中插入自定义的算子相对来说比较容易；而像TensorFlow的tf.data以及MindSpore的MindData的计算调度主要在C++层面实现，这使得数据模块想要灵活的在数据流中插入用户定义的Python算子变得较为有挑战性。接下来我们以MindData中的自定义算子注册使用实现为例子展开讨论这部分内容。</p>
+<p><img alt="image-20230720213144821" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202131870.png" /></p>
+<p>对于用户传入map、filter等数据集变换算子中的自定义数据处理算子，MindData的Pipeline启动后会通过创建的Python运行时来执行。<strong>需要指出的是自定义的Python算子需要保证输入、输出均是numpy.ndarray类型。</strong>具体执行过程中，当MindData的Pipeline的数据集变换中执行用户自定义的PyFunc算子时，会将输入数据以numpy.ndarray的类型传递给用户的PyFunc，自定义算子执行完毕后再以numpy.ndarray返回给MindData，在此期间，正在执行的数据集变换算子（如map、filter等）负责该PyFunc的运行时生命周期及异常判断。</p>
+<p>如果用户追求更高的性能，MindData也支持用户自定义C算子。dataset-plugin仓（插件仓） [minddata] 为MindData的算子插件仓，囊括了为特定领域（遥感，医疗，气象等）量身制作的算子，该仓承载MindData的插件能力扩展，为用户编写MindData的新算子提供了便捷易用的入口，<strong>用户通过编写算子、编译、安装插件步骤，然后就可以在MindData Pipeline的map操作中使用新开发的算子。</strong></p>
+<p><img alt="image-20230720213340706" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202133736.png" /></p>
+<h2 id="_5">高效性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>进一步探究数据加载以及流水线调度执行等数据模块关键部分设计细节以确保用户能够拥有最优的数据处理性能。</p>
+<p>如下图所示，深度学习模型训练需要借助数据模块首先从存储设备中加载数据集，在内存中进行一系列的预处理变换，最终将处理好的数据集发送到加速器芯片上执行模型的计算，目前有大量的工作都着重于研究如何通过设计新的硬件或者应用算子编译等技术加速芯片上的模型计算，而在<strong>数据处理流水的性能问题</strong>上鲜有涉及。但事实上很多情况下，数据预处理的执行时间往往在整个训练任务中占据着相当大的比例，导致GPU/华为昇腾Ascend等加速器无法被充分利用。</p>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202136102.png" alt="image-20230720213657072" style="zoom:80%;" /></p>
+<p>为了追求最高的训练吞吐率，现有系统一般选择将<strong>数据读取、数据预处理计算、以及芯片上的模型计算</strong>三个步骤异步并行执行。这三步构成了典型的<strong>数据生产者和数据消费者的上下游关系</strong>，我们将数据从存储设备中的读取速率用F表示，数据预处理速率用P表示，芯片上的数据消费速率用G表示。<strong>理想情况下我们希望G &lt; min(F, P)</strong>，此时加速芯片不会因为等待数据而阻塞。然而现实情况下，我们常常要么因为数据加载速率F过低(称为I/O Bound)，要么因为数据预处理速率P过低(称为CPU Bound)导致G&gt;min(F, P)而使得芯片无法被充分利用。</p>
+<h3 id="_6">数据读取的高效性<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>第一个问题是<strong>数据类型繁多，存储格式不统一带来的I/O差异</strong>，如文本数据可能存储成txt数据格式，图像数据可能存储成原始格式或者如JPEG等压缩格式。我们显然无法去针对每一种存储情况都设计其最优的数据读取方案。但是我们可以通过<strong>提出一种统一的存储格式</strong>(我们称之为 <em>Unirecord</em> 格式)以屏蔽不同数据类型的I/O差异，并基于这种数据格式进行数据加载方案的设计与优化，而实际使用中用户只需要将其原始数据集转换存储为我们的统一数据格式便可以享受到高效的读取效率。</p>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202139150.png" alt="image-20230720213949122" style="zoom:67%;" /></p>
+<ul>
+<li><strong>每个Epoch内随机遍历所有的数据</strong>且每个数据只被遍历一次</li>
+<li>所有Epoch需要以不同的随机顺序遍历访问所有数据</li>
+</ul>
+<p>上述的访问特性要求我们的Unirecord存储格式能够支持高效的随机读取。当我们的数据集能够全部存储在RAM中时，对Unirecord的随机读取并不会成为大的问题。但是当数据集大到必须存储在本地磁盘或者分布式文件系统中时，我们就需要设计特定的方案。一个直观的想法是<strong>将一个Unirecord文件分为索引块和数据块</strong>，索引块中记录每个数据在文件中的大小、偏移以及一些校验值等元信息，数据块存储每个数据的主体数据。当我们需要对一个Unirecord格式的文件进行随机读取时，我们首先在内存中加载该文件的索引块(通常远远小于整个文件大小)并在内存中建立文件内数据的索引表，接着当我们需要随机读取数据时，我们首先在索引表中查询该数据在文件中的偏移、大小等信息并基于该信息从磁盘上进行读取。这样的读取方式可以满足我们在磁盘上的随机读取需求。</p>
+<p>接下来我们以MindSpore提出的MindRecord的实践经验为例子介绍统一文件格式的设计，以帮助大家加深对这部分内容的理解。</p>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202141336.png" alt="image-20230720214101301" style="zoom: 80%;" /></p>
+<h4 id="mindrecord">MindRecord介绍<a class="headerlink" href="#mindrecord" title="Permanent link">&para;</a></h4>
+<p>MindRecord是MindSpore推出的统一数据格式，目标是归一化用户的数据集，优化训练数据的读取过程。该文件格式具备如下特征：</p>
+<ul>
+<li>实现多变的用户数据统一存储、访问，训练数据读取更加简便。</li>
+<li>数据聚合存储，高效读取，且方便管理、移动。</li>
+<li>高效的数据编解码操作，对用户透明、无感知。</li>
+<li>可以灵活控制分区的大小，实现分布式训练。</li>
+</ul>
+<p>和我们前文设计的Unirecord思路相似，一个MindRecord文件也由数据文件和索引文件组成，数据文件包含文件头、标量数据页、块数据页，用于存储用户归一化后的训练数据，索引文件包含基于标量数据（如图像Label、图像文件名等）生成的索引信息，用于方便的检索、统计数据集信息。为确保对一个MindRecord文件的随机读取性能，MindSpore建议单个MindRecord文件小于20G，若数据集超过20G，用户可在MindRecord数据集生成时指定相应参数将原始数据集分片存储为多个MindRecord文件。</p>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202142885.png" alt="image-20230720214219848" style="zoom:67%;" /></p>
+<p>一个MindRecord文件中的数据文件部分具体的关键部分的详细信息如下：</p>
+<ul>
+<li><strong>文件头</strong> 主要用来存储文件头大小、标量数据页大小、块数据页大小、Schema信息、索引字段、统计信息、文件分区信息、标量数据与块数据对应关系等，是MindRecord文件的元信息。</li>
+<li><strong>标量数据页</strong> 主要用来存储<strong>整型、字符串、浮点型数据</strong>，如图像的Label、图像的文件名、图像的长宽等信息，即适合用标量来存储的信息会保存在这里。</li>
+<li><strong>块数据页</strong> 主要用来存储<strong>二进制串、Numpy数组等数据</strong>，如二进制图像文件本身、文本转换成的字典等。</li>
+</ul>
+<p>用户训练时，MindRecord的读取器能基于索引文件快速的定位找到数据所在的位置，并将其读取解码出来。另外MindRecord具备一定的检索能力，用户可以通过指定查询条件筛选获取符合期望的数据样本。</p>
+<p>对于分布式训练场景，MindRecord会基于数据文件中Header及索引文件进行元数据的加载，得到所有样本的ID及样本在数据文件中的偏移信息，然后根据用户输入的num_shards（训练节点数）和shard_id（当前节点号）进行数据的partition，得到当前节点的num_shards分之一的数据，即：分布式训练时，多个节点只读取数据集的num_shards分之一，借由计算侧的AllReduce实现整个数据集训练的效果。进一步，如果用户开启shuffle操作，那么每epoch保证所有节点shuffle seed保持一致，那么对所有样本的ID shuffle结果是一致的，那么数据partition的结果就是正确的。</p>
+<h3 id="_7">数据计算的高效性<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>继续研究数据计算的性能提升(即<strong>最大化上文中的数据处理速率 P</strong>)</p>
+<p><img alt="image-20230720214426971" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202144002.png" /></p>
+<p>由于深度学习芯片如GPU/华为昇腾Ascend等并不具备通用数据处理的能力， 我们目前还是主要依赖CPU来完成预处理计算。主流的AI服务器大多具备多个多核CPU，数据模块需要设计合理的并行架构充分发挥多核算力，以提升数据预处理性能达到尽可能减少加速器由于等待数据而阻塞的目的。</p>
+<p>流水线并行的方式结构清晰，易于理解和实现，主要被Pytorch这样基于Python实现数据模块的机器学习系统所采用。</p>
+<p>受到经典数据并行系统调度执行架构设计的影响，其他如Google的TensorFlow以及华为的MindSpore等系统主要采用算子粒度并行做精细CPU算力分配以达到充分利用多核算力的目的。然而精细的分配意味着我们需要对所有数据处理流程中涉及的算子设置合理的并行参数，这对用户而言是一个较大的挑战。</p>
+<p>于是MindSpore等框架又提供数据流图中关键参数自动调优的功能，通过运行时的动态分析自动搜索得到最优的算子并行度等参数，极大的减少了用户的编程负担。</p>
+<h4 id="_8">流水线并行<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20230720215106703" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202151731.png" /></p>
+<p>在Pytorch中，用户只需要实现一个Dataset的Python类编写数据处理过程，Dataloader通过用户指定的并行度参数num_workers来启动相应个数的Python进程，调用用户自定义的Dataset类进行数据预处理。Dataloader中的进程有两类角色：worker进程以及主进程，以及两类进程间通信队列：index_queue以及worker_result_queue。训练过程中，主进程负责将待处理数据任务列表通过index_queue发送给各个worker进程，每个woker进程执行用户编写的Dataset类的数据预处理逻辑并将处理后的结果通过worker_result_queue返回给主进程。</p>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202151680.png" alt="image-20230720215143644" style="zoom:80%;" /></p>
+<p>需要指出的是，Pytorch Dataloader的执行过程中涉及大量的进程间通信。虽然为了加速这一步骤，Pytorch对Tensor类数据实现了基于共享内存的进程间通信机制。然而当通信数据量较大时，跨进程通信仍然会较大地影响端到端的数据预处理吞吐率性能。</p>
+<p>当然，这不是流水线并行自身的架构问题，而是由于CPython的全局解释器锁(Global Interpreter Lock, GIL)导致在Python层面实现流水线并行时只能采用进程并行。为了解决这个问题，目前Pytorch团队也在尝试通过移除CPython中的GIL来达到基于多线程实现流水线并行以提升通信效率的目的 [rmpygil]，感兴趣的读者可以选择继续深入了解。</p>
+<h4 id="_9">算子并行<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>类似MapReduce</p>
+<p>现有机器学习系统的数据模块中，tf.data以及MindData均采用了算子并行的方案。由于对算力的利用更加充分、以及基于C++的高效数据流调度实现，算子并行的方案往往展示出更好的性能，tf.data的性能评测表明其相比较Pytorch的Dataloader有近两倍的性能优势。</p>
+<p>虽然算子并行具备更高的性能潜力，但却需要我们对每一个算子设置合理并行参数。这不仅对用户提出了较高的要求，同时也增加了由于不合理的并行参数设置导致性能反而下降的风险。为了让用户更加轻松的使用算子并行，tf.data和MindData都增加了流水线关键参数动态调优功能，基于对流水线执行时的性能监控计算得到合理的参数以尽可能达到最优的数据预处理吞吐率 [murray2021tf]。</p>
+<h4 id="_10">数据处理计算图优化<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>思考如下问题：用户给定的计算图是否是一个高效的计算图？</p>
+<p>如果不高效，是否能够在保证等价变换的前提下将用户的数据计算图进行优化重写得到执行性能预期更好的计算图？</p>
+<p>这和在前几章中学习的<strong>模型计算图编译优化</strong>有着相同的思想，即通过分析变换计算图IR得到更优的IR表示来达到更好的执行性能。常用的数据图优化策略有算子融合以及map操作向量化两种。</p>
+<p>算子融合将map+map、map+batch、map+filter、filter+filter等算子组合融合成一个等价复合算子，将原先需要在两个线程组中执行的计算融合为在一个线程组中执行的复合计算，减少线程间的同步通信开销，达到了更优的性能。而map操作向量化则将常见的dataset.map(f).batch(b)操作组合变换调整为dataset.batch(b).map(parallel_for(f))，借助现代CPU的对并行操作更友好的SIMD指令集来加速数据预处理。</p>
+<h2 id="_11">保序性<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>和常规数据并行计算任务不同的是，机器学习场景下的数据并行处理为了确保实验的可复现性需要维护保序的性质。在具体实现中，我们需要保证并行数据预处理后的数据输出顺序与输入顺序保持相同(即下图中的SeqB和SeqA相同)。这确保了每一次的数据模块的结果输出顺序由数据混洗模块输出顺序唯一确定，有助于用户在不同的实验之间进行比较和调试。不同的机器学习系统采用了不同的方案来确保保序性，以MindSpore的实现为例。</p>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202200713.png" alt="image-20230720220031695" style="zoom:80%;" /></p>
+<p>MindSpore通过<strong>约束算子线程组间的通信行为</strong>来确保对当前算子的下游算子的输入顺序\与自己的输入顺序相同，基于这种递归的约束，确保了整个并行数据处理最后一个算子的输出顺序与第一个算子的输入顺序相同。具体实现中，MindSpore以Connector为算子线程组间的通信组件，对Connector的核心操作为上游算子的Push操作以及下游算子的Pop操作，我们重点关注MindSpore对这两个行为的约束。</p>
+<p>Connector的使用有如下两个要求：</p>
+<ul>
+<li>Connector两端的数据生产线程组和数据消费线程组中的线程分别从0开始编号。</li>
+<li>确保数据生产者的输入数据顺序是在各个生产者线程间为按顺序轮询分布(Round-Robin distribution), 即当生产者线程组大小为M时，生产者线程0拥有第(0 + M * k)个数据，生产者线程1拥有第(1 + M * k)，生产者线程2拥有第(2 + M * k)个数据等(其中k=0，1，2，3…)。</li>
+</ul>
+<p>Connector中维护与生产者线程数目相同的队列并确保向Connector中放入数据时，每个生产者线程生产的数据只放到对应编号的队列中，这样可以确保Connector中的数据在不同的队列间的分布与在不同生产者线程组之间的分布相同(代码片段中的Push函数)。接着当Connector的消费者线程组从Connector中获取数据时，我们需要确保最终数据在不同的消费者线程间依然为按顺序轮询分布，即当消费者线程组大小为N时，消费者线程0拥有第(0 + N * k)个数据，消费者线程1拥有第(1 + N * k)个数据，消费者线程2拥有第(2 + N * k)个数据等(其中k=0，1，2，3…)。为此当有消费者线程从Connector中请求数据时，Connector在确保当前请求消费者线程编号i与待消费数据标号j符合<span class="arithmatex">\(i = j \% N\)</span>的关系下(其中N为消费者线程数目)按照轮循的方式从各个队列中获取数据，如果二者标号不符合上述关系，则该请求阻塞等待。通过这种通信的约束方式，MindSpore实现了保序功能。</p>
+<p><img alt="image-20230720220645752" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202206786.png" /></p>
+<h2 id="_12">单机数据处理性能的扩展<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>上文介绍了通过并行架构发挥多核CPU算力来加速数据预处理，以满足芯片上模型计算对于数据消费的吞吐率需求，这在大部分情况下都能解决用户的问题。然而数据消费性能随着AI芯片的发展在逐年快速增长（即模型计算速率在变快），而主要借助CPU算力的数据模块却由于摩尔定律的逐渐终结无法享受到芯片性能提升带来的硬件红利，使得数据生产的性能很难像模型计算性能一样逐年突破。不仅如此，近几年AI服务器上AI芯片数量的增长速度远超CPU数量的增长速度，进一步加剧了芯片的数据消费需求与数据模块的数据生产性能之间的矛盾。我们以英伟达(NVIDIA)公司生产的NVIDIA DGX系列服务器为例子，DGX-1服务器中配置有40个CPU核和8个GPU芯片，而到了下一代的NVIDIA DGX-2服务器时，GPU芯片的数目增长了到了16个，而CPU核的数目仅从40个增加到了48个。由于所有的GPU芯片在训练时共享CPU的算力，故平均而言每个GPU芯片(数据消费者)能够使用的算力从NVIDIA DGX-1时的5CPU核/GPU下降到了 NVIDIA DGX-2的3CPU核/GPU，CPU的算力瓶颈会导致用户使用多卡训练时无法达到预期的扩展性能。针对<strong>单机上的CPU算力不足</strong>的问题，我们给出两种目前常见的两种解决方案，即基于<strong>CPU+AI芯片的异构数据处理</strong>的加速方案和<strong>基于分布式数据预处理</strong>的扩展方案。</p>
+<h3 id="_13">基于异构计算的数据预处理<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>由于AI芯片相比于CPU拥有更丰富的算力资源，故<strong>在CPU算力成为数据预处理瓶颈时通过借助AI加速芯片来做数据预处理</strong>是一个行之有效的方案。虽然AI芯片不具备通用的数据预处理能力，但是由于大部分高耗时的数据预处理都是Tensor相关的计算，如语音中的快速傅立叶变换(Fast Fourier Transform, FFT)，图像中的去噪等，使得部分操作可以被卸载到AI芯片上来加速。</p>
+<h3 id="_14">基于分布式的数据预处理<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>分布式数据预处理是另一种解决CPU算力性能不足的可选方案。一种常见的做法是借助Spark、Dask等现有大数据计算框架进行数据预处理并将结果写入分布式文件系统，而训练的机器只需要读取预处理的结果数据并进行训练即可。</p>
+<p><img alt="image-20230720220944569" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202307202209581.png" /></p>
+<p>该方案虽然在业内被广泛使用，却面临着三个问题：</p>
+<ul>
+<li>由于数据处理和数据训练采用不同的框架，使得用户为此常常需要在两个不同的框架中编写不同语言的程序，增加了用户的使用负担。</li>
+<li>由于数据处理系统和机器学习两个系统间无法做零拷贝的数据共享，使得数据的序列化和反序列化常常成为不可忽视的额外开销。</li>
+<li>由于大数据计算框架并不是完全针对机器学习场景，使得某些分布式预处理操作如全局的数据混洗无法被高效的实现。</li>
+</ul>
+<p>为了更适配机器学习场景的数据预处理，<strong>分布式机器学习框架Ray借助其自身的任务调度能力实现了简单的分布式的数据预处理</strong>—— Ray Dataset [<a href="https://openmlsys.github.io/chapter_reinforcement_learning/summary.html#moritz2018ray">Moritz et al., 2018]</a>，由于<strong>数据预处理和训练处在同一个框架内</strong>，在降低了用户的编程负担的同时也通过<strong>数据的零拷贝共享消除了序列化/反序列化带来的额外开销</strong>。Ray Dataset支持如map、batch、map、filter等简单并行数据集变换算子、以及如mean等一些基础的聚合操作算子。同时Ray Dataset也支持排序、随机打乱、GroupBy等全局混洗操作，该方案目前处在研究开发中，还未被广泛的采用，感兴趣的读者可以翻阅相关资料进一步的了解。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">ray</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;foo.parquet&quot;</span><span class="p">)</span> \
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> \
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> \
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="o">.</span><span class="n">random_shuffle</span><span class="p">()</span> \
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="o">.</span><span class="n">write_parquet</span><span class="p">(</span><span class="s2">&quot;bar.parquet&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="summary-and-expand">summary and expand<a class="headerlink" href="#summary-and-expand" title="Permanent link">&para;</a></h2>
+<p>围绕着易用性、高效性和保序性三个维度展开研究如何设计实现机器学习系统中的数据预处理模块。在易用性维度我们重点探讨了数据模块的编程模型，通过借鉴历史上优秀的并行数据处理系统的设计经验，我们认为基于描述数据集变换的编程抽象较为适合作为数据模块的编程模型，在具体的系统实现中，我们不仅要在上述的编程模型的基础上提供足够多内置算子方便用户的数据预处理编程，同时还要考虑如何支持用户方便的使用自定义算子。在高效性方面，我们从数据读取和计算两个方面分别介绍了特殊文件格式设计和计算并行架构设计。我们也使用我们在前几章中学习到的模型计算图编译优化技术来优化用户的数据预处理计算图，以进一步的达到更高的数据处理吞吐率。机器学习场景中模型对数据输入顺序敏感，于是衍生出来保序性这一特殊性质，我们在本章中对此进行了分析并通过MindSpore中的Connector的特殊约束实现来展示真实系统实现中如何确保保序性。最后，我们也针对部分情况下单机CPU数据预处理性能的问题，介绍了当前基于异构处理加速的纵向扩展方案，和基于分布式数据预处理的横向扩展方案，我们相信读者学习了本章后能够对机器学习系统中的数据模块有深刻的认知，也对数据模块未来面临的挑战有所了解。</p>
+<ul>
+<li>流水线粒度并行实现示例建议阅读 <a href="https://github.com/pytorch/pytorch/tree/master/torch/utils/data">Pytorch DataLoader</a>。</li>
+<li>算子粒度并行实现示例建议阅读 <a href="https://gitee.com/mindspore/mindspore/tree/master/mindspore/ccsrc/minddata">MindData</a>。</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
