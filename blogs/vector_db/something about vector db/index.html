@@ -570,18 +570,12 @@
     Partition-based approach: inverted file index
   </a>
   
-    <nav class="md-nav" aria-label="Partition-based approach: inverted file index">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#locality-sensitive-hashing-search-for-cosine-similarity" class="md-nav__link">
     Locality Sensitive Hashing: search for cosine similarity
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -748,18 +742,12 @@
     Partition-based approach: inverted file index
   </a>
   
-    <nav class="md-nav" aria-label="Partition-based approach: inverted file index">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#locality-sensitive-hashing-search-for-cosine-similarity" class="md-nav__link">
     Locality Sensitive Hashing: search for cosine similarity
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -858,7 +846,7 @@
 <li>停止条件：当中心点的位置在连续迭代中不再改变（或者变化很小）或者一旦达到预定义的迭代次数时，算法停止。</li>
 </ul>
 <p>考虑到 IVF 也是一种 approximate 算法，即最接近的 vector 可能被分配在临近的另一个子空间里（和上面介绍的 ball tree 有类似的问题），在实际情况下，可能会同时搜索附近的子空间里提高准确率，特别是在超高维的空间下（curse of dimensionality）。</p>
-<h3 id="locality-sensitive-hashing-search-for-cosine-similarity">Locality Sensitive Hashing: search for cosine similarity<a class="headerlink" href="#locality-sensitive-hashing-search-for-cosine-similarity" title="Permanent link">&para;</a></h3>
+<h2 id="locality-sensitive-hashing-search-for-cosine-similarity">Locality Sensitive Hashing: search for cosine similarity<a class="headerlink" href="#locality-sensitive-hashing-search-for-cosine-similarity" title="Permanent link">&para;</a></h2>
 <p>之前介绍的所有方法都适用于搜索高维空间上距离相邻的点（比如欧式距离）。下面，我们来介绍一个用来高效检索 cosine similarity metrics 的算法，locality sensitive hashing（LSH）。</p>
 <p>LSH 的思路和 IVF 类似，也是通过一种手段将空间上的 vector points hash 到不同的 bucket 里面，且保证同一个 bucket 里的 points 在 cosine similarity 上更相近（角度接近）。</p>
 <p>1）LSH 需要给定一个固定数字（say num）的 random projections，每个 random projection 就是一个和维度等长的 vector。这个 random projection 在这个高维空间中相当于一个 hyperplane（超平面），把整个高维空间一分为二。</p>
