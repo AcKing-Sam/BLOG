@@ -9,13 +9,15 @@
       
       
       
+        <link rel="prev" href="../ld%E5%92%8Cld.so%E7%9A%84%E5%8C%BA%E5%88%AB/">
+      
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Futex锁原理及其应用 - AcKing's Ideas</title>
+        <title>futex锁原理及其应用 - AcKing's Ideas</title>
       
     
     
@@ -100,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Futex锁原理及其应用
+              futex锁原理及其应用
             
           </span>
         </div>
@@ -221,6 +223,8 @@
         
   
   
+    
+  
 
 
   
@@ -232,7 +236,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../vector_db/something%20about%20vector%20db/" class="md-tabs__link">
+      <a href="../../vector_db/something%20about%20vector%20db/" class="md-tabs__link md-tabs__link--active">
         blogs
       </a>
     </li>
@@ -478,16 +482,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -496,7 +500,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           blogs
@@ -607,16 +611,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
       
       
       
@@ -625,7 +629,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
           linux
@@ -641,6 +645,119 @@
       <a href="../ld%E5%92%8Cld.so%E7%9A%84%E5%8C%BA%E5%88%AB/" class="md-nav__link">
         ld和ld.so的区别
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          futex锁原理及其应用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        futex锁原理及其应用
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#futex" class="md-nav__link">
+    futex 系统调用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#futex_1" class="md-nav__link">
+    futex 同步机制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#futex_2" class="md-nav__link">
+    进 / 线程利用 futex 同步
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    source code
+  </a>
+  
+    <nav class="md-nav" aria-label="source code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#futex_wait" class="md-nav__link">
+    futex_wait
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#futex_wake" class="md-nav__link">
+    futex_wake
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -767,7 +884,7 @@
                   
 
 
-  <h1>Futex锁原理及其应用</h1>
+  <h1>futex锁原理及其应用</h1>
 
 <h2 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Fast Userspace mutexes ---- 快速用户空间互斥体</p>
