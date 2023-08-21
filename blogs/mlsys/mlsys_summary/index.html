@@ -1,0 +1,1323 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../linux/futex%E9%94%81%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>综述 - AcKing's Ideas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mlsys" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-header__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AcKing's Ideas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              综述
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses/open_mlsys/ch2/" class="md-tabs__link">
+        courses
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../vector_db/something%20about%20vector%20db/" class="md-tabs__link md-tabs__link--active">
+        blogs
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-nav__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AcKing's Ideas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          courses
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          courses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+          open mlsys
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          open mlsys
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch2/" class="md-nav__link">
+        chapter 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch3/" class="md-nav__link">
+        chapter 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch4/" class="md-nav__link">
+        chapter 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch6/" class="md-nav__link">
+        chapter 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch7/" class="md-nav__link">
+        chapter 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch8/" class="md-nav__link">
+        chapter 8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch9/" class="md-nav__link">
+        chapter 9
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch10/" class="md-nav__link">
+        chapter 10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch11/" class="md-nav__link">
+        chapter 11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+          CSCI_5120
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          CSCI_5120
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/CSCI_5120/Apriori/" class="md-nav__link">
+        Apriori
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/CSCI_5120/fp_tree/" class="md-nav__link">
+        FP-tree
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          blogs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          blogs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          vector_db
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          vector_db
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vector_db/something%20about%20vector%20db/" class="md-nav__link">
+        something about vector db
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/parquet/" class="md-nav__link">
+        parquet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/ld%E5%92%8Cld.so%E7%9A%84%E5%8C%BA%E5%88%AB/" class="md-nav__link">
+        ld和ld.so的区别
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/futex%E9%94%81%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" class="md-nav__link">
+        futex锁原理及其应用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          mlsys
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          mlsys
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          综述
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        综述
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    分布式机器学习
+  </a>
+  
+    <nav class="md-nav" aria-label="分布式机器学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ml" class="md-nav__link">
+    ML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    system
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    最近挖的比较多的坑
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    深度学习模型压缩/加速
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    深度学习框架/系统设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlsystem" class="md-nav__link">
+    用ML优化传统的system问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    其他
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    需要的技能树
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    分布式机器学习
+  </a>
+  
+    <nav class="md-nav" aria-label="分布式机器学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ml" class="md-nav__link">
+    ML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    system
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    最近挖的比较多的坑
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    深度学习模型压缩/加速
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    深度学习框架/系统设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlsystem" class="md-nav__link">
+    用ML优化传统的system问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    其他
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    需要的技能树
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="mlsys">mlsys 综述<a class="headerlink" href="#mlsys" title="Permanent link">&para;</a></h1>
+<h2 id="_1">分布式机器学习<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="ml">ML<a class="headerlink" href="#ml" title="Permanent link">&para;</a></h3>
+<p>发明或改进分布式训练算法[ch4] [ch5]，保证在分布式加速的同时，仍然能达到原来的学习效果（loss/accuracy）。因此很多工作也被投在像ICML、NIPS这种专业ML会议上。主要用到的方法包括优化（optimization）和统计学习理论（statistical learning theory）。</p>
+<p>还有一类工作涉及到如何把单机算法改造成分布式[ch9]，比如同步/异步SGD等。这里主要涉及到的问题是如何降低分布式环境下的通信开销，提高加速比。</p>
+<h3 id="system">system<a class="headerlink" href="#system" title="Permanent link">&para;</a></h3>
+<ol>
+<li>对于计算量太大的场景（计算并行），可以多线程/多节点并行计算，多节点共享公共的存储空间。常用的一个算法就是同步随机梯度下降（synchronous stochastic gradient descent），含义大致相当于K个（K是节点数）mini-batch SGD [ch6.2]</li>
+<li>对于训练数据太多，单机放不下的场景<strong>（数据并行，也是最主要的场景）</strong>，需要将数据划分到多个节点上训练。每个节点先用本地的数据先训练出一个子模型，同时和其他节点保持通信（比如更新参数）以保证最终可以有效整合来自各个节点的训练结果，并得到全局的ML模型。 [ch6.3]</li>
+<li>对于模型太大的场景，需要把模型（例如NN中的不同层）划分到不同节点上进行训练。此时不同节点之间可能需要频繁的sync。这个叫做模型并行。 [ch6.4]</li>
+<li>Pipeline Parallelism：这是去年（SOSP19 PipeDream）才出现的概念，参考<a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-fa19/assets/lectures/lec06/06_distributed_training.pdf">这里的</a>第90、95页 以及<a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/IQbBD_RxbeecrlPUiKcLjQ">这里的简介</a>。Pipeline Parallelism相当于把数据并行和模型并行结合起来，把数据划分成多个chunk，也把训练模型的过程分成了Forward Pass和Backward Pass两个stage。然后用流水线的思想进行计算。</li>
+</ol>
+<p>另外，分布式ML本质上还是分布式系统嘛，所以像传统分布式系统里的一些topic（比如一致性、fault tolerance、通信、load balance等等）也可以放到这个背景下进行研究。</p>
+<h2 id="_2">最近挖的比较多的坑<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>1.1. 分布式ML系统设计</strong></p>
+<p>[ch7.3] 最著名的就是几大分布式DL模型：<a href="https://zhuanlan.zhihu.com/p/30976469">Parameter Server</a> / AllReduce等。</p>
+<p>个人感觉这里面一个可以挖的坑是Decentralized Training。地里一位<a href="https://link.zhihu.com/?target=https%3A//chaoyanghe.com/">大佬</a>也在做这个方向。</p>
+<p><strong>1.2 Edge Computing</strong></p>
+<p>很多ML模型是需要在手机上运行的（比如毁图秀秀）。针对这一场景，一个是要对手机这种低功耗设备对ML model进行裁剪加速（后面会提到），还有一个要做的就是运行在多个device上的分布式ML。</p>
+<p>这里有个最近非常火的概念：<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/pdev/p/11655467.html">Federated Learning</a>。其实本质还是炒数据并行的冷饭...不过应用场景比较不一样。FL更多是为了Privacy的考虑，而分布式加速训练在这里倒是个次要目标。FL还涉及到了模型聚合[ch8]，也就是如何把多个device本地训练出的模型合并到一起。</p>
+<p><strong>1.3 大量计算资源的 Scheduling / device placement</strong></p>
+<p>UCB的CS294 19spring对<a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-sp19/assets/lectures/lec27/dl-scheduling.pdf">这一节</a>有过介绍。</p>
+<p>这里的计算资源的数量级是很大的......比如工业界会有万台CPU服务器 / 上千台GPU服务器搭建的DL平台。这个小方向要解决的问题就是如何充分利用它们的性能。比如在<a href="https://zhuanlan.zhihu.com/p/36316064">阿里PAI组的JD</a>里就有这么一条：“设计探索高效的分布式Placement算法，以更系统化的方式来解决大规模深度学习高效训练的问题”。</p>
+<p>这方面比较早的工作大概是<a href="https://link.zhihu.com/?target=http%3A//www-users.cselabs.umn.edu/classes/Spring-2019/csci8980/papers/device_placement.pdf">这篇paper</a>，说的是如何为TensorFlow计算图里的不同算子分配不同的device，最后用强化学习实现了这个目标。这个工作看起来有点prototype，但提出了一个新的思路。另外还有很多猛如虎的类似<a href="https://www.zhihu.com/question/60874090">Train XX model in y minutes</a>的工作。这种就不仅是placement好就能完成的了，还需要涉及系统拓扑的设计、降低communication开销等等。</p>
+<p>对于集群调度，工业界的一个热点是使用容器平台（例如<a href="https://zhuanlan.zhihu.com/p/29691157">k8s</a>）来运行分布式机器学习应用。虽然k8s本身就有容器集群调度的功能，但为了让它更好地适应ML的workload，人们开发了一些新的轮子，比如针对TensorFlow（Parameter Server模型）和<a href="https://link.zhihu.com/?target=https%3A//github.com/kubeflow/pytorch-operator">PyTorch</a>的<a href="https://link.zhihu.com/?target=https%3A//www.kubeflow.org/">KubeFlow</a>。还有用k8s来跑AutoML的<a href="https://zhuanlan.zhihu.com/p/77760872">katib</a>。学术界对这方面的一个研究热点是GPU集群调度，在下面2.2节会介绍。</p>
+<p><strong>1.4 communication相关</strong></p>
+<p>[ch3.5] [ch7]介绍了一些宏观上的通信模型，但深入进去还有很多可搞的坑。传统搞网络/分布式系统的组比较契合这个小方向。</p>
+<p>例如我校的分布式组原来有一些<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/pdev/p/11655467.html">geo-distributed system</a>的工作，现在也可以往ML上装。</p>
+<p><strong>1.5 其他sys for ML可做的坑</strong></p>
+<p>工业界的一个ML pipeline不仅仅是训练，还涉及到很多其他的坑。这些是目前被挖的还比较少的：</p>
+<ul>
+<li>
+<p>存储 / Data Management：</p>
+</li>
+<li>
+<ul>
+<li>1) 训练数据的规模是很大的。如何为ML设计一个专用的文件系统（类似大数据界的HDFS）或者数据库来加速读数据呢？ 类似的工作有管理ML model的<a href="https://link.zhihu.com/?target=https%3A//github.com/mitdbg/modeldb">ModelDB</a>.</li>
+</ul>
+</li>
+<li>2) 在ML framework中，以及Parameter Server中，需要用一个KV storage system来存储参数。可不可以针对ML的场景优化这个KV存储系统呢？ 关于这个可以参考<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/neopenx/p/5269852.html">neopenx大神的blog</a>。</li>
+</ul>
+<h2 id="_3"><strong>深度学习模型压缩/加速</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>这方面和architecture结合比较紧密。CS229有<a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-sp19/assets/lectures/lec22/network_compression.pdf">这一节</a>，也可以参考<a href="https://link.zhihu.com/?target=http%3A//eyeriss.mit.edu/2019_neurips_tutorial.pdf%3Fich_args2%3D526-06113205060278_e0b61138dc2d908aa0766d50302e6d8a_10001002_9c896324d5cbf0d49239518939a83798_92e0a859ed6aa28355c3deea32562911">NIPS19上的这个talk</a>。</p>
+<p>对DL model进行压缩主要考虑两个角度：减少计算量（例如conv层的计算量） / 内存占用（NN的参数数量）。不仅要考虑ML上的metric，也要考虑system层面的performance（例如latency / throughput / 功耗。有时候这些比ML模型的accuracy还重要）。具体的方式大概有<a href="https://zhuanlan.zhihu.com/p/101544149">以下几种</a>：</p>
+<ul>
+<li>
+<ol>
+<li>Architectural Compression</li>
+</ol>
+</li>
+<li>
+<ul>
+<li>Layer Design -&gt; Typically using factorization techniques to reduce storage and computation</li>
+</ul>
+</li>
+<li>
+<p>Pruning（剪枝） -&gt; Eliminating weights, layers, or channels to reduce storage and computation from large pre-trained models. 减少卷积核大小 / 通道数等等</p>
+</li>
+<li>
+<ol>
+<li>Weight Compression</li>
+</ol>
+</li>
+<li>
+<ul>
+<li>Low Bit Precision Arithmetic -&gt; Weights and activations are stored and computed using low bit precision</li>
+</ul>
+</li>
+<li>Quantized（量化） Weight Encoding -&gt; Weights are quantized and stored using dictionary encodings.</li>
+</ul>
+<p>很多相关的工作是在ML的角度来压缩模型的（也就是Arch Compression，特别是针对CNN和RNN。比如很著名的MobileNet）。这里我们先(kan)略(bu)过(dong)，来看从System的角度是如何加速的。</p>
+<p><strong>2.1 通过Quantized（量化）降低计算精度要求</strong></p>
+<p>量化的含义是将卷积层（the weights and / or activations of a CNN）通常要用到的32位浮点数用更低位的数来表示，如int32, int16, int8等等，来降低资源占用（float32无论是计算还是存储都是很吃资源的..）。量化之后无疑会损失一部分精度，但神经网络对噪声并不是特别敏感，因此控制好量化的程度之后对ML任务的影响可以很小。</p>
+<p>一种常用的量化方法是train in floating point and then quantize the resulting weights，训练时还是用float32（因为要涉及到反向传播和梯度下降，全是int就很难搞了..），但在inference的阶段就可以加速啦。一个直观的方法是事先找好一般网络参数的min / max值，然后将训练好的网络参数乘一个scala factor来映射到[MIN_INT, MAX_INT]区间内的整数存起来。在inference时先按int来计算，最后结果再转换回float32。这一过程中其实加速了大量的卷积计算。比如<a href="https://zhuanlan.zhihu.com/p/99424468">这篇paper</a>就实现了float32到int8的量化。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/0AltgP1ndt-ReJFB97UFKg">混合精度计算</a>：上面讲的方法是用在inference阶段的，其实在模型训练时也可以用类似的方法来加速，只不过再用int就不大行了。一种比较新的方法是用float16（也就是俗称的半精度），fp16占用空间是单精度(fp32)的一半，双精度(double，也就是fp64)的1/4。</p>
+<p>量化的具体实现方法可以参考<a href="https://zhuanlan.zhihu.com/p/58182172">这里</a>。NVIDIA专门推出了针对inference阶段量化加速的工具包TensorRT</p>
+<p><strong>2.2 新硬件 / DL Acclerator</strong></p>
+<p>在纯硬件方面针对DL workload的工作也有很多，这里来看几个parallel相关的技术。最近Data-Level Parallelism不仅在深度学习中，在其他一些领域（比如<a href="https://link.zhihu.com/?target=http%3A//www.vldb.org/pvldb/vol13/p226-fang.pdf">数据库</a>）也有了越来越多的应用。</p>
+<ul>
+<li>
+<p>CPU：尽管GPU已经成了深度学习计算的标配，有时候仍然是需要CPU运算的。例如要在手机等辣鸡设备上进行inference。</p>
+</li>
+<li>
+<ul>
+<li>SIMD：SIMD的含义是同一条指令在多个数据流上操作，和在向量处理器中一样。在具体实现中（例如<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/gengshenghong/article/details/7008704">SSE指令集</a>）是把一个128位SSE寄存器（这是新增加的SIMD专用寄存器，和早期<a href="https://zhuanlan.zhihu.com/p/31271788">借用FPU寄存器的MMX</a>不同。在SSE指令集中是增加了8个这种寄存器）划分成4个块，同时存放4个float32单精度浮点数，4个块可以同时进行运算（有<strong>多个运算单元</strong>，作用于不同的地址），这样就提高了并行度。后来的SSE2 / SSE3 / SSE4 / AVX指令集在此基础上又增加对float64 / 更多运算的支持，以及扩展了SIMD专用寄存器的位数，但本质上还是一样的。　　另外，SIMD带来的并行和<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/pdev/p/11756069.html">超标量处理器</a>的并行性（一个周期issue多个指令，用于instruction level parallelism）<a href="https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/SIMD">不是一个概念</a>。非超标量处理器也可以SIMD，而超标量处理器可以更并行issue多个SIMD操作。</li>
+</ul>
+</li>
+<li>
+<p>VLIW：和一次issue多条指令，然后靠硬件进行ILP调度（也叫动态多发射。需要硬件实现乱序执行、分支预测等操作）的超标量处理器不同，VLIW（Very Large Instruction Width，采用这种技术的处理器也叫做静态多发射处理器）的含义是一次只issue一条<strong>可以完成多个操作的复杂长指令</strong>（也叫发射包，其实从软件的角度看是多条指令的集合）。因此一条指令的位宽可以很大。VLIW是通过编译器来进行指令级并行调度的（比如一个常用的方法是<a href="https://zhuanlan.zhihu.com/p/37582101">循环展开</a>，通过识别出可并行的重叠跨循环体指令块来实现ILP）。VLIW的本意是希望在编译阶段就识别出程序中的依赖关系（静态调度），得到可以并行执行的发射包，硬件只需要根据调度好的发射包直接执行即可，这样就简化了硬件实现，从而实现更大宽度发射包的并行执行。intel Itanium的IA64指令集就使用了这个技术，但它<a href="https://zhuanlan.zhihu.com/p/101538383">在当年并没有取得成功</a>。一个重要的原因是它只适合计算密集、算法固定可控的workload。传统的通用应用程序可能很难具备这个属性（有很多run-time才能确定的值，另外cache访问也是不确定的），但深度学习任务具备这些性质。</p>
+</li>
+<li>
+<p>GPU：GPU的本质可以看做SIMT（Single Instruction Multiple Threads）。</p>
+</li>
+<li>
+<ul>
+<li>GPU集群：DL框架一般都支持GPU和分布式训练，已经可以在GPU集群环境下运行了，但实际上还存在<a href="https://zhuanlan.zhihu.com/p/30976469">一些问题</a>导致分布式场景下资源的使用率提不上去：1). CPU和GPU之间memcpy开销太大、2). 参数通信开销太大、3). 显存不够用、4). GPU很难虚拟化(多任务共享)、5).需要针对ML workload的更好的集群调度策略。 对于1和3其实也可以用前面提到的神经网络压缩、模型并行等方法解决； 对于2一个解决方案是尽量让<a href="https://www.zhihu.com/question/31999064/answer/54185461">计算和通信在时间上重叠起来</a>，参考ATC17的<a href="https://zhuanlan.zhihu.com/p/30976469">Poseidon</a>； MSR对于5做了很多工作，一方面是对大规模GPU集群上的真实日志数据进行分析，得出了一些经验（<a href="https://link.zhihu.com/?target=https%3A//www.usenix.org/system/files/atc19-jeon.pdf">发表在ATC19</a>）。另一方面是设计一些更好的scheduling策略，例如OSDI2018的<a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/VvAykyrWS1mH3g52-6SacQ">Gandiva</a>（针对DL workload自身的特点来提高GPU集群使用率）和NSDI2019的<a href="https://www.zhihu.com/question/326552276/answer/706412167">Tiresias</a>； 对于4目前还没啥很好的解决方案，但可以通过一些<a href="https://zhuanlan.zhihu.com/p/57101049">软调度方案</a>来模拟。</li>
+</ul>
+</li>
+<li>
+<p>这学期8205课上会有GPGPU的topic，到时候再补充</p>
+</li>
+<li>
+<p>系统结构：这个和纯计算关系不是很大，可能暂时和ML加速也没啥关系（事实上目前在计算机网络研究中用的还多一些）......但对于优化整体性能会有帮助</p>
+</li>
+<li>
+<ul>
+<li>NUMA：当单个CPU性能已经到瓶颈时，多处理器就成了比较好的解决方案。为了方便编程，需要保证能为应用程序提供跨越所有处理器的单一物理地址空间，这种也叫做共享内存处理器（Shared Memory Processor）。SMP又可以分为两种类型：1) 任何处理器访问任何地址的仿存时间都是相同的，叫做统一存储访问（Uniform Memory Access）。 2) 对于每个核心，访问某些字会比访问其他字快一些，整个内存空间被分割并分配给不同处理器 / 内存控制器，这叫做非统一存储访问（NonUniform Memory Access，NUMA）。NUMA虽然看起来复杂，但可以支持更大的规模（更多的核心），并且访问附近的存储器时具有较低的延迟。 在过去内存控制器还在北桥的时代，多处理器用的是UMA（所有处理器都通过FSB总线连接北桥，再访问内存）。后来随着核心越来越多，为提高访存速度，内存处理器被做到了CPU内，每个CPU有（或者很少的几个核心共享）一个内存控制器，然后直连一部分内存空间，这些核心就被归为一个NUMA node。而跨NUMA node之间的内存访问需要走QPI总线。可以参考<a href="https://zhuanlan.zhihu.com/p/90624389">这里的图解</a>。 在一些涉及many core的工作中会经常用到NUMA的概念</li>
+</ul>
+</li>
+<li>
+<p>RDMA：在网络环境中会用到。RDMA全称是Remote Direct Memory Access，用于实现不需要OS参与的远程内存访问（因为message passing through kernel会浪费本来很大的内存和网络带宽）。具体的技术细节可以<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/qq_21125183/article/details/80563463">参考这里</a>。不过最近（Eurosys2019）已经有了应用RDMA来加速分布式机器学习的<a href="https://link.zhihu.com/?target=https%3A//dl.acm.org/doi/10.1145/3302424.3303975">工作</a>。</p>
+</li>
+<li>
+<p>专用硬件：CPU性能太菜，GPU又太庞大，于是人们开发了<a href="https://zhuanlan.zhihu.com/p/81141220">AI专用芯片</a></p>
+</li>
+<li>
+<ul>
+<li>FPGA：全称是Field Programmable Gate Array，是可以多次烧写的。因为本质上属于软件所以可以快速开发 / 迭代。</li>
+</ul>
+</li>
+<li>ASIC：全称是application-specific integrated circuits，出厂后电路就不可以改变了（需要流片）。但是性能比FPGA高。Google的<a href="https://zhuanlan.zhihu.com/p/26882794">TPU</a>就属于一种ASIC。</li>
+</ul>
+<p><strong>2.3 矩阵算子优化</strong></p>
+<p>神经网络中的很多运算本质上就是对矩阵运算，因此可以用一些<a href="https://zhuanlan.zhihu.com/p/101544149">矩阵乘法优化方案</a>来加速。比如cublas就是封装好的针对矩阵和向量运算的加速库，而对于神经网络加速则会使用cudnn</p>
+<p>算子优化是个非常贴近hardware的工作，对多种设备都人工调优这些算子其实是比较难的...如果能简化一部分工作就最好啦。于是就有了下面会提到的深度学习编译器</p>
+<p><strong>2.4 AutoML</strong></p>
+<p>这个严格来说可能不算MLsys了...但它的思路在很多MLsys问题中也会被用到</p>
+<p>AutoML最早只能调很有限的几种参数，用的方法也比较暴力（启发式搜索）。后来能调的东西越来越多，方法也更加猛如虎...一个里程碑是<a href="https://zhuanlan.zhihu.com/p/42924585">NAS</a>，标志着神经网络结构也可以Auto了。</p>
+<p>常用的调参方法大致可以分为这几种：</p>
+<ol>
+<li>随机搜索，或者说叫启发式搜索。包括 GridSearch 和 RandomSearch。这种方法的改进空间主要体现在使用不同的采样方法生成配置，但本质上仍然是随机试验不同的配置，没有根据跑出来的结果来反馈指导采样过程，效率比较低。</li>
+<li>Multi-armed Bandit。这种方法综合考虑了“探索”和“利用”两个问题，既可以配置更多资源（也就是采样机会）给搜索空间中效果更优的一部分，也会考虑尝试尽量多的可能性。Bandit 结合贝叶斯优化，就构成了传统的 AutoML 的核心。</li>
+<li>深度强化学习。强化学习在 AutoML 中最著名的应用就是 NAS，用于自动生成神经网络结构。另外它在 深度学习参数调优 中也有应用。它的优点是从“从数据中学习”转变为“从动作中学习”（比如某个参数从小调到大），既可以从性能好的样本中学习，也可以从性能坏的样本中学习。但强化学习的坑也比较多，体现在训练可能比较困难，有时结果比较难复现。</li>
+</ol>
+<p>之所以把AutoML也列出来，是因为这些方法在下面提到的ML for system问题中会很有用。比如之前做过的<a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzI3NDIxNTQyOQ%3D%3D%26mid%3D2247489834%26idx%3D1%26sn%3De78e59d44dcd3e4204f61b694e78c5b6%26chksm%3Deb163e40dc61b756e9c25786df399b75df377c9671e7ff6e61c429852d112b96ebb15886032e%26mpshare%3D1%26scene%3D1%26srcid%3D%26sharer_sharetime%3D1580199939978%26sharer_shareid%3Dc659855f06944f053b4dd00b09a6133b%26key%3D1ab9c3c2ddcd88d8e8df2d0e682769ce8390513da413c54ea3ff4b16886bc5a8837f51f58153d4f004785aa1cb56fadf825ab150036863ffc6bda2b0cb913fd396dc75044c8aa6827cd4eff23cc36bb4%26ascene%3D1%26uin%3DNzczMTcxOTQ0%26devicetype%3DWindows%2B7%26version%3D6208006f%26lang%3Den%26exportkey%3DAREfx6F5Og8IpQHwLYA%2BSDs%3D%26pass_ticket%3DnaBhvuZe5Y83cZAr3Yiei2RKqcK4eP9jz10Ty8uqijxDwO%2FFBaOxMAHgrmnZJsuW">AutoTiKV</a>就应用了一种贝叶斯优化方法来调节数据库参数。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-sp19/assets/lectures/lec10/automl.pdf">cs294</a>中给出了几个可提高的方向：</p>
+<ul>
+<li>
+<p>Accelerate data collection and preparation</p>
+</li>
+<li>
+<ul>
+<li>Automatic data discovery</li>
+</ul>
+</li>
+<li>Distributed data processing, esp. for image and video data</li>
+<li>
+<p>Data cleaning and schema driven auto-featurization</p>
+</li>
+<li>
+<p>Accelerate model selection and hyper-parameter search</p>
+</li>
+<li>
+<ul>
+<li>Parallel and distributed execution</li>
+</ul>
+</li>
+<li>
+<p>Data and feature caching across training runs</p>
+</li>
+<li>
+<p>Provenance</p>
+</li>
+<li>
+<ul>
+<li>Track previous model development to inform future decisions</li>
+</ul>
+</li>
+<li>Connect errors in production with decisions in model development</li>
+</ul>
+<h2 id="_4"><strong>深度学习框架/系统设计</strong><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>和Distributed Training的区别是这里更关注一些工程上的东西（框架设计、API设计等等）。一个Deep Learning Framework大致需要<a href="https://www.zhihu.com/question/326890535/answer/717865868">以下几个元素</a>：</p>
+<ul>
+<li>支持各种算子(op) 和 tensor (data)</li>
+<li>计算图的定义方式（动态 v.s. 静态）</li>
+<li>Auto Diff</li>
+<li>Optimizer（例如Adam）</li>
+<li>各种加速和优化的库：cudnn, openblas,mkl等</li>
+</ul>
+<p><strong>3.1 Deep Learning Framework</strong></p>
+<p><a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-fa19/assets/lectures/lec05/05_deep_learning_frameworks.pdf">这一节</a>重点关注这几个方向：</p>
+<ul>
+<li><strong><a href="https://www.zhihu.com/question/265173352">Differentiable Programming</a></strong>：如果用过Keras或者<a href="https://link.zhihu.com/?target=https%3A//github.com/meton-robean/Machine-Learning-System-Notes/issues/2">PyTorch</a>就会记得它可以简单得像搭积木一样摞一个NN出来，只需要定义一个一个的层（前向传播逻辑）和损失函数就行了。而NN的训练需要Backward Propagation / Forward Propagation，也就是计算微分，运算时framework可以根据定义好的计算图<a href="https://link.zhihu.com/?target=https%3A//borgwang.github.io/dl/2019/09/15/autograd.html">自动求导算梯度</a>。只要可微分就可以保证这个积木能摞出来，然后使用链式法则就可以自动计算微分（<a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-fa19/assets/lectures/lec05/05_deep_learning_frameworks.pdf">Automatic Differentiation</a>）。如果一个语言或者framework具备了Differentiable Programming的性质，就可以更简单的在它上面开发Deep Learning应用（可以类比python手写NN和<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/wydbyxr/article/details/83956333">Keras</a>的区别）。<a href="https://zhuanlan.zhihu.com/p/65488534">这篇文章</a>对Auto Diff的实现做了很详细的介绍。</li>
+<li>Embedded Domain Specific Languages：DSL的概念我们都知道，比如SQL就是数据库系统中的DSL，但这已经相当于一个全新的语言了。Embedded DSL是在现有语言上（例如Python）针对某个特定任务做的扩展。比如为了让Python做矩阵计算更方便发明了numpy；为了进行机器学习就有了TensorFlow / PyTorch等等。Embedded DSL的作用是完成 Linear Algebra -&gt; Pipelines -&gt; Differentiable Programs 的转化。</li>
+<li>根据计算图的定义方式，可以分为Declarative Abstraction（Embedded DSL先生成静态计算图，类似编译执行 define-and-run，例如Tensorflow、Caffe）和Imperative（Embedded DSL生成动态计算图并直接输出结果，类似解释执行 define-by-run，例如PyTorch、Tensorflow Eager）</li>
+</ul>
+<p>对于具体的DL框架来说，虽然很多公司都开始自研框架了，但最流行的基本就TensorFlow、PyTorch、mxnet等等那几家了。不过最近又出现了<a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzU2NDU4ODQwNA%3D%3D%26mid%3D2247483695%26idx%3D1%26sn%3D79eea870e3889cd963eccbe7167ad42f%26chksm%3Dfc49fb34cb3e72225ce38c611f4c3dd3191f89f00b272af02caa2580ec573df239b45fb343ab%26mpshare%3D1%26scene%3D1%26srcid%3D%26sharer_sharetime%3D1579610076036%26sharer_shareid%3Dc659855f06944f053b4dd00b09a6133b%26key%3D6dc1e3ec383dbb135bf7a4c3b0468cc673c6a8b5e424ba34eaeb1454be0f0f17b3f86660aaaa37e86ca3e197f97e4cf6207b79e59efea932db54d522bddb78cede6e96af33cac5384070baac9c7d8f8f%26ascene%3D1%26uin%3DNzczMTcxOTQ0%26devicetype%3DWindows%2B7%26version%3D6208006f%26lang%3Den%26exportkey%3DATub4ZAkPkZp41qLVV60doI%3D%26pass_ticket%3DRh2hySkWzgDzzLlcxt3ghMZSxpEfSvvoF08nPW6%2BBwTi%2BQMKVNa3%2Bolydrl9iPHm">分布式强化学习框架Ray</a>，也具有很好的落地潜能。</p>
+<p><strong>3.2 Inference / Model Serving</strong></p>
+<p>之前关注了很多训练ML模型中会遇到的问题。但实际应用场景里，inference（直接使用训练好的模型predict）的次数会比training多很多，因此inference的性能也很重要。</p>
+<p>Inference可以再分为以下两种：</p>
+<ul>
+<li>Offline: Pre-Materialize Predictions：所有可能的query都是已知的，就事先predict好存起来。一般没有这么玩的...</li>
+<li>Online: Compute Predictions on the fly：根据用户的输入实时predict。这才是最常见的场景</li>
+</ul>
+<p>一个典型的ML inference pipeline大致涉及到以下工序：</p>
+<ul>
+<li>input data</li>
+<li>-&gt; Preprocessing(比如图片要resize)</li>
+<li>-&gt; model prediction(有时候会同时用很多model，还要ensemble起来)</li>
+<li>-&gt; 输出结果，有时候还要处理一下</li>
+</ul>
+<p>这个pipeline的衡量指标包括Latency、Throughput等（和传统的system问题一样呀）。<a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-fa19/assets/lectures/lec07/07_prediction-serving.pdf">cs294</a>里列出了几个最近的工作，可以参考<a href="https://www.zhihu.com/question/292760866/answer/506195469">这里的paper解读</a>。个人感觉这里可做的坑不多....大多是修修补补...</p>
+<p><strong>3.3深度学习编译器</strong></p>
+<p>这里值得提一下TVM。<a href="https://zhuanlan.zhihu.com/p/50529704">这篇文章</a>对TVM进行了非常详细的介绍。</p>
+<p>简单的说TVM是在把训练好的ML model部署在不同设备上时用的，重点关注的是Inference而不是Training（也就是<a href="https://zhuanlan.zhihu.com/p/87392811">推理引擎</a>）。在这一过程中，模型本身可能用了不同的framework来写（比如tensorflow / PyTorch / MXNet，本质区别在于使用的算子类型可能不一样），而要部署到的设备也可能有不同的硬件架构（比如x86 / ARM / GPU / FPGA）。inference的过程也就是将framework X写出来的model放在硬件Y上运行的过程，这一过程和编译器是非常相似的（将语言X写的程序编译到硬件Y上运行），这也就是深度学习编译器的含义。</p>
+<p>为了设计一个高效的深度学习编译器，TVM借鉴了传统编译器LLVM的设计思想：抽象出编译器前端[ 高级语言C/java -&gt; IR ]，编译器中端[ 优化IR，这种是不同编译器平台共享的 ]，编译器后端[ IR -&gt; 目标硬件上的binary ]等概念，引入IR (Intermediate Representation。深度学习问题中可以将计算图作为IR，称为Graph IR)。这样不同硬件/framework都对标同一套IR，就避免了需要对每种硬件和framework排列组合适配的问题。TVM主要解决的是后端的问题[在目标硬件上高效运行IR]。而前端的问题[生成和优化IR]就交给深度学习框架们完成（针对这一步，在TVM stack中提供了<a href="https://link.zhihu.com/?target=https%3A//docs.tvm.ai/dev/nnvm_overview.html">NNVM</a>，<a href="https://link.zhihu.com/?target=https%3A//aws.amazon.com/blogs/machine-learning/introducing-nnvm-compiler-a-new-open-end-to-end-compiler-for-ai-frameworks/">作用是</a>represent workloads from different frameworks into standardized computation graphs）。</p>
+<p>TVM是和硬件深度集成的，也就是需要针对每种硬件平台实现相关的AI算子（类似NVIDIA GPU上的cuDNN）。然而人工调优这些算子的实现是很费精力的（特别是要针对不同形状的业务模型），这里面也有一些knob需要调整。为了让这个过程也能ML化，于是后来有了<a href="https://link.zhihu.com/?target=https%3A//docs.tvm.ai/tutorials/autotvm/tune_relay_cuda.html%23sphx-glr-tutorials-autotvm-tune-relay-cuda-py">AutoTVM</a>。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-sp19/assets/lectures/lec12/dl-compilers.pdf">cs294 sp19</a>还提出了几个可能的future work：</p>
+<ul>
+<li>- Compilers are great at Ahead of Time scheduling, what about Just-In-Time scheduling?</li>
+<li>- Any way we can share GPU in predictable way and maximize utilization for DNN inference?</li>
+<li>- Can we optimize for “fitness” of the kernel when it’s executed along with other kernels instead of its latency?</li>
+</ul>
+<h2 id="mlsystem"><strong>用ML优化传统的system问题</strong><a class="headerlink" href="#mlsystem" title="Permanent link">&para;</a></h2>
+<p>这里面的花样就更多了...在上学期<a href="https://link.zhihu.com/?target=http%3A//www-users.cselabs.umn.edu/classes/Spring-2019/csci8980/">Jon的ML system课</a>上有过较详细的接触。大部分是用ML去优化一个传统system问题中，一些需要人工经验调整、或者说可以从历史情况learn到一些东西的模块。比如<a href="https://link.zhihu.com/?target=http%3A//www-users.cselabs.umn.edu/classes/Spring-2019/csci8980/papers/tuning.pdf">数据库参数</a>、<a href="https://link.zhihu.com/?target=http%3A//www-users.cselabs.umn.edu/classes/Spring-2019/csci8980/papers/virt_addr_trans.pdf">操作系统页表</a>、<a href="https://link.zhihu.com/?target=http%3A//www-users.cselabs.umn.edu/classes/Spring-2019/csci8980/papers/learned_indices.pdf">数据库索引</a>等等。一个模块可以被ML化的前提是它<strong>必须是empirical的</strong>，参考它在页表（OS的工作集原理）、数据库（DBA是个很吃经验的活...）中的应用。如果人工都看不出来啥规律就别指望它能ML了...</p>
+<p>一般认为用ML优化system的思想是起源于<a href="https://link.zhihu.com/?target=http%3A//learningsys.org/nips17/assets/slides/dean-nips17.pdf">Jeff Dean在NIPS2017的workshop</a>。这方面的工作很多发表在纯system的顶级会议以及下属的AI for xxx workshop上，另外一些AI会议的workshop也会收录一些这方面的工作，比如nips 2018的MLsys workshop。从2017年开始已经有很多坑被做过了，但个人感觉还是有一些搞头的。感觉可以从下面两个角度再来搞：</p>
+<ul>
+<li>
+<p>同样的scenario，使用更合适的ML算法。注意这里是更合适，而不是更高大上猛如虎。</p>
+</li>
+<li>
+<ul>
+<li>比如这篇<a href="https://link.zhihu.com/?target=https%3A//www.pdl.cmu.edu/PDL-FTP/Database/sigmod18-ma.pdf">ML+Database的paper</a>，使用了LSTM来预测未来的workload pattern，还要用GPU训练，但生产环境上要求数据库服务器也安个显卡是不现实的。工程上的一个解决方案是搞个集中式的训练集群（类似OtterTune），在DBaaS的情况下这种方法倒是行得通，但在对外发布的数据库产品中就不行了。</li>
+</ul>
+</li>
+<li>这里感觉可以参考早期AutoML的一些工作，因为它们本质是很类似的（都是调参嘛...）。传统方法有启发式搜索/贝叶斯优化。最近也有很多人用强化学习去搞，但还是存在太吃资源的问题...</li>
+<li>
+<p>这方面对ML知识的要求高一点。</p>
+</li>
+<li>
+<p>寻找system界更多可以ML化的场景。这个更适合专业的system researcher来做，对ML倒是略有了解即可。</p>
+</li>
+<li>
+<ul>
+<li>有一类思路是把ML深度集成到系统设计中，比如Andy在<a href="https://link.zhihu.com/?target=https%3A//15721.courses.cs.cmu.edu/spring2019/slides/25-selfdriving.pdf">2019年的15-721</a>课上提到过<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/pdev/p/11511374.html">Self-Driving Database</a>的概念，和之前用ML优化数据库的工作不同的是，Self-Driving DB更关注如何把ML和DB深度集成，而不是搞一个又一个外挂的模块了。</li>
+</ul>
+</li>
+<li>一个类似的工作是在OS领域：<a href="https://link.zhihu.com/?target=https%3A//engineering.purdue.edu/WukLab/LearnedOS-OSR19.pdf">https://engineering.purdue.edu/WukLab/LearnedOS-OSR19.pdf</a> 。</li>
+<li>另外还有个工作是在Key-Value Storage Engine的领域：<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1907.05443.pdf">https://arxiv.org/pdf/1907.05443.pdf</a>。它提出了Design Continuum的概念：存储系统中的很多数据结构本质上是很像的（arise from the very same set of fundamental design principles），例如B+tree, LSM-tree, LSH-table等，但它们却有不同的应用场景（比如KV Store中<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/pdev/p/11277784.html">用LSM就比B+ Tree更合适</a>），很难有一个十全十美的设计。这说明它们有相互替换的空间。这样我们可以将不同数据结构的选择也作为存储系统的一个knob，根据具体workload和硬件的情况来自动选择一个合适的底层数据结构（find a close to optimal data structure design for a key-value store given a target workload and hardware environment）。</li>
+<li>一个更宏观一些的思路是做system and algorithm co-design，让任意计算机系统都能和ml深度集成。虽然具体的target system不一样，但其中有很多模块都是类似的（例如training、inference、system monitor等等）。针对这一目标MSR提出了<a href="https://link.zhihu.com/?target=https%3A//www.microsoft.com/en-us/research/publication/the-case-for-learning-and-system-co-design/">AutoSys</a>，对这些通用模块进行了整合。</li>
+</ul>
+<h2 id="_5"><strong>其他</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>方向不是很契合就先不看了...等用到了再填坑</p>
+<ul>
+<li><strong>ML pipeline / lifecycle</strong>：<a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-fa19/assets/lectures/lec03/03_ml-lifecycle.pdf">https://ucbrise.github.io/cs294-ai-sys-fa19/assets/lectures/lec03/03_ml-lifecycle.pdf</a></li>
+<li><strong>Privacy</strong>：<a href="https://link.zhihu.com/?target=https%3A//ucbrise.github.io/cs294-ai-sys-fa19/assets/lectures/lec10/10_adversarial_ml.pdf">https://ucbrise.github.io/cs294-ai-sys-fa19/assets/lectures/lec10/10_adversarial_ml.pdf</a></li>
+<li><strong>图神经网络训练系统</strong>：<a href="https://link.zhihu.com/?target=https%3A//www.msra.cn/zh-cn/news/features/2019-review-machine-learning-system">https://www.msra.cn/zh-cn/news/features/2019-review-machine-learning-system</a> [ATC19 NeuGraph]</li>
+</ul>
+<h2 id="_6"><strong>需要的技能树</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>这是从一些公司ML System Research Scientist岗位的招聘要求中整理出来的，更侧重system一些。</p>
+<p><strong>System：</strong></p>
+<ul>
+<li>工程基础：C/C++、OO programming。<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/neopenx/p/5187586.html">阅读源码</a>是个很好的学习方式</li>
+<li>OS</li>
+<li>分布式系统</li>
+<li>编译原理。特别是编译器优化技术、LLVM、memory optimization。Parser之类不喜欢也可以不看</li>
+<li>Computer Architecture。另外还需要了解：1.GPU架构，例如显存分配机制、CPU与GPU交互。 2.CPU、存储系统相关的新技术。 3.有条件可以了解下深度学习专用硬件。</li>
+<li>常见的并行计算框架，例如MPI/OpenMP/CUDA</li>
+<li>ML framework的底层原理，扒源码</li>
+<li>工业界的一些新东西：例如k8s、KubeFlow、ElasticDL</li>
+</ul>
+<p><strong>ML：</strong></p>
+<ul>
+<li>机器学习基础</li>
+<li>常见的分布式机器学习算法、DL模型压缩、模型加速方法（根据具体方向而定）</li>
+<li>数理基础不要太菜…不要被人吐槽像没学过高中数学…</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
