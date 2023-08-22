@@ -1,0 +1,1422 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../blogs/mlsys/mlsys_summary/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>ch1 - AcKing's Ideas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11-hello-world" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-header__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AcKing's Ideas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ch1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../courses/open_mlsys/ch2/" class="md-tabs__link">
+        courses
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../blogs/vector_db/something%20about%20vector%20db/" class="md-tabs__link">
+        blogs
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        books
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AcKing&#39;s Ideas" class="md-nav__button md-logo" aria-label="AcKing's Ideas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AcKing's Ideas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          courses
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          courses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+          open mlsys
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          open mlsys
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch2/" class="md-nav__link">
+        chapter 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch3/" class="md-nav__link">
+        chapter 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch4/" class="md-nav__link">
+        chapter 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch6/" class="md-nav__link">
+        chapter 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch7/" class="md-nav__link">
+        chapter 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch8/" class="md-nav__link">
+        chapter 8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch9/" class="md-nav__link">
+        chapter 9
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch10/" class="md-nav__link">
+        chapter 10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/open_mlsys/ch11/" class="md-nav__link">
+        chapter 11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+          CSCI_5120
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          CSCI_5120
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/CSCI_5120/Apriori/" class="md-nav__link">
+        Apriori
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../courses/CSCI_5120/fp_tree/" class="md-nav__link">
+        FP-tree
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          blogs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          blogs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          vector_db
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          vector_db
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/vector_db/something%20about%20vector%20db/" class="md-nav__link">
+        something about vector db
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/storage/parquet/" class="md-nav__link">
+        parquet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/linux/ld%E5%92%8Cld.so%E7%9A%84%E5%8C%BA%E5%88%AB/" class="md-nav__link">
+        ld和ld.so的区别
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/linux/futex%E9%94%81%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" class="md-nav__link">
+        futex锁原理及其应用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          mlsys
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          mlsys
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/mlsys/mlsys_summary/" class="md-nav__link">
+        综述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          books
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          books
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          程序员的自我修养
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          程序员的自我修养
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ch1
+      </a>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="11-hello-world">1.1 从Hello World说起<a class="headerlink" href="#11-hello-world" title="Permanent link">&para;</a></h1>
+<p>本书解决什么问题？
+对于最简单的C Hello World：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>程序为什么要被编译器编译了之后能运行？</li>
+<li>编译器把C程序转化成可执行机器码过程中，做了什么？如何做的？</li>
+<li>编译出来的可执行文件里面是什么？除了机器码还有什么？如何存放的，怎么组织的？</li>
+<li>#include <stdio.h>是什么意思？把stdio.h包含进来意味着什么？C语言库又是什么？它怎么实现的？</li>
+<li>不同的编译器（Microsoft VC, GCC）和不同的硬件平台（x86, ARM, SPARC, MIPS）以及不同的OS（Windows, Linux, Unix），最终编译出来的结果一样吗？为什么？</li>
+<li>Hello World程序是怎么运行起来的？OS怎么装载的？它从哪儿开始执行，到哪儿结束？main之前发生了什么，结束后又发生了什么？</li>
+<li>如果没有OS，Hello World可以运行吗？如果要在一台没有OS的机器上运行Hello World需要什么？如何实现？</li>
+<li>printf怎么实现的？为什么可以有不定数量的参数？为什么它能在终端上输出字符串？</li>
+<li>Hello World程序运行时，它在内存中是什么样的？</li>
+</ul>
+<p>本书为想了解这些问题的你准备的。</p>
+<h1 id="12">1.2 万变不离其宗<a class="headerlink" href="#12" title="Permanent link">&para;</a></h1>
+<p>主要描述硬件体系结构（略）</p>
+<h1 id="13">1.3 站得高，望得远<a class="headerlink" href="#13" title="Permanent link">&para;</a></h1>
+<p>系统软件：一般用于管理计算机本书的软件，称为系统软件，以区别普通的应用程序。
+系统软件分为两块：1）平台性的，如OS内核、驱动程序、运行库和系统工具；2）用于程序开发的，如编译器、汇编器、链接器等开发工具和开发库。
+<strong>本书着重介绍链接器和库（运行库 + 开发库）相关内容。</strong></p>
+<p>计算机系统软件体系结构采用一种分层的结构，有句名言：</p>
+<blockquote>
+<p>计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决。</p>
+</blockquote>
+<p>计算机软件体系结构：
+<img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202308220742544.png" alt="img" style="zoom:150%;" /></p>
+<ul>
+<li>接口
+  每个层次之间都要通信，其协议一般称为<strong>接口（Interface）</strong>，接口之下是服务提供者，接口之上是服务调用者。
+  每个中间层都是对它下面那层的包装和扩展。中间层的存在，使得应用程序和硬件之间保持相对独立。</li>
+<li>应用程序编程接口
+  最上层是应用程序，跟开发工具在一个层次，其使用的接口是OS<strong>应用程序编程接口（Application Programing Interface）</strong>。应用程序接口提供者是运行库，什么样的运行库提供什么样API，如Glibc提供POSIX的API，Windows运行库提供Windows API，最常见的32bit Windows提供的API又称为Win32。</li>
+<li>系统调用接口
+  运行库使用OS提供的<strong>系统调用接口（System call interface）</strong>，系统调用接口在实现中往往以<strong>软件中断（Software Interrupt）</strong>方式提供，如Linux 0x80号中断作为系统调用接口，Windows是0x2E。</li>
+<li>硬件规格
+  OS内核层是硬件接口的使用者，硬件是接口的定义者。硬件接口调用硬件驱动程序，常称为<strong>硬件规格（Hardware Specification）</strong>。</li>
+</ul>
+<h2 id="14-os">1.4 OS做什么<a class="headerlink" href="#14-os" title="Permanent link">&para;</a></h2>
+<p>1）提供抽象的接口；2）管理硬件资源。</p>
+<p>一个计算机主要硬件资源：CPU、存储器（内存和硬盘）、I/O设备。</p>
+<h2 id="141-cpu">1.4.1 不要让CPU打盹<a class="headerlink" href="#141-cpu" title="Permanent link">&para;</a></h2>
+<p>发展历史：
+多道程序 =&gt; 分时系统 =&gt; 多任务系统 =&gt; 进程</p>
+<p>目的：
+提高CPU利用率，不要让CPU空转，甚至死循环。</p>
+<h2 id="142">1.4.2 设备驱动<a class="headerlink" href="#142" title="Permanent link">&para;</a></h2>
+<p>提供统一接口，统一硬件访问模式，屏蔽硬件细节。如open、read/write、close，既可以读写文件（操作硬盘），也可以与终端设备、网络设备交互。</p>
+<h1 id="15">1.5 内存不够怎么办<a class="headerlink" href="#15" title="Permanent link">&para;</a></h1>
+<p>进程的总体目标：希望每个进程从逻辑上看，都可以独占计算机的资源。</p>
+<ul>
+<li>CPU
+  多任务 =&gt; CPU在多个进程间共享，从进程角度看是独占了CPU。</li>
+<li>I/O设备
+  通过OS的I/O抽象模型（即统一的硬件访问模式），实现I/O设备的共享和抽象。</li>
+<li>
+<p>内存
+  早期程序直接运行在物理内存上，访问物理地址。对于同时运行多个程序的情况，就不太适用，因为：</p>
+</li>
+<li>
+<p>地址空间不隔离
+   所有程序直接访问物理地址，恶意程序很容易改写其他程序的内存数据，影响其他任务，从而导致整个计算机环境不安全。</p>
+</li>
+<li>内存使用率低
+   缺乏有效内存管理机制，程序执行时，整个程序装入内存执行；然而，内存不足时，就需要换出整个程序，空出内存给其他进程使用。</li>
+<li>程序运行的地址不确定
+   因为程序每次装入运行时，需要分配一块足够大的内存区域，其位置不确定。给编程造成了麻烦，因为编程时，访问数据和指令跳转的目标地址很多是固定的，就涉及到程序的重定位问题。</li>
+</ul>
+<p>解决思路：增加中间层，提供间接的地址访问方法。把程序给出的地址看作是<strong>虚拟地址（Virtual Address）</strong>，然后通过映射的方法，将虚拟地址转化成实际的物理地址。这样做的好处：程序能访问的物理内存区域相互隔离。</p>
+<h2 id="151">1.5.1 关于隔离<a class="headerlink" href="#151" title="Permanent link">&para;</a></h2>
+<p>32bit的虚拟地址空间，可以看成是0~2^32 byte，大小是4GB。
+地址空间分两种：虚拟地址空间（Virtual Address Space），物理地址空间（Physical Address Space）。</p>
+<p>每个进程只能访问自己的地址空间，只有真正装了内存的部分（往往 &lt;&lt; 4GB），才是真实有效的，对应实际的物理地址。</p>
+<h2 id="152-segmentation">1.5.2 分段（Segmentation）<a class="headerlink" href="#152-segmentation" title="Permanent link">&para;</a></h2>
+<p>分段基本思路：把一段与程序所需要的内存空间大小的虚拟空间，映射到某个地址空间。
+简而言之，就是把虚拟空间按地址范围划分多个段，分别用作不同用途。</p>
+<p>注：分段做到了地址隔离，但没有解决内存使用效率的问题。因为分段对内存区域的映射还是按程序为单位，如果内存不足，被换入换出到磁盘的都是整个程序，会造成大量磁盘IO，严重影响速度。</p>
+<p>根据程序的局部性原理，想到了<strong>分页（Paging）</strong>的方法，以提高内存的使用率。</p>
+<h2 id="153-paging">1.5.3 分页（Paging）<a class="headerlink" href="#153-paging" title="Permanent link">&para;</a></h2>
+<ul>
+<li>虚拟页，物理页与磁盘页
+  把地址空间人为地等分成固定大小的页，每一页的大小由硬件决定。或者硬件提供多个选项，OS决定具体选择。</li>
+</ul>
+<p>把进程的虚拟地址空间按页分割，常用的数据和代码装载到内存中，不常用的放到磁盘中。当需要用到时，再从磁盘取出。</p>
+<p>虚拟空间的页叫<strong>虚拟页（VP, Virtual Page）</strong>，物理内存的页叫<strong>物理页（PP, Physical Page）</strong>，磁盘中的页叫<strong>磁盘页（DP, Disk Page）</strong>。
+虚拟空间有些页被映射到同一个物理页，这样就可以实现内存共享。（图中线表示映射关系）
+<img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202308220747780.png" alt="img" style="zoom:150%;" /></p>
+<p>上图Process1的VP2、VP3虚拟页不在（物理）内存中，当进程需要用到这2个页时，硬件会捕捉该消息。这就是<strong>页错误（Page Fault）</strong>。随后OS接管进程，负责将VP2、VP3从磁盘中读取出来、装入内存，然后在内存中这2个页与VP2、VP3建立映射关系。</p>
+<p>以页为单位存取和交换这些数据很方便，硬件本身也是以页为单位的操作方式。</p>
+<ul>
+<li>MMU
+  虚拟存储的实现需要依靠硬件的支持，几乎所有硬件都采用MMU（Memory Management Unit），而MMU通常集成在CPU内部。
+  <img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202308220747748.png" alt="img" style="zoom:150%;" /></li>
+</ul>
+<p>CPU访问的的虚拟地址，经过MMU转换成实际的物理地址。</p>
+<h1 id="16">1.6 众人拾柴火焰高<a class="headerlink" href="#16" title="Permanent link">&para;</a></h1>
+<h2 id="161">1.6.1 线程基础<a class="headerlink" href="#161" title="Permanent link">&para;</a></h2>
+<ul>
+<li>什么是线程？
+  线程有时被称为轻量级进程（Lightweight Process, LWP），是程序执行的最小单元。一个标准的线程由线程ID、当前指令指针（PC）、寄存器集合和堆栈组成。
+  通常，一个进程由一个到多个线程组成，各个线程之间共享程序的内存空间（代码段、数据段、堆等）及一些进程级的资源（已打开的文件描述符等）。</li>
+<li>
+<p>多线程的优势</p>
+</li>
+<li>
+<p>某个操作可能会陷入长期等待，等待的线程进入休眠，无法继续执行。多线程可以有效利用等待的时间，其他线程可以正常工作。</p>
+</li>
+<li>某个操作（常常是计算）会消耗大量时间，如果只有一个线程，程序和用户之间交互会中断。多线程可以让一个线程负责交互，另一个负责计算。</li>
+<li>程序逻辑本身要求并发，如多端下载软件（迅雷、bittorrent）。</li>
+<li>多CPU或多核计算机，本身具备同时执行多个线程的能力，单线程无法发挥计算机的全部算力。</li>
+<li>
+<p>相对于多进程，多线程在数据共享方面效率高很多。</p>
+</li>
+<li>
+<p>线程的访问权限
+  线程的访问非常自由，可以访问内存所有数据，包括其他线程的堆栈（前提是知道地址）。
+  线程的私有存储空间包括：</p>
+</li>
+<li>
+<p>栈（无法完全被其他线程访问，但通常可认为是私有的）；</p>
+</li>
+<li>线程局部变量（Thread Local Storyage, TLS）。线程局部存储是某些OS为线程单独提供的私有空间，通常容量有限；</li>
+<li>寄存器（PC等），是执行流的基本数据；</li>
+</ul>
+<p>线程之间共享的存储空间包括：</p>
+<ol>
+<li>全局变量；</li>
+<li>堆数据；</li>
+<li>函数里的静态变量；</li>
+<li>程序代码；</li>
+<li>
+<p>打开的文件，A线程打开的文件，B线程可以读写；</p>
+</li>
+<li>
+<p>线程调度与优先级
+  线程数量 &lt;= 处理器数量时，线程并发是真正的并发，不同线程互不相干；
+  线程数量 &gt; 处理器数量时，线程并发受到阻碍，因为至少有一个处理器运行多个线程；</p>
+</li>
+</ol>
+<p>一个处理器上切换不同线程的行为，称为<strong>线程调度（Thread Schedule）</strong>，线程至少有3种状态：</p>
+<ol>
+<li>运行（Running）：线程正在执行；</li>
+<li>就绪（Ready）：线程可以立刻运行，但CPU已经被占用；</li>
+<li>等待（Waiting）：线程正在等待某一事件（IO或同步）发生，无法执行；</li>
+</ol>
+<p><strong>时间片（Time Slice）</strong>：
+线程拥有一段可以执行的时间，称为时间片。</p>
+<p><strong>线程状态切换：</strong>
+<img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202308220753192.png" alt="img" style="zoom:150%;" /></p>
+<p><strong>优先级调度 和 轮转法：</strong>
+线程的调度方式有很多，但都带有优先级调度（Priority Schedule）和轮转法（Round Robin）。
+轮转法：指让各个线程轮流执行一小段时间的方法。
+线程优先级：在具有优先级调度的系统中，线程拥有各自的<strong>线程优先级（Thread Priority）</strong>。高优先级先执行，低优先级线程后执行。</p>
+<p><strong>IO密集型线程 和 CPU密集型线程：</strong>
+频繁等待的线程称为<strong>IO密集型线程（IO Bound Thread）</strong>，很少等待的线程称为<strong>CPU密集型线程（CPU Bound Thread）</strong>。</p>
+<p><strong>饿死：</strong>
+<strong>饿死（Starvation）</strong>现象，一个线程被饿死，是指它的优先级较低，在执行前，总有较高优先级的线程试图执行，因而无法得到执行。</p>
+<p><strong>线程优先级改变方式</strong></p>
+<ol>
+<li>用户指定优先级；</li>
+<li>根据进入等待状态频繁程度提升 或降低优先级；</li>
+<li>
+<p>长时间得不到执行而被提升优先级；</p>
+</li>
+<li>
+<p>可抢占线程和不可抢占线程
+  线程时间片用尽后，会被强制剥夺执行权利，进入就绪状态，该过程叫<strong>抢占（Preemption）</strong>：之后执行线程抢占了当前线程。</p>
+</li>
+</ol>
+<p>在不可抢占线程中，线程主动放弃执行两种情况：</p>
+<ol>
+<li>当线程试图等待某事件（IO等）；</li>
+<li>
+<p>线程主动放弃时间片；</p>
+</li>
+<li>
+<p>Linux多线程
+  Linux下，将所有执行实体（线程 or 进程）都称为任务（Task）。创建一个新任务的方法：</p>
+</li>
+<li>
+<p>fork 复制当前进程；</p>
+</li>
+<li>exec 程序加载器。使用新的可执行映像覆盖当前可执行映像；</li>
+<li>clone 创建子进程并从指定位置开始执行；</li>
+</ol>
+<p>fork 产生新任务速度很快，为什么？
+因为fork并不复制原任务的内存空间，而是和原任务一起共享一个 <strong>写时复制（Copy on Write, COW）</strong>的内存空间。写时复制，指两个任务可以同时自由读取内存，但任意一个任务试图对内存进行修改时，内存会复制一份提供给修改方单独使用，以免影响其他任务。</p>
+<p>fork只能产生本任务的镜像，因此需要使用exec配合才能启动别的新任务。exec可以用新的可执行映像替换当前的可执行映像，因此fork新任务之后，新任务可用exec执行新的可执行文件。
+fork + exec通常用于产生新任务，clone常用来产生新线程。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">clone</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fn</span><span class="p">)(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">child_stack</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+</code></pre></div>
+<p>clone 特点：可以产生一个新任务，从指定位置开始执行，并且可以选择是否共享当前进程的内存空间和文件。
+clone 相当于fork + exec（创建新进程，非复制）, vfork(创建共享内存的进程，即线程)。</p>
+<h2 id="162">1.6.2 线程安全<a class="headerlink" href="#162" title="Permanent link">&para;</a></h2>
+<ul>
+<li>线程安全意义
+  多线程程序处于一个多变的环境中，可访问的全局变量和堆数据随时可能被其他线程改变。因此多线程程序并发时，数据的一致性变得很重要。</li>
+<li>竞争与原子操作
+  多线程同时访问一个共享数据，可能造成恶劣的后果，如2个线程分别执行：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>线程1</th>
+<th>线程2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i=1; ++i;</td>
+<td>--i;</td>
+</tr>
+</tbody>
+</table>
+<p>结果可能是0,1或2.
+这是因为，多种体系结构下，++i的实现方法如下：</p>
+<ol>
+<li>读取i到某个寄存器X；</li>
+<li>X++；</li>
+<li>将X内容存储回i；</li>
+</ol>
+<p>一个线程在对i进行自增或自减操作时，另外一个线程也可能同时对i进行操作，从而导致意想不到的结果。</p>
+<p>如何解决多线程竞争，导致的数据错乱的问题？
+有2种方法：</p>
+<ol>
+<li>使用原子操作；</li>
+<li>使用同步与锁；</li>
+</ol>
+<p>通常把单指令的操作称为原子的（Atomic），而单条指令的执行是不会被打断的。
+Windows下提供了一套API进行原子操作，称为Interlocked API：</p>
+<table>
+<thead>
+<tr>
+<th>Windows API</th>
+<th>作用描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InterlockedExchange</td>
+<td>原子地交互2个值</td>
+</tr>
+<tr>
+<td>InterlockedDecrement</td>
+<td>原子地减少一个值</td>
+</tr>
+<tr>
+<td>InterlockedIncrement</td>
+<td>原子地增加一个值</td>
+</tr>
+<tr>
+<td>InterlockedXor</td>
+<td>原子地进行异或操作</td>
+</tr>
+</tbody>
+</table>
+<p>在Linux中，提供了原子变量类型atomic_t，其自增等指令往往是单指令。另外，也有一套原子操作API，详见<a href="https://blog.csdn.net/roger_ranger/article/details/78545936">多线程基础之四：Linux提供的原子锁类型atomic_t</a></p>
+<p><strong>原子操作只适合简单场合，对原子变量进行操作；面对复杂场景，需要使用锁。</strong></p>
+<ul>
+<li>同步与锁
+  所谓同步（Synchronization），指在一个线程访问数据未结束的时候，其他线程不得对同一个数据进行访问。i.e. 对数据的访问被原子化了。</li>
+</ul>
+<p>同步最常见的方法是使用<strong>锁（Lock）</strong>。线程在访问数据前，先试图获取（Acquire）锁，访问结束后释放（Release）锁。如果在锁已经被其他线程占用时试图获取锁，线程会等待，直到锁重新可用。</p>
+<p>最简单的锁：<strong>二元信号量（Binary Semaphore）</strong>，只有两种状态：占用，非占用。
+允许多个线程并发访问资源，可用选用多元信号量，即<strong>信号量（Semphore）</strong>。</p>
+<p><strong>互斥量（Mute）</strong>类似于二元信号量，同时允许仅一个线程访问数据或资源，但区别在于互斥量只能由上锁的线程释放，其他线程释放无效。而二元信号量可以由任意线程释放。</p>
+<p><strong>临界区（Critical Section）</strong>比互斥量更严格的同步手段。
+临界区和互斥量、信号量区别在于：互斥量、信号量在系统的任何进程都是可见的，i.e. 一个进程创建互斥量或信号量，另外一个进程释放锁是合法的。而临界区作用范围仅限于本进程，其他进程无法获取该锁。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">获取临界区的锁</span> <span class="c1">-- 进入临界区</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="err">临界区代码</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="err">释放临界区的锁</span> <span class="c1">-- 退出临界区</span>
+</code></pre></div>
+<p><strong>读写锁（Read-Write Lock）</strong>：用于特定场合同步。相比较互斥量和信号量而言，是更小粒度的锁，不会每次都锁住全部资源，而是分为两种：共享的（Shared），独占的（Exclusive）。
+多个线程可以同时以共享方式占用读写锁；当有一个线程以独占方式占用读写锁时，其他试图获取锁的线程阻塞。</p>
+<p><strong>条件变量（Condition Variable）</strong>：一种同步手段，作用类似于栅栏。
+对于条件变量，线程有两种操作：1）等待条件变量，一个条件变量可以被多个线程等待；2）唤醒条件变量，此时某个或所有等待此条件变量的线程都会被唤醒并继续支持。
+关于条件变量，有个重要概念“虚假唤醒”，详见<a href="https://www.jianshu.com/p/0eff666a4875">虚假唤醒（spurious wakeup） | 简书</a>。</p>
+<ul>
+<li>
+<p>可重入（Reentrant）与线程安全
+  重入函数：一个函数被重入，表示这个函数没有执行完成，由于外部因素或内部调用，又一次进入该函数执行。
+  一个函数被重入有两种情况：</p>
+</li>
+<li>
+<p>多个线程同时执行这个函数； -- 多线程并发</p>
+</li>
+<li>函数自身（可能是经过多层调用之后）调用自身； -- 递归</li>
+</ul>
+<p>一个函数被称为可重入的，表明该函数被重入后，不会产生任何不良后果。如下面sqr就是可重入的：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">sqr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>一个函数成为可重入的，须具有以下几个特点：</p>
+<ol>
+<li>不使用任何（局部）静态或全局非const变量；</li>
+<li>不返回任何（局部）静态或全局的非const变量的指针；</li>
+<li>仅依赖于调用方提供的参数；</li>
+<li>不依赖任何单个资源的锁（mutex等）； -- 锁只能确保是线程安全的，不能确保是可重入的</li>
+<li>
+<p>不调用任何不可重入的函数；</p>
+</li>
+<li>
+<p>过度优化
+  即使正确使用锁，也不一定能保证线程安全，因为编译器技术没有跟上日益增长的并发需求。很多看似无错的代码在优化和并发面前，又产生了麻烦。
+  例子1：</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">Thread1</span><span class="w">        </span><span class="n">Thread2</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">lock</span><span class="p">();</span><span class="w">        </span><span class="n">lock</span><span class="p">();</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">x</span><span class="o">++</span><span class="p">;</span><span class="w">           </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">unlock</span><span class="p">();</span><span class="w">      </span><span class="n">unlock</span><span class="p">();</span>
+</code></pre></div>
+<p>上面例子看似x++行为不会被破坏，x值应该是2。然而，如果编译器为了提高x访问速度，把x放到某个寄存器里，而各线程的寄存器是相互独立的，x的值也有可能是1。</p>
+<p>例子2：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">Thread1</span><span class="w">        </span><span class="n">Thread2</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">          </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">         </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</code></pre></div>
+<p>r1，r2看似至少有一个为1，逻辑上不可能同时为0。事实上，r1 = r2 = 0的情况也可能发生。因为CPU有动态调度策略，执行程序时，为了提高效率可能交换指令的顺序，编译器在进行优化的时候，可能为了效率而交换毫不相干的2条相邻指令（如x=1和r1=y）的执行顺序。也就是说，实际执行顺序可能是：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">Thread1</span><span class="w">         </span><span class="n">Thread2</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">         </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">          </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</code></pre></div>
+<p>这样，r1 = r2 = 0 就完全可能。<strong>可以使用 volatile 关键字试图阻止过度优化</strong>。volatile可以做到：</p>
+<ol>
+<li>阻止编译器为了提高速度，将一个变量缓存到寄存器而不写回； -- 要求去指定地址读取内容，而非从高速缓存寄存器</li>
+<li><strong>阻止编译器调整操作 volatile 变量的指令顺序；</strong></li>
+</ol>
+<p>volatile可以完美解决第1）个问题，但不能解决第2）个问题，因为即使阻止了编译器调整顺序，也无法阻止CPU动态调度换序。</p>
+<p>例3，来自 Singleton 模式的 double-check，与换序有关的问题：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">volatile</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">pInst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="nf">GetInstance</span><span class="p">()</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pInst</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="n">lock</span><span class="p">();</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pInst</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="n">pInst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="n">unlock</span><span class="p">();</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pInst</span><span class="p">;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>这段代码乍看没有问题，lock确保线程安全，双重pInst 检查可以减小lock调用开销，又能确保线程安全。但实际上这段代码是有问题的，原因在于CPU的乱序执行。C++ new包含2个步骤：</p>
+<ol>
+<li>分配内存；</li>
+<li>调用构造函数；</li>
+</ol>
+<p>因此，pInst = new T包含三个步骤：</p>
+<ol>
+<li>分配内存；</li>
+<li>在内存的位置上调用构造函数；</li>
+<li>将内存的地址赋值给pInst；</li>
+</ol>
+<p>这三步中，2和3的顺序可以颠倒，也就是说，可能出现：pInst值NULL，但对象还没构造完成。此时如果另外一个线程调用GetInstall，此时 pInst == NULL为false，这个调用会直接返回尚未构造完成的对象的地址（pINst），有可能造成程序崩溃。</p>
+<p>从上面例2，例3可以看到CPU乱序执行能力会让对线程安全的保障异常困难。然而，现在并不存在可移植的阻止换序的方法。通常，调用CPU提供的一条指令：barrier，可以阻止CPU将该指令之前的指令交换到barrier之后，反之亦然。不同体系结构CPU提供的barrier指令名称各不相同，如POWERPC提供一条指令名为lwsync。可以这样保证线程安全：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#define barrier() __asm__ volatile (&quot;lwsync&quot;)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">volatile</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">pInst</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="nf">GetInstall</span><span class="p">()</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">{</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">pInst</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="n">lock</span><span class="p">();</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">pInst</span><span class="p">)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">            </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">            </span><span class="n">barrier</span><span class="p">();</span><span class="w"> </span><span class="c1">// 阻止CPU将该之前的指令交换到barrier之后</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">            </span><span class="n">pInst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">        </span><span class="n">unlock</span><span class="p">();</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pInst</span><span class="p">;</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+</code></pre></div>
+<p>由于barrier的存在，对象的构造一定在barrier执行之前完成，pInst被赋值时，对象总是完好的。</p>
+<h2 id="163">1.6.3 多线程内部情况<a class="headerlink" href="#163" title="Permanent link">&para;</a></h2>
+<ul>
+<li>三种线程模型
+  线程的并发执行是由多处理器或操作系统调度来实现的。实际情况更复杂，用户实际使用的线程并不是内核线程，而是存在于用户态的用户线程。用户线程并不一定在操作系统内核里对应同等数量的内核线程，例如某些轻量级的线程库。用户有3个线程执行，内核可能只有一个。</li>
+</ul>
+<p>用户态多线程库的实现方式：</p>
+<ol>
+<li>一对一模型
+   最简单的模型，一个用户使用的线程就唯一对应一个内核使用的线程。（一个内核里的线程在用户态不一定有对应的线程存在）
+   <img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202308220753196.png" alt="img" style="zoom:150%;" /></li>
+</ol>
+<p>Linux演示这一过程：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">thread_function</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kt">char</span><span class="w"> </span><span class="n">thread_stack</span><span class="p">[</span><span class="mi">4096</span><span class="p">];</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kt">void</span><span class="w"> </span><span class="n">foo</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">{</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="n">clone</span><span class="p">(</span><span class="n">thread_function</span><span class="p">,</span><span class="w"> </span><span class="n">thread_stack</span><span class="p">,</span><span class="w"> </span><span class="n">CLONE_VM</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>缺点：
+1）许多OS限制了内核线程的数量，因此一对一线程会让用户的线程数量受到限制；
+2）许多OS内核线程调度时，上下文切换开销大，导致用户线程执行效率低；</p>
+<ol>
+<li>多对一模型
+   将多个用户线程映射到一个内核线程上，线程之间的切换由用户态代码进行。相当于一对一模型，多对一线程切换要快速很多。另外，对用户线程数量几乎无限制。
+   <img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202308220753201.png" alt="image" style="zoom:150%;" /></li>
+</ol>
+<p>缺点：
+1）如果其中一个用户线程阻塞，所有线程将无法执行，包括内核线程；
+2）多处理器下，增多处理器也不会对多对一模型的线程性能有明显帮助；</p>
+<ol>
+<li>多对多模型
+   结合多对一和一对一模型的特点，将多个用户线程映射到少数但不止一个内核线程上。一个用户线程阻塞不会阻塞所有用户线程，因为此时还有别的线程可以被调度执行。
+   <img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202308220753211.png" alt="image" style="zoom:150%;" /></li>
+</ol>
+<h1 id="17">1.7 本章小结<a class="headerlink" href="#17" title="Permanent link">&para;</a></h1>
+<p>回顾计算机的软硬件基本结构，包括CPU和外网部件的连接方式、SMP与多核、软硬件层次体系结构、如果充分利用CPU及与系统软件十分相关的设备驱动，操作系统、虚拟空间、物理空间、页映射和线程的基础概念。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
