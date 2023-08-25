@@ -9,17 +9,13 @@
       
       
       
-        <link rel="prev" href="../../storage/Optimization%20for%20ZMQ/">
-      
-      
-        <link rel="next" href="../futex%E9%94%81%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>ld和ld.so的区别 - AcKing's Ideas</title>
+        <title>近邻搜索之制高点树（VP-Tree） - AcKing's Ideas</title>
       
     
     
@@ -71,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ld-ldso" class="md-skip">
+        <a href="#vp-tree" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ld和ld.so的区别
+              近邻搜索之制高点树（VP-Tree）
             
           </span>
         </div>
@@ -213,7 +209,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../courses/open_mlsys/ch2/" class="md-tabs__link">
+      <a href="../../open_mlsys/ch2/" class="md-tabs__link">
         courses
       </a>
     </li>
@@ -224,8 +220,6 @@
       
         
   
-  
-    
   
 
 
@@ -238,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../vector_db/something%20about%20vector%20db/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../blogs/vector_db/something%20about%20vector%20db/" class="md-tabs__link">
         blogs
       </a>
     </li>
@@ -368,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/open_mlsys/ch2/" class="md-nav__link">
+      <a href="../../open_mlsys/ch2/" class="md-nav__link">
         chapter 2
       </a>
     </li>
@@ -382,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/open_mlsys/ch3/" class="md-nav__link">
+      <a href="../../open_mlsys/ch3/" class="md-nav__link">
         chapter 3
       </a>
     </li>
@@ -396,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/open_mlsys/ch4/" class="md-nav__link">
+      <a href="../../open_mlsys/ch4/" class="md-nav__link">
         chapter 4
       </a>
     </li>
@@ -410,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/open_mlsys/ch6/" class="md-nav__link">
+      <a href="../../open_mlsys/ch6/" class="md-nav__link">
         chapter 6
       </a>
     </li>
@@ -424,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/open_mlsys/ch7/" class="md-nav__link">
+      <a href="../../open_mlsys/ch7/" class="md-nav__link">
         chapter 7
       </a>
     </li>
@@ -438,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/open_mlsys/ch8/" class="md-nav__link">
+      <a href="../../open_mlsys/ch8/" class="md-nav__link">
         chapter 8
       </a>
     </li>
@@ -452,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/open_mlsys/ch9/" class="md-nav__link">
+      <a href="../../open_mlsys/ch9/" class="md-nav__link">
         chapter 9
       </a>
     </li>
@@ -466,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/open_mlsys/ch10/" class="md-nav__link">
+      <a href="../../open_mlsys/ch10/" class="md-nav__link">
         chapter 10
       </a>
     </li>
@@ -480,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/open_mlsys/ch11/" class="md-nav__link">
+      <a href="../../open_mlsys/ch11/" class="md-nav__link">
         chapter 11
       </a>
     </li>
@@ -530,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/CSCI_5120/Apriori/" class="md-nav__link">
+      <a href="../Apriori/" class="md-nav__link">
         Apriori
       </a>
     </li>
@@ -544,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/CSCI_5120/fp_tree/" class="md-nav__link">
+      <a href="../fp_tree/" class="md-nav__link">
         FP-tree
       </a>
     </li>
@@ -558,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/CSCI_5120/CLIQUE/" class="md-nav__link">
+      <a href="../CLIQUE/" class="md-nav__link">
         CLIQUE
       </a>
     </li>
@@ -572,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../courses/CSCI_5120/vp_tree.md" class="md-nav__link">
+      <a href="../vp_tree.md" class="md-nav__link">
         VP-tree
       </a>
     </li>
@@ -599,16 +593,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
       
       
       
@@ -617,7 +611,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           blogs
@@ -659,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vector_db/something%20about%20vector%20db/" class="md-nav__link">
+      <a href="../../../blogs/vector_db/something%20about%20vector%20db/" class="md-nav__link">
         something about vector db
       </a>
     </li>
@@ -709,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../storage/parquet/" class="md-nav__link">
+      <a href="../../../blogs/storage/parquet/" class="md-nav__link">
         parquet
       </a>
     </li>
@@ -723,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../storage/data%20lake/" class="md-nav__link">
+      <a href="../../../blogs/storage/data%20lake/" class="md-nav__link">
         data lake
       </a>
     </li>
@@ -737,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../storage/Optimization%20for%20ZMQ/" class="md-nav__link">
+      <a href="../../../blogs/storage/Optimization%20for%20ZMQ/" class="md-nav__link">
         optimization for ZMQ
       </a>
     </li>
@@ -756,16 +750,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
       
       
       
@@ -774,7 +768,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
           linux
@@ -785,21 +779,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../blogs/linux/ld%E5%92%8Cld.so%E7%9A%84%E5%8C%BA%E5%88%AB/" class="md-nav__link">
         ld和ld.so的区别
       </a>
-      
     </li>
   
 
@@ -811,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../futex%E9%94%81%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" class="md-nav__link">
+      <a href="../../../blogs/linux/futex%E9%94%81%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" class="md-nav__link">
         futex锁原理及其应用
       </a>
     </li>
@@ -861,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mlsys/mlsys_summary/" class="md-nav__link">
+      <a href="../../../blogs/mlsys/mlsys_summary/" class="md-nav__link">
         综述
       </a>
     </li>
@@ -875,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mlsys/%E5%88%86%E5%B8%83%E5%BC%8F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+      <a href="../../../blogs/mlsys/%E5%88%86%E5%B8%83%E5%BC%8F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
         D-DNN-SYS
       </a>
     </li>
@@ -1151,6 +1135,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    构造
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    构造分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    查找
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    结论
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1164,10 +1191,35 @@
                   
 
 
-<h1 id="ld-ldso">ld 和 ld.so 的区别<a class="headerlink" href="#ld-ldso" title="Permanent link">&para;</a></h1>
-<p>ld 链接器，它的生命周期是发生在 <em>compile-time</em> 的，它的一些参数是编译时期 gcc 给传递的。比如，指定需要链接什么库。</p>
-<p>ld.so 的周期是发生在 <em>run-time</em> 的，名字叫<strong>动态链接器 / 加载器</strong>，它的作用体现在运行时。比如你链接了指定的库，它运行的时候会根据指定的路径去加载指定的库。</p>
-<p>而命令 ld.so 相应的配置文件是 <code>/etc/ld.so.conf</code>，这是个文本文件，里面可以增加修改 so 库的搜索路径（与windows下是有区别的，windows下动态库是先搜索当前目录，再去环境变量 PATH 中搜索，再到系统路径下去搜索），当然也可以通过定义一个 <code>$LD_LIBRARY_PATH</code> 的环境变量来指定运行时的搜索路径。所以，这个配置文件是不可以被 ld 链接器使用的，也就是说 ld 的时候，需要加入 -L 这个搜索路径参数。</p>
+<h1 id="vp-tree">近邻搜索之制高点树（VP-Tree）<a class="headerlink" href="#vp-tree" title="Permanent link">&para;</a></h1>
+<h2 id="intro">intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h2>
+<p>近邻搜索是一种很基础的又相当重要的操作，除了信息检索以外，还被广泛用于计算机视觉、机器学习等领域，如何快速有效的做近邻查询一直是一项热门的研究。较早提出的方法多基于空间划分（Space Partition），最具有代表性的如kd-tree（kdt），球树等。本篇将介绍基于空间划分方法中的一种，制高点树（Vantage Point Tree，vpt），最初在1993年提出，比kdt稍晚，提供了一个不一样的建树思路。</p>
+<h2 id="_1">构造<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>VP树的每个节点存储5条信息：</p>
+<ul>
+<li><em>data</em> - 它包含的数据点列表</li>
+<li><em>vp</em> - 从<em>data</em>中选择的有利位置</li>
+<li><em>mu</em> - 定义节点范围的半径值</li>
+<li><em>inside</em> - 左子树</li>
+<li><em>outside</em>- 右子树</li>
+</ul>
+<p>我们现在将构建根节点。根的数据将包含所有点<em>。</em>vp是从<em>data</em>中随机选择的。选择一个好的有利位置直接影响树的效率，但为了简单起见，我们将随机选择一个点。</p>
+<p>一旦选择了<em>vp</em> ，我们将计算<em>mu</em>。mu值代表半径，一半<em>data</em>在半径内，一半在半径外<em>。</em>为了说明根节点，蓝色点是 vp <em>，</em>它周围是一个半径为<em>mu</em>的圆。</p>
+<p>现在我们来细分一下。我们将创建<em>inside</em>子树，其<em>data</em>包含半径内部的所有点。我们将使用半径外部的点创建<em>outside</em>子树。</p>
+<p>然后，树递归地划分剩余空间，细分每个节点中的点。<strong>这一直持续到子树不包含任何点为止。</strong>每个连续的节点代表数据集的一个更小的子集。对于 1000 个节点，我们只需要细分 9 次，因为根将有 2 个子树，每个子树有 <span class="arithmatex">\(2^9\)</span> = 512 个点。这是完全细分的有利点树的图示。</p>
+<p><img src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202308251147819.png" alt="image-20230825114722744" style="zoom:80%;" /></p>
+<h2 id="_2">构造分析<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在递归的每个级别，树将原始问题分成两个大小一半的子问题。这是因为inside子树和outside子树都包含父节点的一半节点。<strong>在每个节点，必须计算该节点<em>data</em>的中位数以获得<em>mu</em>值。整个过程的复杂度为 O(n)。</strong></p>
+<p>这样做时，树的深度为 O(logn)，因为它进行二元分割。因此，VP树的整体构建复杂度为O(nlogn)。</p>
+<h2 id="_3">查找<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>构建vp-tree的目的是对其执行有效的搜索查询。目标是搜索尽可能少的节点来找到查询点的邻居。</p>
+<p>考虑围绕查询点的一个半径为<em>tau</em>的圆，该圆包围了其所有最近的邻居。假设我们正在搜索<em>k</em>个最近邻，那么<em>tau</em>将包含最近的<em>k</em>个点。</p>
+<p><img alt="image-20230825123217188" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202308251232240.png" /></p>
+<h2 id="_4">结论<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>优势点树是一种不寻常的二元空间划分结构，但它们比对应的 KD 树提供了一些优势。在更高维度的数据上，我们看到 VP 树的搜索时间有所改善。</p>
+<p>机器学习的某些领域，尤其是图像处理，大量使用 VP 树。图像可以被认为是高维数据点，其中每个像素或每个特征都可以是一个维度。然后，VP 树可用于反向图像搜索、查找与任何给定图像最接近的匹配以及其他应用。</p>
+<p>基于距离的分区与基于维度的分区的一个有趣的结果是，该树不限于欧几里得空间，并且适用于任何度量空间中的数据。唯一的要求是可以提供满足三角不等式的距离函数。</p>
+<p>将此结果应用于字符串，我们可以使用 VP 树来查找最近的字符串匹配。树中的每个数据点可以代表一个字符串，并且距离函数可以选择例如Levenshtein距离。这会根据字符串之间的编辑距离对数据进行分区，然后可以在大量字符串中搜索最接近的匹配项。</p>
 
 
 
