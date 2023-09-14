@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../%E5%88%86%E5%B8%83%E5%BC%8F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/">
+        <link rel="prev" href="../%E4%B8%A4%E7%A7%8D%E6%97%A0%E6%8D%9F%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95/">
       
       
-        <link rel="next" href="../pytorch_tutorial/">
+        <link rel="next" href="../../storage/parquet/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>python中的with函数 - AcKing's Ideas</title>
+        <title>TiDB three blogs - AcKing's Ideas</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#torchno_grad" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              python中的with函数
+              TiDB three blogs
             
           </span>
         </div>
@@ -238,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Database/something%20about%20vector%20db/" class="md-tabs__link md-tabs__link--active">
+      <a href="../something%20about%20vector%20db/" class="md-tabs__link md-tabs__link--active">
         blogs
       </a>
     </li>
@@ -678,16 +678,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
       
       
       
@@ -696,7 +696,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           Database
@@ -709,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Database/something%20about%20vector%20db/" class="md-nav__link">
+      <a href="../something%20about%20vector%20db/" class="md-nav__link">
         something about vector db
       </a>
     </li>
@@ -723,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Database/%E4%B8%A4%E7%A7%8D%E6%97%A0%E6%8D%9F%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../%E4%B8%A4%E7%A7%8D%E6%97%A0%E6%8D%9F%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95/" class="md-nav__link">
         无损压缩算法
       </a>
     </li>
@@ -735,11 +735,145 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Database/TiDB_3_lecs/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          TiDB three blogs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         TiDB three blogs
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    说存储
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    说计算
+  </a>
+  
+    <nav class="md-nav" aria-label="说计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kv" class="md-nav__link">
+    关系模型到 KV 模型的映射
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    元数据管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arch" class="md-nav__link">
+    Arch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    分布式 SQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    SQL 层架构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    说调度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    为什么要进行调度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    调度的需求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    调度的基本操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    信息收集
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    调度的策略
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    调度的实现
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -898,16 +1032,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
       
       
       
@@ -916,7 +1050,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           mlsys
@@ -929,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mlsys_summary/" class="md-nav__link">
+      <a href="../../mlsys/mlsys_summary/" class="md-nav__link">
         综述
       </a>
     </li>
@@ -943,7 +1077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%88%86%E5%B8%83%E5%BC%8F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+      <a href="../../mlsys/%E5%88%86%E5%B8%83%E5%BC%8F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
         D-DNN-SYS
       </a>
     </li>
@@ -955,61 +1089,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          python中的with函数
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../mlsys/python%E4%B8%AD%E7%9A%84with%E5%87%BD%E6%95%B0/" class="md-nav__link">
         python中的with函数
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#torchno_grad" class="md-nav__link">
-    torch.no_grad()
-  </a>
-  
-    <nav class="md-nav" aria-label="torch.no_grad()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#with-torchno_grad" class="md-nav__link">
-    with torch.no_grad的作用
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1021,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pytorch_tutorial/" class="md-nav__link">
+      <a href="../../mlsys/pytorch_tutorial/" class="md-nav__link">
         pytorch_tutorial
       </a>
     </li>
@@ -1330,22 +1414,106 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#torchno_grad" class="md-nav__link">
-    torch.no_grad()
+  <a href="#_1" class="md-nav__link">
+    说存储
   </a>
   
-    <nav class="md-nav" aria-label="torch.no_grad()">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    说计算
+  </a>
+  
+    <nav class="md-nav" aria-label="说计算">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#with-torchno_grad" class="md-nav__link">
-    with torch.no_grad的作用
+  <a href="#kv" class="md-nav__link">
+    关系模型到 KV 模型的映射
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    元数据管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arch" class="md-nav__link">
+    Arch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    分布式 SQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    SQL 层架构
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    说调度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    为什么要进行调度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    调度的需求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    调度的基本操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    信息收集
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    调度的策略
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    调度的实现
+  </a>
   
 </li>
       
@@ -1364,71 +1532,155 @@
                   
 
 
-  <h1>python中的with函数</h1>
+  <h1>TiDB three blogs</h1>
 
-<p>读操作：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;/path/to/file&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="nb">print</span><span class="p">(</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="p">)</span> 
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 这和try ... finally是一样的，但是代码更佳简洁，并且不必调用f.close()方法  </span>
+<h2 id="_1"><a href="https://cn.pingcap.com/blog/tidb-internal-1">说存储</a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Peng.pdf">Percolator</a> 事务模型</p>
+<h2 id="_2"><a href="https://cn.pingcap.com/blog/tidb-internal-2">说计算</a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>TiDB 主要面向 OLTP，行存为主。</p>
+<h3 id="kv">关系模型到 KV 模型的映射<a class="headerlink" href="#kv" title="Permanent link">&para;</a></h3>
+<p>TiDB 对每个表分配一个 TableID，每一个索引都会分配一个 IndexID，每一行分配一个 RowID（如果表有整数型的 Primary Key，那么会用 Primary Key 的值当做 RowID），其中 TableID 在整个集群内唯一，IndexID/RowID 在表内唯一，这些 ID 都是 int64 类型。</p>
+<p>假设用 KV-Storage 存储这些数据：</p>
+<p>每行数据：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Key</span><span class="p">:</span> 
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">tablePrefix</span><span class="p">{</span><span class="n">tableID</span><span class="p">}</span><span class="n">_recordPrefixSep</span><span class="p">{</span><span class="n">rowID</span><span class="p">}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">Value</span><span class="p">:</span> 
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">[</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span><span class="p">,</span> <span class="n">col4</span><span class="p">]</span>
 </code></pre></div>
-<p>写操作：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/michael/test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+<p>唯一的Index:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Key</span><span class="p">:</span> 
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">tablePrefix</span><span class="p">{</span><span class="n">tableID</span><span class="p">}</span><span class="n">_indexPrefixSep</span><span class="p">{</span><span class="n">indexID</span><span class="p">}</span><span class="n">_indexedColumnsValue</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">Value</span><span class="p">:</span> 
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">rowID</span>
 </code></pre></div>
-<p>在pytorch写的网络中，<code>with torch.no_grad():</code> 非常常见。</p>
-<p>首先，关于python中的with：</p>
+<p>非唯一的Index:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Key</span><span class="p">:</span> 
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">tablePrefix</span><span class="p">{</span><span class="n">tableID</span><span class="p">}</span><span class="n">_indexPrefixSep</span><span class="p">{</span><span class="n">indexID</span><span class="p">}</span><span class="n">_indexedColumnsValue_rowID</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">Value</span><span class="p">:</span> 
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">null</span>
+</code></pre></div>
 <blockquote>
-<p>with 语句适用于对资源进行访问的场合，确保不管使用过程中是否发生异常都会执行必要的“清理”操作，释放资源，比如文件使用后自动关闭／线程中锁的自动获取和释放等。</p>
+<p>注意上述编码规则中的 Key 里面的各种 xxPrefix 都是字符串常量，作用都是区分命名空间，以免不同类型的数据之间相互冲突，定义如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">var</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">tablePrefix</span>     <span class="o">=</span> <span class="p">[]</span><span class="n">byte</span><span class="p">{</span><span class="s1">&#39;t&#39;</span><span class="p">}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">recordPrefixSep</span> <span class="o">=</span> <span class="p">[]</span><span class="n">byte</span><span class="p">(</span><span class="s2">&quot;_r&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">indexPrefixSep</span>  <span class="o">=</span> <span class="p">[]</span><span class="n">byte</span><span class="p">(</span><span class="s2">&quot;_i&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
+</code></pre></div>
+<p>上述方案中，无论是 Row 还是 Index 的 Key 编码方案，一个 Table 内部所有的 Row 都有相同的前缀，一个 Index 的数据也都有相同的前缀。这样具体相同的前缀的数据，在 TiKV 的 Key 空间内，是排列在一起。同时只要我们小心地设计后缀部分的编码方案，保证编码前和编码后的比较关系不变，那么就可以将 Row 或者 Index 数据有序地保存在 TiKV 中。这种<code>保证编码前和编码后的比较关系不变</code>的方案我们称为 Memcomparable，对于任何类型的值，两个对象编码前的原始类型比较结果，和编码成 byte 数组后（注意，TiKV 中的 Key 和 Value 都是原始的 byte 数组）的比较结果保持一致。具体的编码方案参见 TiDB 的 <a href="https://github.com/pingcap/tidb/tree/master/util/codec">codec 包 </a>。采用这种编码后，一个表的所有 Row 数据就会按照 RowID 的顺序排列在 TiKV 的 Key 空间中，某一个 Index 的数据也会按照 Index 的 ColumnValue 顺序排列在 Key 空间内。</p>
 </blockquote>
-<p>例如：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;１.txt&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
-<p>存在问题如下：
-（１）文件读取发生异常，但没有进行任何处理；
-（２）可能忘记关闭文件句柄；</p>
-<p>改进：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">except</span><span class="p">:</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fail to open&#39;</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">do</span> <span class="n">something</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">except</span><span class="p">:</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">do</span> <span class="n">something</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">finally</span><span class="p">:</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
-<p>虽然这段代码运行良好，但比较冗长。
-而使用with的话，能够减少冗长，还能自动处理上下文环境产生的异常。如下面代码：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;１.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</code></pre></div>
-<p>总结with工作原理：
-（１）紧跟with后面的语句被求值后，返回对象的“–enter–()”方法被调用，这个方法的返回值将被赋值给as后面的变量；
-（２）当with后面的代码块全部被执行完之后，将调用前面返回对象的“–exit–()”方法。</p>
-<h2 id="torchno_grad"><code>torch.no_grad()</code><a class="headerlink" href="#torchno_grad" title="Permanent link">&para;</a></h2>
-<p>首先从requires_grad讲起：</p>
-<p>在pytorch中，tensor有一个requires_grad参数，如果设置为True，则反向传播时，该tensor就会自动求导。tensor的requires_grad的属性默认为False。若一个节点（叶子变量：自己创建的tensor）requires_grad被设置为True，那么所有依赖它的节点requires_grad都为True（即使其他相依赖的tensor的requires_grad = False）</p>
-<p><strong>当requires_grad设置为False时,反向传播时就不会自动求导了，因此大大节约了显存或者说内存。</strong></p>
-<h3 id="with-torchno_grad">with torch.no_grad的作用<a class="headerlink" href="#with-torchno_grad" title="Permanent link">&para;</a></h3>
-<p><strong>在该模块下，所有计算得出的tensor的requires_grad都自动设置为False。</strong></p>
-<p>即使一个tensor（命名为x）的requires_grad = True，在with torch.no_grad计算，由x得到的新tensor（命名为w-标量）requires_grad也为False，且grad_fn也为None,即不会对w求导。例子如下所示：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">w</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="kc">False</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="kc">None</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="kc">False</span>
-</code></pre></div>
+<h3 id="_3">元数据管理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>TiDB 使用 <strong><em>Google F1 的 Online Schema</em></strong> 变更算法，有一个后台线程在不断的检查 TiKV 上面存储的 Schema 版本是否发生变化，并且保证在一定时间内一定能够获取版本的变化（如果确实发生了变化）。</p>
+<h3 id="arch">Arch<a class="headerlink" href="#arch" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230914154248780" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202309141542835.png" /></p>
+<h3 id="sql">分布式 SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
+<p>首先我们需要将计算尽量靠近存储节点，以避免大量的 RPC 调用。</p>
+<p>其次，我们需要将 Filter 也下推到存储节点进行计算，这样只需要返回有效的行，避免无意义的网络传输。</p>
+<p>最后，我们可以将聚合函数、GroupBy 也下推到存储节点，进行预聚合，每个节点只需要返回一个 Count 值即可，再由 tidb-server 将 Count 值 Sum 起来。</p>
+<p><img alt="image-20230914154418691" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202309141544746.png" /></p>
+<blockquote>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247484187&amp;idx=1&amp;sn=90a7ce3e6db7946ef0b7609a64e3b423&amp;chksm=eb162471dc61ad679fc359100e2f3a15d64dd458446241bff2169403642e60a95731c6716841&amp;scene=4">MPP and SMP in TiDB </a>这篇文章详细描述了 TiDB 是如何让 SQL 语句跑的更快，大家可以参考一下。</p>
+</blockquote>
+<h3 id="sql_1">SQL 层架构<a class="headerlink" href="#sql_1" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230914154510644" src="https://blog-img-acking.oss-cn-beijing.aliyuncs.com/img/202309141545707.png" /></p>
+<p>用户的 SQL 请求会直接或者通过 Load Balancer 发送到 tidb-server，tidb-server 会解析 MySQL Protocol Packet，获取请求内容，然后做语法解析、查询计划制定和优化、执行查询计划获取和处理数据。</p>
+<p>数据全部存储在 TiKV 集群中，所以在这个过程中 tidb-server 需要和 tikv-server 交互，获取数据。最后 tidb-server 需要将查询结果返回给用户。</p>
+<h2 id="_4"><a href="https://cn.pingcap.com/blog/tidb-internal-3">说调度</a><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">为什么要进行调度<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>TiKV 集群是 TiDB 数据库的分布式 KV 存储引擎，数据以 Region 为单位进行复制和管理，每个 Region 会有多个 Replica（副本），这些 Replica 会分布在不同的 TiKV 节点上，其中 Leader 负责读/写，Follower 负责同步 Leader 发来的 raft log。了解了这些信息后，请思考下面这些问题：</p>
+<ul>
+<li>如何保证同一个 Region 的多个 Replica 分布在不同的节点上？更进一步，如果在一台机器上启动多个 TiKV 实例，会有什么问题？</li>
+<li>TiKV 集群进行跨机房部署用于容灾的时候，如何保证一个机房掉线，不会丢失 Raft Group 的多个 Replica？</li>
+<li>添加一个节点进入 TiKV 集群之后，如何将集群中其他节点上的数据搬过来?</li>
+<li>当一个节点掉线时，会出现什么问题？整个集群需要做什么事情？如果节点只是短暂掉线（重启服务），那么如何处理？如果节点是长时间掉线（磁盘故障，数据全部丢失），需要如何处理？</li>
+<li>假设集群需要每个 Raft Group 有 N 个副本，那么对于单个 Raft Group 来说，Replica 数量可能会不够多（例如节点掉线，失去副本），也可能会过于多（例如掉线的节点又回复正常，自动加入集群）。那么如何调节 Replica 个数？</li>
+<li>读/写都是通过 Leader 进行，如果 Leader 只集中在少量节点上，会对集群有什么影响？</li>
+<li>并不是所有的 Region 都被频繁的访问，可能访问热点只在少数几个 Region，这个时候我们需要做什么？</li>
+<li>集群在做负载均衡的时候，往往需要搬迁数据，这种数据的迁移会不会占用大量的网络带宽、磁盘 IO 以及 CPU？进而影响在线服务？</li>
+</ul>
+<p>这些问题单独拿出可能都能找到简单的解决方案，但是混杂在一起，就不太好解决。有的问题貌似只需要考虑单个 Raft Group 内部的情况，比如根据副本数量是否足够多来决定是否需要添加副本。但是实际上这个副本添加在哪里，是需要考虑全局的信息。整个系统也是在动态变化，Region 分裂、节点加入、节点失效、访问热点变化等情况会不断发生，整个调度系统也需要在动态中不断向最优状态前进，如果没有一个掌握全局信息，可以对全局进行调度，并且可以配置的组件，就很难满足这些需求。因此我们需要一个中心节点，来对系统的整体状况进行把控和调整，所以有了 PD 这个模块。</p>
+<h2 id="_6">调度的需求<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>上面罗列了一大堆问题，我们先进行分类和整理。总体来看，问题有两大类：</p>
+<p><strong>作为一个分布式高可用存储系统，必须满足的需求，包括四种：</strong></p>
+<ul>
+<li>副本数量不能多也不能少</li>
+<li>副本需要分布在不同的机器上</li>
+<li>新加节点后，可以将其他节点上的副本迁移过来</li>
+<li>节点下线后，需要将该节点的数据迁移走</li>
+</ul>
+<p><strong>作为一个良好的分布式系统，需要优化的地方，包括：</strong></p>
+<ul>
+<li>维持整个集群的 Leader 分布均匀</li>
+<li>维持每个节点的储存容量均匀</li>
+<li>维持访问热点分布均匀</li>
+<li>控制 Balance 的速度，避免影响在线服务</li>
+<li>管理节点状态，包括手动上线/下线节点，以及自动下线失效节点</li>
+</ul>
+<p>满足第一类需求后，整个系统将具备多副本容错、动态扩容/缩容、容忍节点掉线以及自动错误恢复的功能。满足第二类需求后，可以使得整体系统的负载更加均匀、且可以方便的管理。</p>
+<p>为了满足这些需求，首先我们需要收集足够的信息，比如每个节点的状态、每个 Raft Group 的信息、业务访问操作的统计等；其次需要设置一些策略，PD 根据这些信息以及调度的策略，制定出尽量满足前面所述需求的调度计划；最后需要一些基本的操作，来完成调度计划。</p>
+<h2 id="_7">调度的基本操作<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>我们先来介绍最简单的一点，也就是调度的基本操作，也就是为了满足调度的策略，我们有哪些功能可以用。这是整个调度的基础，了解了手里有什么样的锤子，才知道用什么样的姿势去砸钉子。</p>
+<p>上述调度需求看似复杂，但是整理下来最终落地的无非是下面三件事：</p>
+<ul>
+<li>增加一个 Replica</li>
+<li>删除一个 Replica</li>
+<li>将 Leader 角色在一个 Raft Group 的不同 Replica 之间 transfer</li>
+</ul>
+<p>刚好 Raft 协议能够满足这三种需求，通过 AddReplica、RemoveReplica、TransferLeader 这三个命令，可以支撑上述三种基本操作。</p>
+<h2 id="_8">信息收集<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>调度依赖于整个集群信息的收集，简单来说，我们需要知道每个 TiKV 节点的状态以及每个 Region 的状态。TiKV 集群会向 PD 汇报两类消息：</p>
+<p><strong>每个 TiKV 节点会定期向 PD 汇报节点的整体信息</strong></p>
+<p>TiKV 节点（Store）与 PD 之间存在心跳包，一方面 PD 通过心跳包检测每个 Store 是否存活，以及是否有新加入的 Store；另一方面，心跳包中也会携带这个 <a href="https://github.com/pingcap/kvproto/blob/master/proto/pdpb.proto#L294">Store 的状态信息 </a>，主要包括：</p>
+<ul>
+<li>总磁盘容量</li>
+<li>可用磁盘容量</li>
+<li>承载的 Region 数量</li>
+<li>数据写入速度</li>
+<li>发送/接受的 Snapshot 数量（Replica 之间可能会通过 Snapshot 同步数据）</li>
+<li>是否过载</li>
+<li>标签信息（标签是具备层级关系的一系列 Tag）</li>
+</ul>
+<p><strong>每个 Raft Group 的 Leader 会定期向 PD 汇报信息</strong></p>
+<p>每个 Raft Group 的 Leader 和 PD 之间存在心跳包，用于汇报这个 <a href="https://github.com/pingcap/kvproto/blob/master/proto/pdpb.proto#L207">Region 的状态 </a>，主要包括下面几点信息：</p>
+<ul>
+<li>Leader 的位置</li>
+<li>Followers 的位置</li>
+<li>掉线 Replica 的个数</li>
+<li>数据写入/读取的速度</li>
+</ul>
+<p>PD 不断的通过这两类心跳消息收集整个集群的信息，再以这些信息作为决策的依据。除此之外，PD 还可以通过管理接口接受额外的信息，用来做更准确的决策。比如当某个 Store 的心跳包中断的时候，PD 并不能判断这个节点是临时失效还是永久失效，只能经过一段时间的等待（默认是 30 分钟），如果一直没有心跳包，就认为是 Store 已经下线，再决定需要将这个 Store 上面的 Region 都调度走。但是有的时候，是运维人员主动将某台机器下线，这个时候，可以通过 PD 的管理接口通知 PD 该 Store 不可用，PD 就可以马上判断需要将这个 Store 上面的 Region 都调度走。</p>
+<h2 id="_9">调度的策略<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>PD 收集了这些信息后，还需要一些策略来制定具体的调度计划。</p>
+<p><strong>一个 Region 的 Replica 数量正确</strong></p>
+<p>当 PD 通过某个 Region Leader 的心跳包发现这个 Region 的 Replica 数量不满足要求时，需要通过 Add/Remove Replica 操作调整 Replica 数量。出现这种情况的可能原因是：</p>
+<ul>
+<li>某个节点掉线，上面的数据全部丢失，导致一些 Region 的 Replica 数量不足</li>
+<li>某个掉线节点又恢复服务，自动接入集群，这样之前已经补足了 Replica 的 Region 的 Replica 数量多过，需要删除某个 Replica</li>
+<li>管理员调整了副本策略，修改了 <a href="https://github.com/pingcap/pd/blob/master/conf/config.toml#L54">max-replicas </a>的配置</li>
+</ul>
+<p><strong>一个 Raft Group 中的多个 Replica 不在同一个位置</strong></p>
+<p>注意第二点，『一个 Raft Group 中的多个 Replica 不在同一个位置』，这里用的是『同一个位置』而不是『同一个节点』。在一般情况下，PD 只会保证多个 Replica 不落在一个节点上，以避免单个节点失效导致多个 Replica 丢失。在实际部署中，还可能出现下面这些需求：</p>
+<ul>
+<li>多个节点部署在同一台物理机器上</li>
+<li>TiKV 节点分布在多个机架上，希望单个机架掉电时，也能保证系统可用性</li>
+<li>TiKV 节点分布在多个 IDC 中，希望单个机房掉电时，也能保证系统可用</li>
+</ul>
+<p>这些需求本质上都是某一个节点具备共同的位置属性，构成一个最小的容错单元，我们希望这个单元内部不会存在一个 Region 的多个 Replica。这个时候，可以给节点配置 <a href="https://github.com/pingcap/tikv/blob/master/etc/config-template.toml#L16">lables </a>并且通过在 PD 上配置 <a href="https://github.com/pingcap/pd/blob/master/conf/config.toml#L59">location-labels </a>来指明哪些 lable 是位置标识，需要在 Replica 分配的时候尽量保证不会有一个 Region 的多个 Replica 所在结点有相同的位置标识。</p>
+<p><strong>副本在 Store 之间的分布均匀分配</strong></p>
+<p>前面说过，每个副本中存储的数据容量上限是固定的，所以我们维持每个节点上面，副本数量的均衡，会使得总体的负载更均衡。</p>
+<p><strong>Leader 数量在 Store 之间均匀分配</strong></p>
+<p>Raft 协议要读取和写入都通过 Leader 进行，所以计算的负载主要在 Leader 上面，PD 会尽可能将 Leader 在节点间分散开。</p>
+<p><strong>访问热点数量在 Store 之间均匀分配</strong></p>
+<p>每个 Store 以及 Region Leader 在上报信息时携带了当前访问负载的信息，比如 Key 的读取/写入速度。PD 会检测出访问热点，且将其在节点之间分散开。</p>
+<p><strong>各个 Store 的存储空间占用大致相等</strong></p>
+<p>每个 Store 启动的时候都会指定一个 Capacity 参数，表明这个 Store 的存储空间上限，PD 在做调度的时候，会考虑节点的存储空间剩余量。</p>
+<p><strong>控制调度速度，避免影响在线服务</strong></p>
+<p>调度操作需要耗费 CPU、内存、磁盘 IO 以及网络带宽，我们需要避免对线上服务造成太大影响。PD 会对当前正在进行的操作数量进行控制，默认的速度控制是比较保守的，如果希望加快调度(比如已经停服务升级，增加新节点，希望尽快调度)，那么可以通过 pd-ctl 手动加快调度速度。</p>
+<p><strong>支持手动下线节点</strong></p>
+<p>当通过 pd-ctl 手动下线节点后，PD 会在一定的速率控制下，将节点上的数据调度走。当调度完成后，就会将这个节点置为下线状态。</p>
+<h2 id="_10">调度的实现<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>了解了上面这些信息后，接下来我们看一下整个调度的流程。</p>
+<p>PD 不断的通过 Store 或者 Leader 的心跳包收集信息，获得整个集群的详细数据，并且根据这些信息以及调度策略生成调度操作序列，每次收到 Region Leader 发来的心跳包时，PD 都会检查是否有对这个 Region 待进行的操作，通过心跳包的回复消息，将需要进行的操作返回给 Region Leader，并在后面的心跳包中监测执行结果。注意这里的操作只是给 Region Leader 的建议，并不保证一定能得到执行，具体是否会执行以及什么时候执行，由 Region Leader 自己根据当前自身状态来定。</p>
 
 
 
